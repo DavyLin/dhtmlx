@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Upload Control</title>
+    <link rel="stylesheet" type="text/css" href="codebase/dhtmlXVault.css" />
+
+    <script language="JavaScript" type="text/javascript" src="codebase/dhtmlXVault.js"></script>
+
+    <script language="JavaScript" type="text/javascript">
+        var vault = null;
+        function doOnLoad() {
+            vault = new dhtmlXVaultObject();
+            vault.setImagePath("codebase/imgs/");
+            vault.setServerHandlers("UploadHandler.php", "GetInfoHandler.php", "GetIdHandler.php");
+	    vault.isDemo = true;
+            vault.create("vault1");
+	}
+    </script>
+
+    <style>
+	body {font-size:12px}
+	.{font-family:arial;font-size:12px}
+	h1 {cursor:hand;font-size:16px;margin-left:10px;line-height:10px}
+	xmp {color:green;font-size:12px;margin:0px;font-family:courier;background-color:#e6e6fa;padding:2px}
+	.hdr{
+		background-color:lightgrey;
+		margin-bottom:10px;
+		padding-left:10px;
+	}
+    </style>
+
+</head>
+<body onload="doOnLoad()">
+    <div class="hdr">DHTML Vault sample</div>
+
+	<h1>Initialize object on page</h1>
+	<p>You can place this JavaScript file upload anywhere on your web page, attaching it 
+	to any div object.<br>
+	Set up server handlers for your server type.<br><br>
+        Click "Add" button to select files.
+	</p>
+
+    <div id="vault1">
+    </div>
+
+<XMP>
+<div id="vaultDiv"></div>
+<script>
+	vault=new dhtmlXVaultObject();
+            vault.setImagePath("codebase/imgs/");
+            vault.setServerHandlers("UploadHandler.php",
+                                    "GetInfoHandler.php",
+                                    "GetIdHandler.php");
+            vault.create("vaultDiv");
+</script>
+</XMP>
+
+
+</body>
+</html>
+
