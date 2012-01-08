@@ -22,7 +22,7 @@ Make sure that you register the namespaces with the autoloader::
     // app/autoload.php
     $loader->registerNamespaces(array(
         // ...
-        'C9DHTMLX'         => __DIR__.'/../vendor/cloud9-dhtmlx/src',
+        'Cloud9\Dhtmlx'         => __DIR__.'/../vendor/cloud9-dhtmlx/src',
         // ...
     ));
 
