@@ -15,7 +15,7 @@ Installation
 Add the following to your ``deps`` file::
 
     [cloud9-dhtmlx]
-        git=https://github.com:cloud9business/dhtmlx.git
+        git=https://github.com/cloud9business/dhtmlx.git
         
 Make sure that you register the namespaces with the autoloader::
 
