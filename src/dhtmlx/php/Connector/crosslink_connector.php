@@ -1,5 +1,8 @@
 <?php
-
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
+*/
 class DelayedConnector extends Connector{
 	protected $init_flag=false;//!< used to prevent rendering while initialization
 	private $data_mode=false;//!< flag to separate xml and data request modes

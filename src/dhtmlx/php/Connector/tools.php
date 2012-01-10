@@ -1,7 +1,7 @@
 <?php
-/*!
-	@file
-	Inner classes, which do common tasks. No one of them is purposed for direct usage. 
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
 */
 
 /*! Class which allows to assign|fire events.

@@ -1,4 +1,8 @@
 <?php
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
+*/
 
 /*! DataItemUpdate class for realization Optimistic concurrency control
 	Wrapper for DataItem object

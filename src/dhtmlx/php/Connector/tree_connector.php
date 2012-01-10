@@ -1,4 +1,8 @@
 <?php
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
+*/
 require_once("base_connector.php");
 
 /*! DataItem class for Tree component
@@ -131,8 +135,8 @@ class TreeDataItem extends DataItem{
 		$str1="<item id='".$this->get_id()."' text='".$this->xmlentities($this->data[$this->config->text[0]["name"]])."' ";
 		if ($this->has_kids()==true) $str1.="child='".$this->has_kids()."' ";
 		if ($this->im0) $str1.="im0='".$this->im0."' ";
-		if ($this->im1) $str1.="im1='".$this->im0."' ";
-		if ($this->im2) $str1.="im2='".$this->im0."' ";
+		if ($this->im1) $str1.="im1='".$this->im1."' ";
+		if ($this->im2) $str1.="im2='".$this->im2."' ";
 		if ($this->check) $str1.="checked='".$this->check."' ";
 		foreach ($this->attrs as $key => $value)
 			$str1.=$key."='".$this->xmlentities($value)."' ";

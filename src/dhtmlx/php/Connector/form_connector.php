@@ -1,4 +1,8 @@
 <?php
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
+*/
 require_once("base_connector.php");
 
 /*! DataItem class for dhxForm component
@@ -10,7 +14,7 @@ class FormDataItem extends DataItem{
 		if ($this->skip) return "";
 		$str="";
 		for ($i = 0; $i < count($this->config->data); $i++) {
-			$str .= "<".$this->config->data[$i]['name']."><![CDATA[".$this->data[$this->config->data[$i]['name']]."]]></".$this->config->data[$i]['name'].">";
+			$str .= "<".$this->config->data[$i]['db_name']."><![CDATA[".$this->data[$this->config->data[$i]['db_name']]."]]></".$this->config->data[$i]['db_name'].">";
 		}
 		return $str;
 	}
@@ -35,7 +39,7 @@ class FormConnector extends Connector{
 	*/	
 	public function __construct($res,$type=false,$item_type=false,$data_type=false){
 		if (!$item_type) $item_type="FormDataItem";
-		if (!$data_type) $data_type="DataProcessor";
+		if (!$data_type) $data_type="FormDataProcessor";
 		parent::__construct($res,$type,$item_type,$data_type);
 	}
 
@@ -50,5 +54,9 @@ class FormConnector extends Connector{
 
 }
 
+/*! DataProcessor class for dhxForm component
+**/
+class FormDataProcessor extends DataProcessor{
 
+}
 ?>

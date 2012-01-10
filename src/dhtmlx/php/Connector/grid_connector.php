@@ -1,4 +1,8 @@
 <?php
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
+*/
 require_once("base_connector.php");
 require_once("grid_config.php");
 
@@ -65,7 +69,7 @@ class GridDataItem extends DataItem{
 			value of attribute
 	*/
 	function set_cell_attribute($name,$attr,$value){
-		if (!$this->cell_attrs[$name]) $this->cell_attrs[$name]=array();
+		if (!array_key_exists($name, $this->cell_attrs)) $this->cell_attrs[$name]=array();
 		$this->cell_attrs[$name][$attr]=$value;
 	}
 	
@@ -170,7 +174,7 @@ class GridConnector extends Connector{
 		@return 
 			escaped string
 	*/	
-	private function xmlentities($string) { 
+	protected function xmlentities($string) { 
    		return str_replace( array( '&', '"', "'", '<', '>', '’' ), array( '&amp;' , '&quot;', '&apos;' , '&lt;' , '&gt;', '&apos;' ), $string);
 	}
 		
@@ -242,6 +246,7 @@ class GridConnector extends Connector{
 			$config = new GridConfiguration($config);
 			
 		$this->event->attach("beforeOutput", Array($config, "attachHeaderToXML"));
+                $this->event->attach("onInit", Array($config, "defineOptions"));
 	}
 }
 
@@ -259,7 +264,7 @@ class GridDataProcessor extends DataProcessor{
 	function name_data($data){
 		if ($data == "gr_id") return $this->config->id["name"];
 		$parts=explode("c",$data);
-		if ($parts[0]=="" && intval($parts[1])==$parts[1])
+		if ($parts[0]=="" && ((string)intval($parts[1]))==$parts[1])
 			return $this->config->text[intval($parts[1])]["name"];
 		return $data;
 	}

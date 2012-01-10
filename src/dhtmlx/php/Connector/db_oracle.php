@@ -1,4 +1,8 @@
 <?php
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
+*/
 require_once("db_common.php");
 /*! Implementation of DataWrapper for Oracle
 **/
@@ -29,8 +33,13 @@ class OracleDBDataWrapper extends DBDataWrapper{
 	
 	public function get_next($res){
 		$data = oci_fetch_assoc($res);
-		if (array_key_exists("VALUE",$data))
-			$data["value"]=$data["VALUE"];
+		if ($data){
+			if (array_key_exists("VALUE",$data))
+				$data["value"]=$data["VALUE"];
+			if (array_key_exists("LABEL",$data))
+				$data["label"]=$data["LABEL"];
+		}
+		
 		return $data;
 	}
 	

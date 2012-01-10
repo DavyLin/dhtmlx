@@ -1,5 +1,8 @@
 <?php
-
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
+*/
 require_once("tools.php");
 require_once("db_common.php");
 require_once("dataprocessor.php");
@@ -15,7 +18,7 @@ class OutputWriter{
 	private $start;
 	private $end;
 	private $type;
-	
+
 	public function __construct($start, $end = ""){
 		$this->start = $start;
 		$this->end = $end;
@@ -31,10 +34,15 @@ class OutputWriter{
 	public function set_type($add){
 		$this->type=$add;
 	}
-	public function output($name="", $inline=true){
+	public function output($name="", $inline=true, $encoding=""){
 		ob_clean();
-		if ($this->type == "xml")
-			header("Content-type: text/xml");
+		
+		if ($this->type == "xml"){
+			$header = "Content-type: text/xml";
+			if ("" != $encoding)
+				$header.="; charset=".$encoding;
+			header($header);
+		}
 			
 		echo $this->__toString();
 	}
@@ -255,12 +263,13 @@ class Connector {
 	protected $config;//DataConfig instance
 	protected $request;//DataRequestConfig instance
 	protected $names;//!< hash of names for used classes
-	private $encoding="utf-8";//!< assigned encoding (UTF-8 by default) 
-	private $editing=false;//!< flag of edit mode ( response for dataprocessor )
+	protected $encoding="utf-8";//!< assigned encoding (UTF-8 by default) 
+	protected $editing=false;//!< flag of edit mode ( response for dataprocessor )
 	private $updating=false;//!< flag of update mode ( response for data-update )
 	private $db; //!< db connection resource
 	protected $dload;//!< flag of dyn. loading mode
 	public $access;  //!< AccessMaster instance
+	protected $data_separator = "\n";
 	
 	public $sql;	//DataWrapper instance
 	public $event;	//EventMaster instance
@@ -396,9 +405,11 @@ class Connector {
 		process commands, output requested data as XML
 	*/	
 	public function render(){
+        $this->event->trigger("onInit", $this);
 		EventMaster::trigger_static("connectorInit",$this);
 		
 		$this->parse_request();
+		
 		if ($this->live_update !== false && $this->updating!==false) {
 			$this->live_update->get_updates();
 		} else {
@@ -407,6 +418,11 @@ class Connector {
 				$dp->process($this->config,$this->request);
 			}
 			else {
+				if (!$this->access->check("read")){
+					LogMaster::log("Access control: read operation blocked");
+					echo "Access denied";
+					die();
+				}
 				$wrap = new SortInterface($this->request);
 				$this->event->trigger("beforeSort",$wrap);
 				$wrap->store();
@@ -414,7 +430,7 @@ class Connector {
 				$wrap = new FilterInterface($this->request);
 				$this->event->trigger("beforeFilter",$wrap);
 				$wrap->store();
-		
+				
 				$this->output_as_xml( $this->sql->select($this->request) );
 			}
 		}
@@ -504,10 +520,25 @@ class Connector {
 		@return
 			escaped string
 	*/
-	private function xmlentities($string) {
+	protected function xmlentities($string) {
    		return str_replace( array( '&', '"', "'", '<', '>', '’' ), array( '&amp;' , '&quot;', '&apos;' , '&lt;' , '&gt;', '&apos;' ), $string);
 	}
     
+	public function getRecord($id){
+		LogMaster::log("Retreiving data for record: ".$id);
+		$source = new DataRequestConfig($this->request);
+		$source->set_filter($this->config->id["name"],$id, "=");
+		
+		$res = $this->sql->select($source);
+		
+		$temp = $this->data_separator;
+		$this->data_separator="";
+		$output = $this->render_set($res);
+		$this->data_separato=$temp;
+		
+		return $output;
+	}
+	
 	/*! render from DB resultset
 		@param res
 			DB resultset 
@@ -522,7 +553,7 @@ class Connector {
 			if ($data->get_id()===false)
 				$data->set_id($this->uuid());
 			$this->event->trigger("beforeRender",$data);
-			$output.=$data->to_xml();
+			$output.=$data->to_xml().$this->data_separator;
 			$index++;
 		}
 		return $output;
@@ -538,8 +569,7 @@ class Connector {
 		
 		$out = new OutputWriter($start, $end);
 		$this->event->trigger("beforeOutput", $this, $out);
-		
-		$out->output();
+		$out->output("", true, $this->encoding);
 	}
 
 
@@ -595,7 +625,7 @@ class Connector {
 	
 	public function is_first_call(){
 		$this->parse_request_mode();
-		return !($this->editing || $this->updating || $this->request->get_start() || sizeof($this->request->get_filters()) || sizeof($this->request->get_sort_by()));
+		return !($this->editing || $this->updating || $this->request->get_start() || isset($_GET['dhx_no_header']));
 		
 	}
 	

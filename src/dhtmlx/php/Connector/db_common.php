@@ -1,4 +1,8 @@
 <?php
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
+*/
 require_once("tools.php");
 
 /*! manager of data request
@@ -220,14 +224,19 @@ class DataRequestConfig{
 		$this->fieldset = preg_replace("/^[\s]*select/i","",$data[0],1);
 		
 	  	$table_data = preg_split("/[ \n\t]+where/i",$data[1],2);
-	  	if (sizeof($table_data)>1){ //where construction exists
+	  	/*
+		  		if sql code contains group_by we will place all sql query in the FROM 
+		  		it will not allow to use any filtering against the query
+		  		still it is better than just generate incorrect sql commands for any group by query
+	  	*/
+	  	if (sizeof($table_data)>1 && !preg_match("#.*group by.*#i",$table_data[1])){ //where construction exists
 	  		$this->set_source($table_data[0]);
   			$where_data = preg_split("/[ \n\t]+order[ ]+by/i",$table_data[1],2);
   			$this->filters[]=$where_data[0];
   			if (sizeof($where_data)==1) return; //end of line detected
   			$data=$where_data[1];
-  		} else {
-  			$table_data = preg_split("/[ \n\t]+order[ ]+by/i",$table_data[0],2);	
+  		} else { 
+  			$table_data = preg_split("/[ \n\t]+order[ ]+by/i",$data[1],2);	
   			$this->set_source($table_data[0]);
   			if (sizeof($table_data)==1) return; //end of line detected
   			$data=$table_data[1];
@@ -237,7 +246,10 @@ class DataRequestConfig{
 			$s_data = preg_split("/\\,/",trim($data));
 			for ($i=0; $i < count($s_data); $i++) { 
 				$data=preg_split("/[ ]+/",trim($s_data[$i]),2);
-				$this->set_sort($data[0],$data[1]);
+				if (sizeof($data)>1)
+					$this->set_sort($data[0],$data[1]);
+				else
+					$this->set_sort($data[0]);
 			}
 			
 		}
@@ -275,7 +287,7 @@ class DataConfig{
 	*/
 	public function minimize($name){
 		for ($i=0; $i < sizeof($this->text); $i++){
-			if ($this->text[$i]["name"]==$name){
+			if ($this->text[$i]["db_name"]==$name || $this->text[$i]["name"]==$name){
 				$this->text[$i]["name"]="value";
 				$this->data=array($this->text[$i]);
 				$this->text=array($this->text[$i]);
@@ -633,9 +645,13 @@ abstract class DBDataWrapper extends DataWrapper{
 	public function get_variants($name,$source){
 		$count = new DataRequestConfig($source);
 		$count->set_fieldset("DISTINCT ".$this->escape_name($name)." as value");
+		$sort = new SortInterface($source);
 		$count->set_sort(null);
+		for ($i = 0; $i < count($sort->rules); $i++) {
+			if ($sort->rules[$i]['name'] == $name)
+				$count->set_sort($sort->rules[$i]['name'], $sort->rules[$i]['direction']);
+		}
 		$count->set_limit(0,0);
-		
 		return $this->select($count);
 	}
 	
@@ -657,7 +673,7 @@ abstract class DBDataWrapper extends DataWrapper{
 		$sql=array();
 		for ($i=0; $i < sizeof($rules); $i++)
 			if (is_string($rules[$i]))
-				array_push($sql,$rules[$i]);
+				array_push($sql,"(".$rules[$i].")");
 			else
 				if ($rules[$i]["value"]!=""){
 					if (!$rules[$i]["operation"])
@@ -915,7 +931,7 @@ class MySQLDBDataWrapper extends DBDataWrapper{
 	}
 	
 	public function escape($data){
-		return mysql_real_escape_string($data);
+		return mysql_real_escape_string($data, $this->connection);
 	}
 
 	public function tables_list() {
@@ -951,7 +967,7 @@ class MySQLDBDataWrapper extends DBDataWrapper{
 			escaped data
 	*/
 	public function escape_name($data){
-		if ((strpos($data,"`")!==false || intval($data)==$data) || (strpos($data,".")!==false))
+		if ((strpos($data,"`")!==false || is_int($data)) || (strpos($data,".")!==false))
 			return $data;
 		return '`'.$data.'`';
 	}	

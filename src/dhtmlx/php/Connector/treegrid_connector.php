@@ -1,4 +1,8 @@
 <?php
+/*
+	@author dhtmlx.com
+	@license GPL, see license.txt
+*/
 require_once("grid_connector.php");
 
 /*! DataItem class for TreeGrid component
@@ -25,7 +29,7 @@ class TreeGridDataItem extends GridDataItem{
 	*/
 	function set_image($img){
 		$this->set_cell_attribute($this->config->text[0]["name"],"image",$img);
-	}	
+	}
 
 	/*! return count of child items
 		-1 if there is no info about childs
