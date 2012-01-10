@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+		.content{
+			width:100%;height:100%;background-color:#565656;
+		}
+        </style>
+		<title>Carousel view</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+	
+		<script type="text/javascript" charset="utf-8">
+
+		dhx.ui({
+			view:"window",
+			
+			body:{
+				rows:[{
+						view:"multiview", id:"MainArea",
+						cells:[    
+		                    { template:img, data:{src:"imgs/image001.jpg"}, id:"area1" },
+							{ template:img, data:{src:"imgs/image002.jpg"}, id:"area2" },
+							{ template:img, data:{src:"imgs/image003.jpg"}, id:"area3" },
+		                    { template:img, data:{src:"imgs/image004.jpg"}, id:"area4" },
+							{ template:img, data:{src:"imgs/image005.jpg"}, id:"area5" },
+							{ template:img, data:{src:"imgs/image006.jpg"}, id:"area6" }
+		                ],
+		                height:292
+                	},
+	                {
+                        view:"toolbar", 
+                        id:"BottomBar", type:"SubBar",
+                        elements:[
+                        	{ view:"segmented", align:"center",  selected: "area1", tabWidth:80, 
+                        	options: [   
+                        	    { label: 'Area 1', value: 'area1'},
+                        	    { label: 'Area 2', value: 'area2'},
+                        	    { label: 'Area 3', value: 'area3'},
+                        	    { label: 'Area 4', value: 'area4'},
+                        	    { label: 'Area 5', value: 'area5'}                            	    
+							]}
+						]
+	                }]
+			},
+			head:{
+				view:"toolbar", type:"MainBar", id:"HeadBar", elements:[
+					{view:"label", label: "Animate", align:'left'},
+					{ align:"center", width:150, view:"segmented", id:"animation_type_btn", options:[
+									{value:"slide", label:"Slide" },
+									{value:"flip", label:"Flip"}
+					]},
+					{ align:"center", width:200,  view:"segmented", id:"animation_subtype_btn", selected: "together", options:[
+									{value:"together", label:"Together"},
+									{value:"in", label:"In"},
+									{value:"out", label:"Out"}
+					]}
+				]
+			},
+			top:150, 
+			left:150,
+			width:480
+		});
+		
+		function img(obj){
+			return '<div class="content"><img src="'+obj.src+'" width="462px" height="275px" border="0" style="margin:8px 8px 8px 8px" ondragstart="return false"/></div>'
+		}
+		
+        $$("BottomBar").attachEvent("onBeforeTabClick",function(button,id){
+            var views = $$('MainArea');
+            var type_btn = $$('animation_type_btn');
+            var subtype_btn = $$('animation_subtype_btn');
+			
+            views.config.animate.type = type_btn.getValue();
+            views.config.animate.subtype = subtype_btn.getValue();
+            $$(id).show();
+            return true
+        });
+        var options = {
+            slide: [
+                {value:"together", label:"Together"},
+                {value:"in", label:"In"},
+                {value:"out", label:"Out"}
+            ],
+            flip: [
+                {value:"horizontal", label:"Horizontal"},
+                {value:"vertical", label:"Vertical"}
+            ]
+        };
+        $$('HeadBar').attachEvent("onAfterTabClick",function(id, key){
+        	if (id != "animation_type_btn") return;
+        	
+            var animation_subtype_bar = $$("HeadBar");
+            var subtype_btn = $$("animation_subtype_btn");
+            subtype_btn.define("options",options[key]);
+            subtype_btn.define("selected",options[key][0].value);
+            subtype_btn.refresh();
+            
+            
+            
+            animation_subtype_bar.refresh("animation_subtype_btn");
+        });
+
+		</script>
+	</body>
+</html>

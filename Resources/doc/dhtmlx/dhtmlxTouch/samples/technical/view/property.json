@@ -1,0 +1,13 @@
+[
+	{"id":"1", "type":"label", "value":"Description"},
+	{"id":"2", "name":"Make", "type":"text", "value":"Audi"},
+	{"id":"3", "name":"Model", "type":"text", "value":"A6"},
+	{"id":"4", "name":"Color", "type":"text", "value":"Grey metallic"},
+	{"id":"5", "name":"Power", "type":"text", "value":"130kW"},
+    {"id":"6", "name":"Fuel type", "type":"select", "value":"3",
+    	"options":{"1":"Diesel","2":"Gas","3":"Pertol"}},
+    {"id":"7", "name":"Gearbox", "type":"select", "value":"2",
+    	"options":{"1":"Automatic","2":"Manual"}},
+    {"id":"8", "name":"Price", "type":"text", "value":"29000 EUR"},
+    {"id":"8", "name":"Best in class", "type":"checkbox", "value":"1"}
+]

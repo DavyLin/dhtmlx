@@ -1,0 +1,56 @@
+0.8 => 1.0
+
+Form and Toolbar:
+	form@data => form@elements
+	toolbar@data => toolbar@elements
+	
+	for all elements, you need to use 
+	    view:"button" 
+	instead of 
+	    type:"button"
+		
+	Form inherits layout - use layout syntax (cols:[], rows:[] structures) to  place elements (sameLime property is not actual)
+	    
+	Sizing model of toolbar|form inputs changed, it will allow more flexible positioning, most probably you will need to adjust button's width and align settings:
+	    width:200 => inputWidth:200
+		position:"label-left" => labelPosition:"left"
+	
+	segmented@segment=>segmented@options
+	tabbar@cells=>tabbar@options
+
+DataProcessor:
+    dataProcessor.link() => component.bind()
+
+0.5 => 0.8
+
+API was normalized:
+	component names - lowercase without underscores
+	methods and property names - camelCase  (for example, template_item - templateItem, start_on_monday - startOnMonday)
+	unit_width property of "tabbar" form control - tabWidth
+	
+Names of some components was changed
+	tabbar ( separate component ) => multiview 
+	map		=>	googlemap
+
+content view - deprecated, instead of it, template can be used
+was
+	{ view:"content", content:"html_container_id" }
+now
+	{ view:"template", content:"html_container_id" }
+
+	
+
+Changes in API 
+	component.get(id)	=> component.item(id)
+	component.set(id,data)	-	=> component.update(id,data)
+	
+	component.block()	=> component.unblockEvent()
+	component.unblock()	=> component.blockEvent()
+	
+	
+	
+
+0.4 => 0.5
+
+format of data XML for template | form was changed, old XML datasources will not work anymore
+

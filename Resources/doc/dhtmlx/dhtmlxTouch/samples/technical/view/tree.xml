@@ -1,0 +1,10 @@
+<data>
+	<item id="1" text="Item 1">
+		<item id="1.1" text="Item 1.1"></item>
+		<item id="1.2" text="Item 1.2">
+			<item id="1.2.1" text="Item 1.2.1"></item>	
+		</item>	
+	</item>
+	<item id="2" text="Item 2"></item>
+	<item id="3" text="Item 3"></item>
+</data>

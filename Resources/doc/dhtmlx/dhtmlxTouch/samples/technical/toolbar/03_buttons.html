@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+
+
+        </style>
+		<title>Toolbar: buttons</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			var config = [								
+				{ view:"button", label: 'Usual button', width:150 },
+                { view:"button", type:"round", label: 'Round button', width:150 },
+                { view:"button", type:"prev", label: "Back", width:100 },
+                { view:"button", type:"next", label: "Forward", width:150 },
+				{ view:"label", label: 'Label', width:150 },
+                { view:"icon", icon: 'refresh', width:50 },
+				{ view:"imagebutton", src: 'images/help.png', width:50 },
+                { align:"right", view:"segmented",  options:[
+                    {value:"tab_a", label:"Section A"},
+                    {value:"tab_b", label:"Section B"},
+                    {value:"tab_c", label:"Section C"}
+                ]}
+			];
+
+			dhx.ui({
+				rows:[
+					{	height:20, template:""  },
+					{ 	view:"toolbar", type:"MainBar", elements:dhx.fullCopy(config), id:"toolbar1" },
+					{	height:20, template:""  },
+					{ 	view:"toolbar", type:"SubBar", 	elements:dhx.fullCopy(config), id:"toolbar2" },
+					{	height:20, template:"Hello, i am an empty space~!"  },
+					{ 	view:"toolbar", type:"TransparentBar", elements:dhx.fullCopy(config), id:"toolbar3" },
+					{	height:20, template:"Empty space again, I added those borders, don't blame transparent bar."  }
+/*                    { 	view:"toolbar", type:"SubBar", elements:config, id:"toolbar3" },
+					{	height:20, template:""  }*/
+				]
+			});
+            dhx.ui({
+				view:"popup",
+				id:"Menu1",
+				body:{
+					view:"list",
+					url:"menu.xml", datatype:"xml",
+					select:true, yCount:3
+				}
+			}).hide();
+		</script>
+	</body>
+</html>

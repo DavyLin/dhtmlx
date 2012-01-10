@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<script src="../../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../../../../codebase/touchui.css" type="text/css" charset="utf-8">
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ready(function(){
+				dhx.ui({
+					rows:[
+						{view:"toolbar", type:"MainBar", elements:[
+							{view:"button", label:"Clear", click:"clear_sample" },
+							{view:"button", label:"Load 1", click:"load_set_1" },
+							{view:"button", label:"Load 2", click:"load_set_2" }
+						]},
+						{
+							view:"form", id:"myform", elements:[
+								{ view:"text", label:"Name", id:"name"},
+								{ view:"text", label:"Age",  id:"age"},
+								{ view:"text", label:"City", id:"city"}
+							]
+						}
+					]
+				})
+			});
+			
+			function clear_sample(){
+				$$('myform').clear();
+			}
+			function load_set_1(){
+				$$('myform').load('data.php?action=get&id=1');
+			}
+			function load_set_2(){
+				$$('myform').load('data.php?action=get&id=2');
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Custom item</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="featured" content="yes"><meta name="title" content="Samples" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../common/css/style.css" type="text/css" media="screen" />
+
+	</head>
+	<body onload="doOnLoad();">
+        <div class="header">
+            <a class="logo" href="http://www.dhtmlx.com" title="DHTMLX homepage"></a>
+            <div class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</div>
+            <div class="search-field">
+                <form action="http://docs.dhtmlx.com/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit">Search</button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>
+            </div>
+            <div class="buttons">
+                <a class="doc_inact" href="../../../docsExplorer/index.html" title="DHTMLX Documentation homepage"></a>
+                <a class="sample"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="navigation-div">
+                <a href="../../../docsExplorer/samples.html" class="navigation"><img src="../common/icons/file.gif" alt="" >All components</a>
+                <div class="arrow"></div>
+                <a href="../index.html" class="navigation"><img height="22" src="../common/icons/form.gif" alt="" >dhtmlxForm</a>
+                <div class="arrow"></div>
+                <a href="./index.html" class="navigation"><img src="../common/icons/none.gif" alt="" >Items</a>
+            </div>
+            <div style="display:block;">
+                <h3>Custom item</h3>
+            </div>
+            <div class="navigation-div">
+                <a href="#code" class="navigation view-source"><img src="../common/icons/source.gif" alt="" >View page source</a>
+            </div>
+            <link rel="stylesheet" type="text/css" href="../../codebase/skins/dhtmlxform_dhx_skyblue.css">
+	<script src="../../codebase/dhtmlxcommon.js"></script>
+	<script src="../../codebase/dhtmlxform.js"></script>
+	<script>
+		var myForm, formData;
+		function doOnLoad() {
+			formData = [
+				{type: "checkbox", label: "Check me", position: "label-right", list:[
+					{type: "myItem", name: "test",  my_text: "This is custom item", list:[
+						{type: "radio", name: "r0", label: "Select me!", position: "label-right", checked: true},
+						{type: "radio", name: "r0", label: "No, better select me!", position: "label-right"}
+					]}
+				]}
+			];
+			myForm = new dhtmlXForm("myForm", formData);
+			myForm.setItemValue("test", "item value");
+			
+			/*myForm.attachEvent("onTextChanged",function(name,text,is_bolded){
+				alert("onTextChanged event, name: "+name+", text: "+text+(is_bolded?", bolded":""));
+			});*/
+			myForm.setItemText("test", "new item text");
+			myForm.setBoldTextForMyItem("test", "new item text 2");
+			
+		}
+		dhtmlXForm.prototype.items.myItem = {
+			// methods will added automaticaly:
+			// show, hide, isHidden, isExist, getType
+			
+			// 1st param should be item
+			
+			// constructor, required
+			render: function(item, data) {
+				// item - div of parent container
+				// data - init json
+				
+				item._type = "myItem";
+				
+				/* your custom code started here */
+				
+				item.appendChild(document.createElement("DIV"));
+				item.lastChild.innerHTML = data.my_text;
+				this._custom_inner_func(item);
+				
+				// you can insert not text only, any input, any code
+				
+				/* your custom code ended here */
+				
+				return this;
+			},
+			
+			// destructor, required (if you will use unload)
+			destruct: function(item) {
+				
+				/* your custom code started here */
+				
+				this._custom_inner_func2(item);
+				item.innerHTML = "";
+				
+				/* your custom code ended here */
+			},
+			
+			// enable item, mandatory
+			enable: function(item) {
+				
+				/* your custom code started here */
+				
+				item.lastChild.style.color = "black";
+				item._is_enabled = true;
+				
+				/* your custom code ended here */
+			},
+			
+			// disable item, mandatory
+			disable: function(item) {
+				
+				/* your custom code started here */
+				
+				item.lastChild.style.color = "gray";
+				item._is_enabled = false;
+				
+				/* your custom code ended here */
+				
+			},
+			
+			// your custom functionality
+			_custom_inner_func: function(item) {
+				item.lastChild.onclick = function(){
+					if (this.parentNode._is_enabled) alert("Hello!")
+				}
+			},
+			
+			_custom_inner_func2: function(item) {
+				item.lastChild.onclick = null;
+			},
+			
+			// this methos will public
+			setText: function(item, text) {
+				// it already exists in form
+				item.lastChild.innerHTML = text;
+				
+				// demo of triggering events
+				// this will call user handler and pass item name and new text
+				item.callEvent("onTextChanged",[item._idd,text]);
+			},
+			
+			// this methos will also public
+			setBoldText: function(item, text) {
+				// but it not exists in form, so link to it needed, see below
+				item.lastChild.innerHTML = "<b>"+text+"</b>";
+				
+				// demo of triggering events
+				// this will call user handler and pass item name and new text and true as bolded flag
+				item.callEvent("onTextChanged",[item._idd,text,true]);
+			},
+			
+			// you you need validation and you need set/get value for you form, you need:
+			// setValue and getValue, below basic code, you can add yout custom code also
+			setValue: function(item, val) {
+				item._value = val;
+			},
+			
+			getValue: function(item) {
+				return item._value;
+			}
+			
+		};
+		
+		// link from form to item
+		dhtmlXForm.prototype.setBoldTextForMyItem = function(name, text) {
+			// this will call "setBoldText" with text param
+			this.doWithItem(name, "setBoldText", text);
+		};
+		
+		// support for set/get form data
+		// in our sample default set/get value used, but you can also use your custom methods
+		
+		dhtmlXForm.prototype.setFormData_myItem = function(name, value) {
+			return this.doWithItem(name, "setValue", value);
+		};
+		
+		dhtmlXForm.prototype.getFormData_myItem = function(name) {
+			return this.doWithItem(name, "getValue");
+		};
+		
+		
+	</script>
+
+
+	<div id="myForm" style="height:150px;"></div>
+			
+			
+         </div>
+    <div class="source">
+        <div class="teg">Source</div>
+        <div class="code" id="code">
+		<div class="hl-main"><pre><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-code"> </span><span class="hl-var">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">stylesheet</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/skins/dhtmlxform_dhx_skyblue.css</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxcommon.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxform.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myForm</span><span class="hl-code">,
+</span><span class="hl-identifier">formData</span><span class="hl-code">;
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">doOnLoad</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">formData</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">type</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">checkbox</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-reserved">label</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">Check me</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">position</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">label-right</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">list</span><span class="hl-code">: </span><span class="hl-brackets">[</span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-identifier">type</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">myItem</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+            </span><span class="hl-identifier">name</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">test</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+            </span><span class="hl-identifier">my_text</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">This is custom item</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+            </span><span class="hl-identifier">list</span><span class="hl-code">: </span><span class="hl-brackets">[</span><span class="hl-brackets">{</span><span class="hl-code">
+                </span><span class="hl-identifier">type</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">radio</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+                </span><span class="hl-identifier">name</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">r0</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+                </span><span class="hl-reserved">label</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">Select me!</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+                </span><span class="hl-identifier">position</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">label-right</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+                </span><span class="hl-identifier">checked</span><span class="hl-code">: </span><span class="hl-reserved">true</span><span class="hl-code">
+            </span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+                </span><span class="hl-identifier">type</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">radio</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+                </span><span class="hl-identifier">name</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">r0</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+                </span><span class="hl-reserved">label</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">No, better select me!</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+                </span><span class="hl-identifier">position</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">label-right</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+            </span><span class="hl-brackets">}</span><span class="hl-brackets">]</span><span class="hl-code">
+            </span><span class="hl-brackets">}</span><span class="hl-brackets">]</span><span class="hl-code">
+        </span><span class="hl-brackets">}</span><span class="hl-brackets">]</span><span class="hl-code">;
+    </span><span class="hl-identifier">myForm</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXForm</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">myForm</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">formData</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">myForm</span><span class="hl-code">.</span><span class="hl-identifier">setItemValue</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">test</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">item value</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+    </span><span class="hl-comment">/*</span><span class="hl-comment">myForm.attachEvent(&quot;onTextChanged&quot;,function(name,text,is_bolded){
+                alert(&quot;onTextChanged event, name: &quot;+name+&quot;, text: &quot;+text+(is_bolded?&quot;, bolded&quot;:&quot;&quot;));
+            });</span><span class="hl-comment">*/</span><span class="hl-code">
+    </span><span class="hl-identifier">myForm</span><span class="hl-code">.</span><span class="hl-identifier">setItemText</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">test</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">new item text</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">myForm</span><span class="hl-code">.</span><span class="hl-identifier">setBoldTextForMyItem</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">test</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">new item text 2</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-identifier">dhtmlXForm</span><span class="hl-code">.</span><span class="hl-identifier">prototype</span><span class="hl-code">.</span><span class="hl-identifier">items</span><span class="hl-code">.</span><span class="hl-identifier">myItem</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> methods will added automaticaly:</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> show, hide, isHidden, isExist, getType</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> 1st param should be item</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> constructor, required</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">render</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-code">, </span><span class="hl-identifier">data</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment"> item - div of parent container</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment"> data - init json</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">_type</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">myItem</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+ 
+        </span><span class="hl-comment">/*</span><span class="hl-comment"> your custom code started here </span><span class="hl-comment">*/</span><span class="hl-code">
+ 
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">appendChild</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">createElement</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">DIV</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">lastChild</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">data</span><span class="hl-code">.</span><span class="hl-identifier">my_text</span><span class="hl-code">;
+        </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">_custom_inner_func</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+        </span><span class="hl-comment">//</span><span class="hl-comment"> you can insert not text only, any input, any code</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-comment">/*</span><span class="hl-comment"> your custom code ended here </span><span class="hl-comment">*/</span><span class="hl-code">
+ 
+        </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">this</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">,
+ 
+    </span><span class="hl-comment">//</span><span class="hl-comment"> destructor, required (if you will use unload)</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">destruct</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+ 
+        </span><span class="hl-comment">/*</span><span class="hl-comment"> your custom code started here </span><span class="hl-comment">*/</span><span class="hl-code">
+ 
+        </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">_custom_inner_func2</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+ 
+        </span><span class="hl-comment">/*</span><span class="hl-comment"> your custom code ended here </span><span class="hl-comment">*/</span><span class="hl-code">
+        </span><span class="hl-brackets">}</span><span class="hl-code">,
+ 
+    </span><span class="hl-comment">//</span><span class="hl-comment"> enable item, mandatory</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">enable</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+ 
+        </span><span class="hl-comment">/*</span><span class="hl-comment"> your custom code started here </span><span class="hl-comment">*/</span><span class="hl-code">
+ 
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">lastChild</span><span class="hl-code">.</span><span class="hl-identifier">style</span><span class="hl-code">.</span><span class="hl-identifier">color</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">black</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">_is_enabled</span><span class="hl-code"> = </span><span class="hl-reserved">true</span><span class="hl-code">;
+ 
+        </span><span class="hl-comment">/*</span><span class="hl-comment"> your custom code ended here </span><span class="hl-comment">*/</span><span class="hl-code">
+        </span><span class="hl-brackets">}</span><span class="hl-code">,
+ 
+    </span><span class="hl-comment">//</span><span class="hl-comment"> disable item, mandatory</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">disable</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+ 
+        </span><span class="hl-comment">/*</span><span class="hl-comment"> your custom code started here </span><span class="hl-comment">*/</span><span class="hl-code">
+ 
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">lastChild</span><span class="hl-code">.</span><span class="hl-identifier">style</span><span class="hl-code">.</span><span class="hl-identifier">color</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">gray</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">_is_enabled</span><span class="hl-code"> = </span><span class="hl-reserved">false</span><span class="hl-code">;
+ 
+        </span><span class="hl-comment">/*</span><span class="hl-comment"> your custom code ended here </span><span class="hl-comment">*/</span><span class="hl-code">
+ 
+        </span><span class="hl-brackets">}</span><span class="hl-code">,
+ 
+    </span><span class="hl-comment">//</span><span class="hl-comment"> your custom functionality</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">_custom_inner_func</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">lastChild</span><span class="hl-code">.</span><span class="hl-identifier">onclick</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">parentNode</span><span class="hl-code">.</span><span class="hl-identifier">_is_enabled</span><span class="hl-brackets">)</span><span class="hl-code">
+                </span><span class="hl-identifier">alert</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">Hello!</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+            </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">,
+ 
+    </span><span class="hl-identifier">_custom_inner_func2</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">lastChild</span><span class="hl-code">.</span><span class="hl-identifier">onclick</span><span class="hl-code"> = </span><span class="hl-reserved">null</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">,
+ 
+    </span><span class="hl-comment">//</span><span class="hl-comment"> this methos will public</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">setText</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-code">, </span><span class="hl-identifier">text</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment"> it already exists in form</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">lastChild</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">text</span><span class="hl-code">;
+ 
+        </span><span class="hl-comment">//</span><span class="hl-comment"> demo of triggering events</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment"> this will call user handler and pass item name and new text</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">callEvent</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">onTextChanged</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-brackets">[</span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">_idd</span><span class="hl-code">, </span><span class="hl-identifier">text</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">,
+ 
+    </span><span class="hl-comment">//</span><span class="hl-comment"> this methos will also public</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">setBoldText</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-code">, </span><span class="hl-identifier">text</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment"> but it not exists in form, so link to it needed, see below</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">lastChild</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">&lt;b&gt;</span><span class="hl-quotes">&quot;</span><span class="hl-code"> + </span><span class="hl-identifier">text</span><span class="hl-code"> + </span><span class="hl-quotes">&quot;</span><span class="hl-string">&lt;/b&gt;</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+ 
+        </span><span class="hl-comment">//</span><span class="hl-comment"> demo of triggering events</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment"> this will call user handler and pass item name and new text and true as bolded flag</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">callEvent</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">onTextChanged</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-brackets">[</span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">_idd</span><span class="hl-code">, </span><span class="hl-identifier">text</span><span class="hl-code">, </span><span class="hl-reserved">true</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">,
+ 
+    </span><span class="hl-comment">//</span><span class="hl-comment"> you you need validation and you need set/get value for you form, you need:</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> setValue and getValue, below basic code, you can add yout custom code also</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">setValue</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-code">, </span><span class="hl-identifier">val</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">_value</span><span class="hl-code"> = </span><span class="hl-identifier">val</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">,
+ 
+    </span><span class="hl-identifier">getValue</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">item</span><span class="hl-code">.</span><span class="hl-identifier">_value</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">}</span><span class="hl-code">;
+ 
+</span><span class="hl-comment">//</span><span class="hl-comment"> link from form to item</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">dhtmlXForm</span><span class="hl-code">.</span><span class="hl-identifier">prototype</span><span class="hl-code">.</span><span class="hl-identifier">setBoldTextForMyItem</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">name</span><span class="hl-code">, </span><span class="hl-identifier">text</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> this will call &quot;setBoldText&quot; with text param</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">doWithItem</span><span class="hl-brackets">(</span><span class="hl-identifier">name</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">setBoldText</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">text</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">;
+ 
+</span><span class="hl-comment">//</span><span class="hl-comment"> support for set/get form data</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment"> in our sample default set/get value used, but you can also use your custom methods</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">dhtmlXForm</span><span class="hl-code">.</span><span class="hl-identifier">prototype</span><span class="hl-code">.</span><span class="hl-identifier">setFormData_myItem</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">name</span><span class="hl-code">, </span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">doWithItem</span><span class="hl-brackets">(</span><span class="hl-identifier">name</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">setValue</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">dhtmlXForm</span><span class="hl-code">.</span><span class="hl-identifier">prototype</span><span class="hl-code">.</span><span class="hl-identifier">getFormData_myItem</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">name</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">doWithItem</span><span class="hl-brackets">(</span><span class="hl-identifier">name</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">getValue</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+ 
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">myForm</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">height:150px;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span></pre></div>
+        </div>
+    <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright &copy; 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+    </div>
+	</body>
+</html>

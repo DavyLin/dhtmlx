@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" href="../codebase/default.css" type="text/css" media="screen" title="no title" charset="utf-8"><title>
+    dhtmlxform:positioning    [DHX documentation]
+  </title></head>
+
+<body>
+<div class="dokuwiki">
+  
+  <div class="stylehead">
+
+    <div class="header">
+    <a class="logo" href="http://dhtmlx.com" title="DHTMLX Home Page"></a>
+    <span class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</span>
+
+    <div class="search-field">
+        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>    </div>
+        <div class="buttons">
+                <a class="doc"></a>
+                <a title="DHTMLX Samples homepage" href="../samples.html" class="sample"/></a>
+        </div>
+     <!-- <div class="pagename">
+        [[<a href="#"  title="Backlinks">dhtmlxform:positioning</a>]]
+      </div>
+      <div class="logo">
+        <a href="/dhtmlx/docs/doku.php"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[H]">DHX documentation</a>      </div>
+
+      <div class="clearer"></div>-->
+        
+    </div>
+
+    
+<!--   <div class="bar" id="bar__top">
+      <div class="bar-left" id="bar__topleft">
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>        <form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>      </div>
+
+      <div class="bar-right" id="bar__topright">
+        <form class="button btn_recent" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="recent" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Recent changes" class="button" accesskey="r" title="Recent changes [R]" /></div></form>        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>&nbsp;
+      </div>
+
+      <div class="clearer"></div>
+    </div> -->
+
+<!--        <div class="breadcrumbs">
+      <span class="bchead">Trace:</span> <span class="bcsep">&raquo;</span> <span class="curid"><a href="/dhtmlx/docs/doku.php?id=dhtmlxform:positioning"  class="breadcrumbs" title="dhtmlxform:positioning">positioning</a></span>    </div>
+    -->
+
+    
+  </div>
+  
+  
+  <div class="page">
+    <!-- wikipage start -->
+    <!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="#positioning" class="toc">Positioning</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="#common_positioning" class="toc">Common positioning</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#relative_positioning" class="toc">Relative positioning</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#absolute_positioning" class="toc">Absolute positioning</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="#splitting_items_into_columns" class="toc">Splitting items into columns</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#nesting" class="toc">Nesting</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#uniting_items_and_attributes" class="toc">Uniting items and attributes</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#item_fieldset" class="toc">Item &#039;fieldset&#039;</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#item_block" class="toc">Item &#039;block&#039;</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#item_settings" class="toc">Item &#039;settings&#039;</a></span></div></li></ul>
+</li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<p>
+<div class='backlinks'><div class='backlink last_backlink'><img src="icons___file.gif"  class="media" alt="" /><a href="../index.html" class="wikilink1" title="start">Index</a></div><div class='arrow'></div><div class='backlink last_backlink'><a href="/dhtmlx/docs/doku.php?id=dhtmlxform:toc" class="media" title="dhtmlxform:toc"></a><a href="index.html" class="wikilink1" title="dhtmlxform:toc">dhtmlxForm</a></div></div>
+
+</p>
+
+<h1><a name="positioning" id="positioning">Positioning</a></h1>
+<div class="level1">
+
+<p>
+In this chapter we&#039;d like to show how you can position items inside form.
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="53-153" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Positioning" /></div></form></div>
+<h2><a name="common_positioning" id="common_positioning">Common positioning</a></h2>
+<div class="level2">
+
+<p>
+Items&#039; attribute <strong>position</strong> is the central character in positioning (can be defined for any item).
+It offers 3 relative positions and absolute positioning. 
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>label-left</strong> (relative)</div>
+</li>
+<li class="level1"><div class="li"> <strong>label-right</strong> (relative)</div>
+</li>
+<li class="level1"><div class="li"> <strong>label-top</strong> (relative)</div>
+</li>
+<li class="level1"><div class="li"> <strong>absolute</strong> (absolute)</div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="154-462" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Common positioning" /></div></form></div>
+<h3><a name="relative_positioning" id="relative_positioning">Relative positioning</a></h3>
+<div class="level3">
+<table class="inline">
+	<tr class="row0">
+		<th class="col0 centeralign">  position:“label-left”  </th><th class="col1 centeralign">  position:“label-right”  </th><th class="col2 centeralign">  position:“label-top”  </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0 centeralign">  <img src="dhtmlxform___label-left.png"  class="media" alt="" />  </td><td class="col1 centeralign">  <img src="dhtmlxform___label-right3.png"  class="media" alt="" />  </td><td class="col2 centeralign">  <img src="dhtmlxform___label-top.png"  class="media" alt="" />  </td>
+	</tr>
+</table>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="463-685" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Relative positioning" /></div></form></div>
+<h3><a name="absolute_positioning" id="absolute_positioning">Absolute positioning</a></h3>
+<div class="level3">
+
+<p>
+To specify absolute item position you must set the attribute to <em><strong>absolute</strong></em> value.<br/>
+
+In that case you&#039;ll have the possibility to operate on item with 4 more attributes (please note, the attributes&#039;re available just if <strong>position:“absolute”</strong>). They are:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>labelLeft</strong> - (<em>integer</em>) the left offset of label</div>
+</li>
+<li class="level1"><div class="li"> <strong>labelTop</strong> - (<em>integer</em>) the top offset of label</div>
+</li>
+<li class="level1"><div class="li"> <strong>inputLeft</strong> - (<em>integer</em>) the left offset of input</div>
+</li>
+<li class="level1"><div class="li"> <strong>inputTop</strong> - (<em>integer</em>) the top offset of input</div>
+</li>
+</ul>
+
+<p>
+This way allows to place input and label of item whereever you like within the limits of the container. For example, it will be to the point when you need to change the default spacing between items.<br/>
+ 
+
+</p>
+<table class="inline">
+	<tr class="row0">
+		<th class="col0 centeralign">  By default  </th><td class="col1 leftalign"> <img src="dhtmlxform___first_part.png"  class="media" alt="" />  </td><td class="col2"><pre class="code javascript">formData <span class="sy0">=</span> <span class="br0">&#91;</span><span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;button&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span> <span class="st0">'Add'</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	    <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;button&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span> <span class="st0">'Edit'</span><span class="br0">&#125;</span><span class="br0">&#93;</span></pre></td>
+	</tr>
+	<tr class="row1">
+		<th class="col0 centeralign">  With <strong>position:“absolute”</strong>  </th><td class="col1 centeralign">  <img src="dhtmlxform___second_part.png"  class="media" alt="" />  </td><td class="col2"> <pre class="code javascript">formData <span class="sy0">=</span> <span class="br0">&#91;</span><span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;button&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span> <span class="st0">'Add'</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;absolute&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	    <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;button&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span> <span class="st0">'Edit'</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;absolute&quot;</span><span class="sy0">,</span> inputTop<span class="sy0">:</span><span class="nu0">25</span><span class="br0">&#125;</span><span class="br0">&#93;</span></pre></td>
+	</tr>
+</table>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="686-1808" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Absolute positioning" /></div></form></div>
+<h2><a name="splitting_items_into_columns" id="splitting_items_into_columns">Splitting items into columns</a></h2>
+<div class="level2">
+
+<p>
+
+To split items into columns you will need the item <a href="dhtmlxform___newcolumn.html" class="wikilink1" title="dhtmlxform:newcolumn">newcolumn</a>. Just put it between items you want to split, and they will be splitted.
+</p>
+<pre class="code javascript">formData <span class="sy0">=</span> <span class="br0">&#91;</span>
+    <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;label&quot;</span><span class="sy0">,</span> ...<span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;checkbox&quot;</span><span class="sy0">,</span> ...<span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;checkbox&quot;</span><span class="sy0">,</span> ...<span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;newcolumn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;label&quot;</span><span class="sy0">,</span> ...<span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;checkbox&quot;</span><span class="sy0">,</span> ...<span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;checkbox&quot;</span><span class="sy0">,</span> ...<span class="br0">&#125;</span><span class="br0">&#93;</span></pre><table class="inline">
+	<tr class="row0">
+		<th class="col0 centeralign">  Before  </th><th class="col1 centeralign">  After  </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <img src="dhtmlxform___before.png"  class="media" alt="" /></td><td class="col1"><img src="dhtmlxform___after.png"  class="media" alt="" /></td>
+	</tr>
+</table>
+
+<p>
+
+ All item&#039;s details see in the <a href="dhtmlxform___newcolumn.html" class="wikilink1" title="dhtmlxform:newcolumn">appropriate chapter</a>.
+</p>
+
+<p>
+You can also split columns through <span class="curid"><a href="dhtmlxform___positioning.html" class="wikilink1" title="dhtmlxform:positioning">absolute positioning</a></span>.
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="1809-2505" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Splitting items into columns" /></div></form></div>
+<h2><a name="nesting" id="nesting">Nesting</a></h2>
+<div class="level2">
+
+<p>
+You can <strong>put items inside &#039;checkbox&#039; and &#039;radio&#039; elements</strong>. In this case, dhtmlxForm will define the active state of nested elements depending on the checked state of the parent item. In other words, if an item is not checked, its nested elements will be not active and vice versa.
+</p>
+
+<p>
+
+<img src="dhtmlxform___nesting_radio.png"  class="media" alt="" />
+<div class='dhx_note'><div class='dhx_note_img'>&nbsp;</div>
+Nesting is implemented through the attribute 'list' where you should define nested items.
+</div>
+<br/>
+
+
+</p>
+<pre class="code javascript">formData <span class="sy0">=</span> <span class="br0">&#91;</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;settings&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;label&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Settings&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Update automatically&quot;</span><span class="sy0">,</span> list<span class="sy0">:</span><span class="br0">&#91;</span>
+				<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;checkbox&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Application&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+				<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;checkbox&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Search engines&quot;</span><span class="sy0">,</span> list<span class="sy0">:</span><span class="br0">&#91;</span>
+							<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Google&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span> 
+							<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Yahoo&quot;</span><span class="br0">&#125;</span>
+				<span class="br0">&#93;</span><span class="br0">&#125;</span>
+<span class="br0">&#93;</span><span class="br0">&#125;</span></pre>
+<p>
+You can <strong>associate some elements with &#039;select&#039; item options</strong>. In this case dhtmlxForm shows elements associated with selected option and hides others.
+
+</p>
+<table class="inline">
+	<tr class="row0">
+		<td class="col0"><img src="dhtmlxform___nested_to_select_1_2_.png"  class="media" alt="" /></td><td class="col1"> <img src="dhtmlxform___nested_to_select_3_2_.png"  class="media" alt="" /></td><td class="col2"><img src="dhtmlxform___nested_to_select_4_2_.png"  class="media" alt="" /></td>
+	</tr>
+</table>
+<pre class="code javascript">formData <span class="sy0">=</span> <span class="br0">&#91;</span>
+		<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;select&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Select Media Type&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-top&quot;</span><span class="sy0">,</span> options<span class="sy0">:</span><span class="br0">&#91;</span>
+						<span class="br0">&#123;</span>text<span class="sy0">:</span> <span class="st0">&quot;CD 700Mb&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span><span class="st0">&quot;CD&quot;</span><span class="sy0">,</span> list<span class="sy0">:</span><span class="br0">&#91;</span>
+								<span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;checkbox&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span><span class="st0">&quot;Overburn&quot;</span><span class="sy0">,</span> checked<span class="sy0">:</span><span class="kw2">true</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="br0">&#93;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+						<span class="br0">&#123;</span>text<span class="sy0">:</span> <span class="st0">&quot;DVD9 8.6Gb&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span><span class="st0">&quot;DVD&quot;</span><span class="sy0">,</span> list<span class="sy0">:</span><span class="br0">&#91;</span>
+								<span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span><span class="st0">&quot;Double Layer&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+								<span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span><span class="st0">&quot;Two-sided&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="br0">&#93;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+						<span class="br0">&#123;</span>text<span class="sy0">:</span> <span class="st0">&quot;Blue-Ray 24Gb&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span><span class="st0">&quot;Blue-Ray&quot;</span><span class="br0">&#125;</span>
+		<span class="br0">&#93;</span><span class="br0">&#125;</span>
+<span class="br0">&#93;</span>;</pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="2506-4099" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Nesting" /></div></form></div>
+<h2><a name="uniting_items_and_attributes" id="uniting_items_and_attributes">Uniting items and attributes</a></h2>
+<div class="level2">
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="4100-4141" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Uniting items and attributes" /></div></form></div>
+<h3><a name="item_fieldset" id="item_fieldset">Item &#039;fieldset&#039;</a></h3>
+<div class="level3">
+
+<p>
+The item <a href="dhtmlxform___form_fieldset.html" class="wikilink1" title="dhtmlxform:form_fieldset">fieldset</a> will allow you to unite some items on a page.
+</p>
+
+<p>
+<img src="dhtmlxform___field.png"  class="media" alt="" />
+
+</p>
+<pre class="code javascript"><span class="kw2">var</span> formData <span class="sy0">=</span> <span class="br0">&#91;</span>
+		<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;fieldset&quot;</span><span class="sy0">,</span>  <span class="kw3">name</span><span class="sy0">:</span> <span class="st0">&quot;mydata&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Appearance&quot;</span><span class="sy0">,</span> width<span class="sy0">:</span><span class="nu0">210</span><span class="sy0">,</span> list<span class="sy0">:</span><span class="br0">&#91;</span>
+				<span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;settings&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+		                <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;checkbox&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Default&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+		                <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;checkbox&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Custom&quot;</span><span class="sy0">,</span> checked<span class="sy0">:</span> <span class="st0">&quot;0&quot;</span><span class="sy0">,</span> list<span class="sy0">:</span><span class="br0">&#91;</span>
+			                 	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span> <span class="st0">&quot;cursor_value&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Dot&quot;</span><span class="sy0">,</span> checked<span class="sy0">:</span> <span class="st0">&quot;1&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+				                <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span> <span class="st0">&quot;cursor_value&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Cross&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+						<span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;newcolumn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+				                <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span> <span class="st0">&quot;cursor_value&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Circle&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+				                <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span> <span class="st0">&quot;cursor_value&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Triangle&quot;</span><span class="br0">&#125;</span>
+		                 <span class="br0">&#93;</span><span class="br0">&#125;</span>
+                 <span class="br0">&#93;</span><span class="br0">&#125;</span>
+<span class="br0">&#93;</span>;</pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="4142-4972" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Item 'fieldset'" /></div></form></div>
+<h3><a name="item_block" id="item_block">Item &#039;block&#039;</a></h3>
+<div class="level3">
+
+<p>
+The item <a href="dhtmlxform___form_block.html" class="wikilink1" title="dhtmlxform:form_block">block</a> also allows to unite some items on a page. It&#039;s identical to <strong>fieldset</strong> but doesn&#039;t have label and frame. Most appropriate in situations when you deal with multiple columns and rows.
+</p>
+
+<p>
+
+<img src="dhtmlxform___block_01.png"  class="media" alt="" /><br/>
+
+See the code of the example in the picture <a href="dhtmlxform___positioning___block_example.html" class="wikilink1" title="dhtmlxform:positioning:block_example">here</a>
+</p>
+
+<p>
+<div class='dhx_note'><div class='dhx_note_img'>&nbsp;</div>
+When you put one block element inside another, absolute position is gotten relative to the top left corner of the parent block container (not the initial form's container)
+
+</div>
+<br/>
+
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="4973-5536" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Item 'block'" /></div></form></div>
+<h3><a name="item_settings" id="item_settings">Item &#039;settings&#039;</a></h3>
+<div class="level3">
+
+<p>
+The item <a href="dhtmlxform___form_settings.html" class="wikilink1" title="dhtmlxform:form_settings">settings</a> will save your time and efforts thanks to the possibility of setting the same attributes to several items at once. See the detail information in the <a href="dhtmlxform___form_settings.html" class="wikilink1" title="dhtmlxform:form_settings">appropriate chapter</a>.
+</p>
+<table class="inline">
+	<tr class="row0">
+		<th class="col0 centeralign">  By default  </th><td class="col1 centeralign">  <img src="dhtmlxform___init_v.png"  class="media" alt="" />  </td><td class="col2"><pre class="code javascript"><span class="kw2">var</span> formData <span class="sy0">=</span> <span class="br0">&#91;</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;label&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span><span class="st0">&quot;Browsers&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+        <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Internet Explorer&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Opera&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Mozilla Firefox&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Google Chrome&quot;</span><span class="br0">&#125;</span><span class="br0">&#93;</span></pre></td>
+	</tr>
+	<tr class="row1">
+		<th class="col0 centeralign">   Common way  </th><td class="col1 centeralign">  <img src="dhtmlxform___first_v.png"  class="media" alt="" />  </td><td class="col2"><pre class="code javascript"><span class="kw2">var</span> formData <span class="sy0">=</span> <span class="br0">&#91;</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;label&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span><span class="st0">&quot;Browsers&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+        <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Internet Explorer&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Opera&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Mozilla Firefox&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Google Chrome&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="br0">&#93;</span></pre></td>
+	</tr>
+	<tr class="row2">
+		<th class="col0 centeralign">  Alternative way (&#039;settings&#039;)  </th><td class="col1 centeralign">  <img src="dhtmlxform___first_v.png"  class="media" alt="" />  </td><td class="col2"><pre class="code javascript"><span class="kw2">var</span> formData <span class="sy0">=</span> <span class="br0">&#91;</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;settings&quot;</span><span class="sy0">,</span> position<span class="sy0">:</span><span class="st0">&quot;label-right&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+        <span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;label&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span><span class="st0">&quot;Browsers&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Internet Explorer&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Opera&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Mozilla Firefox&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;radio&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span> <span class="st0">&quot;Google Chrome&quot;</span><span class="br0">&#125;</span><span class="br0">&#93;</span></pre></td>
+	</tr>
+</table>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="5537-" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit" class="button" title="Item 'settings'" /></div></form></div>
+    <!-- wikipage stop -->
+  </div>
+
+  <div class="clearer">&nbsp;</div>
+
+  
+  <div class="stylefoot">
+
+    <div class="meta">
+      <div class="user">
+              </div>
+     <!-- <div class="doc">
+        dhtmlxform/positioning.txt &middot; Last modified: 2011/07/07 20:54 (external edit)      </div>
+    </div>-->
+
+   
+    <!--<div class="bar" id="bar__bottom">-->
+      <!--<div class="bar-left" id="bar__bottomleft">-->
+        <!--<form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>-->
+        <!--<form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>-->
+      <!--</div>-->
+      <!--<div class="bar-right" id="bar__bottomright">-->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!--<form class="button btn_index" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="index" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Index" class="button" accesskey="x" title="Index [X]" /></div></form>-->
+        <!--<a class="nolink" href="#dokuwiki__top"><input type="button" class="button" value="Back to top" onclick="window.scrollTo(0, 0)" title="Back to top" /></a>&nbsp;-->
+      <!--</div>-->
+      <!--<div class="clearer"></div>-->
+    <!--</div>-->
+
+  </div>
+
+  
+
+</div>
+
+<div class="footerinc">
+
+
+</div>
+
+<div class="no"><img src="/dhtmlx/docs/lib/exe/indexer.php?id=dhtmlxform%3Apositioning&amp;1310566161" width="1" height="1" alt=""  /></div>
+     <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright © 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxform:positioning" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>    	    </div>
+</body>
+</html>

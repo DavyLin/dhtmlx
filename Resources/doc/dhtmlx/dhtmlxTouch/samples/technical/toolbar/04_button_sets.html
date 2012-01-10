@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+
+
+        </style>
+		<title>Toolbar: buttons</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			function change_batch(){
+				var mode = $$("batch_name").getValue();
+				$$("top_bar").showBatch(mode);
+			};
+			dhx.ui({
+				rows:[
+					{	height:20, template:""  },
+					{ 	view:"toolbar", type:"MainBar", visibleBatch:"init", elements:[
+					
+						{ align:"center", inputWidth:300, view:"segmented",  options:[
+		                    {value:"tab_a", label:"Section A"},
+		                    {value:"tab_b", label:"Section B"},
+		                    {value:"tab_c", label:"Section C"}
+		                ], batch:"init" },
+		                
+		                { view:"button", type:"prev", label: "Back", width:100, batch:"back" },
+		                { view:"button", label: "Save", inputWidth:100, align:"right", batch:"back" },
+		                
+		                { view:"button", label: "Action A", batch:"action" },
+		                { view:"label", label: "Choose", 	batch:"action" },
+		                { view:"button", label: "Action B", batch:"action" }
+		                
+					], id:"top_bar"},
+					{	height:20, template:"Choose one of button sets on the below toolbar"  },
+					{ 	view:"toolbar", type:"MainBar", elements:[
+						{ view:"radio", id:"batch_name", value:"init", options:["init", "action", "back"], click:"change_batch" }
+					]},
+					{	height:20, template:""  },
+				]
+			});
+		</script>
+	</body>
+</html>

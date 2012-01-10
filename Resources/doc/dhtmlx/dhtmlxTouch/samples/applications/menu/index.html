@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Final page</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+	<link rel="STYLESHEET" type="text/css" href="../../../codebase/touchui.css">
+	<script src="../../../codebase/touchui.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="css/dhxview.css">	
+</head>
+<body>
+	<div id="dhx_type_menu_container" style="display:none;">
+		<div class="menu_img" style="background:url(#Img#) no-repeat scroll 50% 50% transparent;">&nbsp</div>
+		<div class="menu_content"><h3 class="menu_content_header" style="">#Name#</h3><p class="menu_content_description">#Description#</p></div>
+	</div>
+	<div id="dhx_type_landscape_container" style="display:none;">
+		<div class="landscape_img" style="background:url(#Img#) no-repeat scroll 50% 20% transparent;"><h3 class="landscape_price">$#Price#</h3></div>
+		<div class="landscape_body"><h3 class="landscape_body_header">#Name#</h3><p class="landscape_body_description">#Description#</p></div>
+		<div class="landscape_buy"><div class="buy_outside" ><div class="buy_inside">{common.count()}</div></div>{common.state()}</div>
+	</div>
+	<div id="dhx_type_portrait_container" style="display:none;">
+		<div class="portrait_img" style="background:url(#Img#) no-repeat scroll 50% 0% transparent;"></div>
+		<div class="portrait_header"><h3 class="portrait_header_name">#Name#</h3><div class="portrait_header_price">$#Price#</div></div>
+		<div class="portrait_buy"><div class="buy_outside"><div class="buy_inside">{common.count()}</div></div>{common.state()}</div>
+		<div class="portrait_description">#Description#</div>
+	</div>
+								
+	
+	<script type="text/javascript" charset="utf-8">
+	pagelist_type = {
+		css:"content",
+		margin: 0,
+		padding:0,
+		state:function(obj){
+			if(obj.Count>0){
+				return "<div class='buy_dec_outside'><div class='buy_dec_inside'>&nbsp;</div></div>";
+			}
+			return "";
+		},
+		count:function(obj){
+			if(obj.Count>0){
+				return obj.Count;
+			}
+			return "+";
+		}
+	}
+	landscape_type = {
+		name:"landscape",
+		template:"html->dhx_type_landscape_container",
+		height: 150,
+		width: 749
+	}
+	dhx.extend(landscape_type,pagelist_type);
+	portrait_type = {
+		name:"portrait",
+		template:"html->dhx_type_portrait_container",
+	    height: 210,
+	    width: 492
+	}
+	dhx.extend(portrait_type,pagelist_type);
+	
+	dhx.Type(dhx.ui.pagelist,landscape_type);
+	dhx.Type(dhx.ui.pagelist,portrait_type);
+	
+	dhx.Type(dhx.ui.dataview,{
+ 		name:"menu",
+       	template:"html->dhx_type_menu_container",
+        height: 120,
+		width: 255,
+        margin: 5,
+		padding: 0
+    });
+	
+	function saveOrder(){
+				dhx.alert({
+					title:"Saved",
+					message:"Your order has been successfully saved!",
+					callback:function(){
+						$$("submenu").load("xml/content.xml");
+						$$("order").parse({total:0});
+						
+					}
+				})
+			};
+		dhx.ready(function(){
+			dhx.ui({
+				id:"layout",
+				type:"clean",
+				cols:[
+					{
+						type:"clean",
+						width:275,
+						rows:[
+							{
+								view:"dataview",
+								type:"menu",
+								id:"menu",
+								url:"xml/menu.xml",
+								datatype:"xml"
+							},
+							{
+								view:"template",
+								id:"order",
+								css:"order_row",
+								template:function(obj){
+									var str = '<h3 class="order_container_header">Total: <span id="order" style="color:#ffc937;">'+obj.total+'$</span></h3>';
+									str += '<a href="javascript:void(0)" class="order_container_button" onclick="saveOrder();">Order</a>';
+									return str;
+								},
+								data:{
+									total:0
+								},
+								height:120
+							}
+						]
+					},
+					{
+						view:"pagelist",
+						id:"submenu",
+						scroll:"y",
+						type:"landscape",
+						url:"xml/content.xml",
+						datatype:"xml",
+						select:false
+					}
+					
+				]		
+			});
+			$$("menu").attachEvent("onXLE",function(){
+				this.select(2);
+			})
+			
+			$$('submenu').bind("menu", function(master, linked){
+				return linked.Name==master.Group;
+			});
+			
+			
+			$$("submenu").on_click["buy_outside"] = function(e){
+				var id = this.locate(e);
+				var data = this.item(id);
+				if (data.Count == 99){
+					return;
+				} else {
+					i = parseInt(data.Count,10);
+					data.Count = i+1;
+				}
+				
+				var currentOrder = $$("order").data;
+				$$("order").data.total += parseInt(data.Price,10);
+				$$("order").render();
+				
+				if (this.isSelected(id))
+					this.refresh(id);
+				else
+					this.select(id, true);
+				return true
+			};
+			
+			$$("submenu").on_click["buy_dec_outside"] = function(e){
+				var id = this.locate(e);
+				var data = this.item(id);
+				data.Count --;
+	
+				var currentOrder = $$("order").data;
+				$$("order").data.total -= parseInt(data.Price,10);
+				$$("order").render();
+		
+				if (!data.Count)
+					this.unselect(id);
+				else
+					this.refresh(id);
+				this.refresh(id);
+			};
+			
+			function orientation(){
+				var orientation = window.orientation;
+				if (orientation === 0 || orientation === 180){
+					$$("submenu").define("type","portrait");
+				}
+				else if (orientation === 90 || orientation === -90){
+					$$("submenu").define("type","landscape");
+				}
+				$$("submenu").render();
+			};
+		
+			dhx.event(window, "orientationchange", orientation);
+
+			orientation();
+		});
+	</script>
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" href="../codebase/default.css" type="text/css" media="screen" title="no title" charset="utf-8"><title>
+    dhtmlxaccordion:items_settings_manipulations    [DHX documentation]
+  </title></head>
+
+<body>
+<div class="dokuwiki">
+  
+  <div class="stylehead">
+
+    <div class="header">
+    <a class="logo" href="http://dhtmlx.com" title="DHTMLX Home Page"></a>
+    <span class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</span>
+
+    <div class="search-field">
+        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>    </div>
+        <div class="buttons">
+                <a class="doc"></a>
+                <a title="DHTMLX Samples homepage" href="../samples.html" class="sample"/></a>
+        </div>
+     <!-- <div class="pagename">
+        [[<a href="#"  title="Backlinks">dhtmlxaccordion:items_settings_manipulations</a>]]
+      </div>
+      <div class="logo">
+        <a href="/dhtmlx/docs/doku.php"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[H]">DHX documentation</a>      </div>
+
+      <div class="clearer"></div>-->
+        
+    </div>
+
+    
+<!--   <div class="bar" id="bar__top">
+      <div class="bar-left" id="bar__topleft">
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>        <form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>      </div>
+
+      <div class="bar-right" id="bar__topright">
+        <form class="button btn_recent" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="recent" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Recent changes" class="button" accesskey="r" title="Recent changes [R]" /></div></form>        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>&nbsp;
+      </div>
+
+      <div class="clearer"></div>
+    </div> -->
+
+<!--        <div class="breadcrumbs">
+      <span class="bchead">Trace:</span> <span class="bcsep">&raquo;</span> <span class="curid"><a href="/dhtmlx/docs/doku.php?id=dhtmlxaccordion:items_settings_manipulations"  class="breadcrumbs" title="dhtmlxaccordion:items_settings_manipulations">items_settings_manipulations</a></span>    </div>
+    -->
+
+    
+  </div>
+  
+  
+  <div class="page">
+    <!-- wikipage start -->
+    <!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="#items_manipulations" class="toc">Items Manipulations</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="#adding_item" class="toc">Adding Item</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#item_s_accessing" class="toc">Item&#039;s Accessing</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#setting_getting_item_s_text" class="toc">Setting/Getting Item&#039;s Text</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#iterator" class="toc">Iterator</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#setting_removing_item_s_icon" class="toc">Setting/Removing Item&#039;s Icon</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#opening_closing_items" class="toc">Opening/Closing Items</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#window_s_docking_item_s_undocking" class="toc">Window&#039;s Docking/Item&#039;s Undocking</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#showing_hiding_items" class="toc">Showing/Hiding Items</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<p>
+<div class='backlinks'><div class='backlink last_backlink'><img src="icons___file.gif"  class="media" alt="" /><a href="../index.html" class="wikilink1" title="start">Index</a></div><div class='arrow'></div><div class='backlink last_backlink'><img src="icons___accordion.gif"  class="media" alt="" /><a href="index.html" class="wikilink1" title="dhtmlxaccordion:toc">dhtmlxaccordion</a></div></div>
+
+</p>
+
+<h1><a name="items_manipulations" id="items_manipulations">Items Manipulations</a></h1>
+<div class="level1">
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="58-94" /><input type="hidden" name="rev" value="1280242425" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit" class="button" title="Items Manipulations" /></div></form></div>
+<h2><a name="adding_item" id="adding_item">Adding Item</a></h2>
+<div class="level2">
+
+<p>
+
+A new item can be added to dhtmlxAccordion in the following way:
+</p>
+<pre class="code javascript"><span class="kw2">var</span> <span class="kw1">item</span> <span class="sy0">=</span> dhxAccord.<span class="me1">addItem</span><span class="br0">&#40;</span>itemId<span class="sy0">,</span> itemText<span class="br0">&#41;</span>;</pre>
+<p>
+The parameters of this method are:
+</p>
+<ul>
+<li class="level1"><div class="li">  <em>itemId</em> - the id of the added item;</div>
+</li>
+<li class="level1"><div class="li">  <em>itemText</em> - title text of the added item.</div>
+</li>
+</ul>
+
+<p>
+
+<div class='dhx_note'><div class='dhx_note_img'>&nbsp;</div>
+A new item, added to the accordion, is always placed under already existing ones and it's always created expanded (collapsing the item that was expanded previously).
+</div>
+<br/>
+
+Let&#039;s add a new item with the id “a1”, and the title text “a” to the Accordion:
+<br/>
+
+<br/>
+
+
+</p>
+<pre class="code javascript">dhxAccord.<span class="me1">addItem</span><span class="br0">&#40;</span><span class="st0">&quot;a1&quot;</span><span class="sy0">,</span> <span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span>;</pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="95-718" /><input type="hidden" name="rev" value="1280242425" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit" class="button" title="Adding Item" /></div></form></div>
+<h2><a name="item_s_accessing" id="item_s_accessing">Item&#039;s Accessing</a></h2>
+<div class="level2">
+
+<p>
+
+The following way of items accessing is used for working with dhtmlxAccordion: through Accordion items&#039; ids. All the items in the Accordion have ids that are listed in alphabetical succession starting with “a”. Items are referred to as cells.
+Thus, we can access any Accordion&#039;s item in the following way:
+</p>
+<pre class="code javascript"><span class="kw2">var</span> <span class="kw1">item</span> <span class="sy0">=</span> dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>;</pre>
+<p>
+The method will return item&#039;s object. So, if you want to access the “a” item - use the next code:
+</p>
+<pre class="code javascript"><span class="kw2">var</span> <span class="kw1">item</span> <span class="sy0">=</span> dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span><span class="st0">&quot;a&quot;</span><span class="br0">&#41;</span>;</pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="719-1284" /><input type="hidden" name="rev" value="1280242425" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit" class="button" title="Item's Accessing" /></div></form></div>
+<h2><a name="setting_getting_item_s_text" id="setting_getting_item_s_text">Setting/Getting Item&#039;s Text</a></h2>
+<div class="level2">
+
+<p>
+
+The header text of an Accordion item can be set/changed in this way:
+</p>
+<pre class="code javascript">dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="me1">setText</span><span class="br0">&#40;</span>text<span class="br0">&#41;</span>;</pre>
+<p>
+<a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_settext.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_settext">setText()</a> method takes the only parameter:
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>text</em> - header text of the added item.</div>
+</li>
+</ul>
+
+<p>
+
+Item&#039;s header text can be easily gotten through the method <a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_gettext.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_gettext">getText()</a>:
+</p>
+<pre class="code javascript"><span class="kw2">var</span> text <span class="sy0">=</span> dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="me1">setText</span><span class="br0">&#40;</span><span class="br0">&#41;</span>; <span class="co1">// returns current item's header text</span></pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="1285-1821" /><input type="hidden" name="rev" value="1280242425" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit" class="button" title="Setting/Getting Item's Text" /></div></form></div>
+<h2><a name="iterator" id="iterator">Iterator</a></h2>
+<div class="level2">
+
+<p>
+
+The method <a href="dhtmlxaccordion___api_method_dhtmlxaccordion_foreachitem.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordion_foreachitem">forEachItem()</a> calls a user-defined function for every existing item and passes an item&#039;s object into it. It can be useful when you need to apply the same operation to all items.
+</p>
+<pre class="code javascript"><span class="sy0">&lt;</span>script<span class="sy0">&gt;</span>
+   dhxAccord.<span class="me1">forEachItem</span><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="kw1">item</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+    <span class="co1">// code here</span>
+   <span class="br0">&#125;</span><span class="br0">&#41;</span>;
+    <span class="co1">// or</span>
+   <span class="kw2">function</span> doWithItem<span class="br0">&#40;</span><span class="kw1">item</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+    <span class="co1">// code here</span>
+   <span class="br0">&#125;</span><span class="br0">&#41;</span>;
+   dhxAccord.<span class="me1">forEachItem</span><span class="br0">&#40;</span>doWithItem<span class="br0">&#41;</span>;
+<span class="sy0">&lt;/</span>script<span class="sy0">&gt;</span></pre>
+<p>
+
+For example, you can use <a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_settext.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_settext">setText()</a> method to set the same text for headers of all the items in the Accordion:
+</p>
+<pre class="code javascript"><span class="sy0">&lt;</span>script<span class="sy0">&gt;</span>
+   dhxAccord.<span class="me1">forEachItem</span><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="kw1">item</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+   <span class="co1">// actions, for example:</span>
+   <span class="kw1">item</span>.<span class="me1">setText</span><span class="br0">&#40;</span><span class="st0">&quot;newText&quot;</span><span class="br0">&#41;</span>;
+   <span class="br0">&#125;</span><span class="br0">&#41;</span>;
+<span class="sy0">&lt;/</span>script<span class="sy0">&gt;</span></pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="1822-2596" /><input type="hidden" name="rev" value="1280242425" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit" class="button" title="Iterator" /></div></form></div>
+<h2><a name="setting_removing_item_s_icon" id="setting_removing_item_s_icon">Setting/Removing Item&#039;s Icon</a></h2>
+<div class="level2">
+
+<p>
+
+An icon can be set to any of Accordion items by using the <a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_seticon.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_seticon">setIcon()</a> method:
+</p>
+<pre class="code javascript">dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="me1">setIcon</span><span class="br0">&#40;</span>icon<span class="br0">&#41;</span>;</pre>
+<p>
+In case you want to remove any item&#039;s icon - use the <a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_clearicon.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_clearicon">clearIcon()</a> method:
+</p>
+<pre class="code javascript">dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="me1">clearIcon</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;</pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="2597-3015" /><input type="hidden" name="rev" value="1280242425" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit" class="button" title="Setting/Removing Item's Icon" /></div></form></div>
+<h2><a name="opening_closing_items" id="opening_closing_items">Opening/Closing Items</a></h2>
+<div class="level2">
+
+<p>
+
+The current active item becomes inactive/closed, when some another item is set active from the page, or from script with the help of the <a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_open.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_open">open()</a> method:
+</p>
+<pre class="code javascript">dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="kw3">open</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;</pre>
+<p>
+The method <a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_close.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_close">close()</a> should be used to close (collapse) an Accordion&#039;s item:
+</p>
+<pre class="code javascript">dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="kw3">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;</pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="3016-3481" /><input type="hidden" name="rev" value="1280242425" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit" class="button" title="Opening/Closing Items" /></div></form></div>
+<h2><a name="window_s_docking_item_s_undocking" id="window_s_docking_item_s_undocking">Window&#039;s Docking/Item&#039;s Undocking</a></h2>
+<div class="level2">
+
+<p>
+
+Any item in dhtmlxAccordion can be easily Undocked - extracted from the accordion in order to be displayed separately (in a window). Use the <a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_undock.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_undock">undock()</a> method to undock an item:
+</p>
+<pre class="code javascript">dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="me1">undock</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;</pre>
+<p>
+An undocked item can be Docked - made a part of the accordion again - by the <a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_dock.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_dock">dock()</a> method:
+</p>
+<pre class="code javascript">dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="me1">dock</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;</pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="3482-4002" /><input type="hidden" name="rev" value="1280242425" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit" class="button" title="Window's Docking/Item's Undocking" /></div></form></div>
+<h2><a name="showing_hiding_items" id="showing_hiding_items">Showing/Hiding Items</a></h2>
+<div class="level2">
+
+<p>
+
+Any item in dhtmlxAccordion can be easily shown/hidden by means of two methods(<a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_show.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_show">show()</a>/<a href="dhtmlxaccordion___api_method_dhtmlxaccordionitem_hide.html" class="wikilink1" title="dhtmlxaccordion:api_method_dhtmlxaccordionitem_hide">hide()</a>):
+
+</p>
+<pre class="code javascript"><span class="sy0">&lt;</span>script<span class="sy0">&gt;</span>
+   dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="me1">show</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;
+   dhxAccord.<span class="me1">cells</span><span class="br0">&#40;</span>itemId<span class="br0">&#41;</span>.<span class="me1">hide</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;
+<span class="sy0">&lt;/</span>script<span class="sy0">&gt;</span></pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="4003-" /><input type="hidden" name="rev" value="1280242425" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit" class="button" title="Showing/Hiding Items" /></div></form></div>
+    <!-- wikipage stop -->
+  </div>
+
+  <div class="clearer">&nbsp;</div>
+
+  
+  <div class="stylefoot">
+
+    <div class="meta">
+      <div class="user">
+              </div>
+     <!-- <div class="doc">
+        dhtmlxaccordion/items_settings_manipulations.txt &middot; Last modified: 2010/07/27 17:53 by 192.168.1.110      </div>
+    </div>-->
+
+   
+    <!--<div class="bar" id="bar__bottom">-->
+      <!--<div class="bar-left" id="bar__bottomleft">-->
+        <!--<form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>-->
+        <!--<form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>-->
+      <!--</div>-->
+      <!--<div class="bar-right" id="bar__bottomright">-->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!--<form class="button btn_index" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="index" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Index" class="button" accesskey="x" title="Index [X]" /></div></form>-->
+        <!--<a class="nolink" href="#dokuwiki__top"><input type="button" class="button" value="Back to top" onclick="window.scrollTo(0, 0)" title="Back to top" /></a>&nbsp;-->
+      <!--</div>-->
+      <!--<div class="clearer"></div>-->
+    <!--</div>-->
+
+  </div>
+
+  
+
+</div>
+
+<div class="footerinc">
+
+
+</div>
+
+<div class="no"><img src="/dhtmlx/docs/lib/exe/indexer.php?id=dhtmlxaccordion%3Aitems_settings_manipulations&amp;1310566078" width="1" height="1" alt=""  /></div>
+     <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright © 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxaccordion:items_settings_manipulations" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>    	    </div>
+</body>
+</html>

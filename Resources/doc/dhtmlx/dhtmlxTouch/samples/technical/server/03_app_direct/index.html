@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<script>
+   			if((navigator.userAgent.match(/Mobi/)!=null || navigator.userAgent.match(/SymbianOS/)!=null) && navigator.userAgent.match(/iPad/)==null)
+    			location.href="./mobile.html";
+  		</script>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		
+		<link rel="stylesheet" href="../../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="./config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./app.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="./app.css" type="text/css" charset="utf-8">
+		<title>User directory</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+		var after_action_view = "user_view";
+		var details_view = "user_view";
+		dhx.ready(function() {
+			// initialize application layout
+			dhx.ui(pad_config);
+			//attach event handlers
+			after_init();
+		});
+		</script>
+	</body>
+</html>

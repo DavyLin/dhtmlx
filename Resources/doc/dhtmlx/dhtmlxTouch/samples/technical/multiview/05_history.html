@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+	<title>Mobile demos: Tabbar</title>
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/history.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+	
+    <style>
+		html,body{
+			background-color:#ffffff;
+		}
+		.tab1{
+			background-color:#B9DBC0;
+		}
+		.tab2{
+			background-color:#B5BCDF;
+		}
+		.tab3{
+			background-color:#F8EEBA;
+		}
+    </style>
+    <script>
+		var config={
+			rows:[
+				{
+					view:"toolbar",
+					type:"MainBar",
+					id: "animation_type",
+					on:{
+						"onItemClick":4
+					},
+					elements:[
+						{ align:"center", view:"segmented", id:"animation_type_btn", options:[
+							{value:"slide", label:"Slide" },
+							{value:"flip", label:"Flip"}
+						]}
+					]
+				},
+				{
+					view:"toolbar",
+					type:"SubBar",
+					id: "animation_subtype",
+					elements:[
+						{ align:"center", view:"segmented", id:"animation_subtype_btn", selected: "together", options:[
+							{value:"together", label:"Together"},
+							{value:"in", label:"In"},
+							{value:"out", label:"Out"}
+						]}
+					]
+				},
+				{
+					gravity:2,
+					id: "multiview",
+					view:"multiview",
+					cells:[
+						{ css:"tab1", template:"1", id:"tabbar_1" },
+						{ css:"tab2", template:"2", id:"tabbar_2" },
+						{ css:"tab3", template:"3", id:"tabbar_3" }
+					]
+				},
+				{
+					view:"toolbar",
+					id:"BottomBar", type:"BigTabBar",
+					elements:[
+						{ view:"tabbar", id:'tabbar', align:"center",  selected: 'tabbar_1',inputWidth:300, options: [
+							{ label: 'Games', src: 'images/tabbar/games.png', value: 'tabbar_1'},
+							{ label: 'Video', src: 'images/tabbar/video.png', value: 'tabbar_2'},
+							{ label: 'Music', src: 'images/tabbar/music.png', value: 'tabbar_3'}
+						]}
+					]
+				}
+			]
+		};
+		dhx.ready(function() {
+		
+
+			//init config
+			dhx.ui(config);
+			$$("BottomBar").attachEvent("onBeforeTabClick", function(button, id) {
+				// getting required elements
+				var multiview = $$('multiview');
+				var type_btn = $$('animation_type_btn');
+				var subtype_btn = $$('animation_subtype_btn');
+
+				// updating animation config
+				multiview.config.animate.type = type_btn.getValue();
+				multiview.config.animate.subtype = subtype_btn.getValue();
+
+				// displaying required view
+				$$(id).show();
+				return true;
+			});
+			var options = {
+				slide: [
+					{value:"together", label:"Together"},
+					{value:"in", label:"In"},
+					{value:"out", label:"Out"}
+				],
+				flip: [
+					{value:"horizontal", label:"Horizontal"},
+					{value:"vertical", label:"Vertical"}
+				]
+			};
+			// updating animation subtypes after click on animation type
+			$$('animation_type').attachEvent("onAfterTabClick", function(id, key) {
+				var animation_subtype_bar = $$("animation_subtype");
+				var subtype_btn = $$("animation_subtype_btn");
+				subtype_btn.config.options = options[key];
+				subtype_btn.config.selected = options[key][0].value;
+				subtype_btn.refresh();
+			});
+			
+			dhx.history.start();
+			dhx.history.ignore("tabbar_2");
+			
+		});
+    </script>
+<body>
+</body>
+</html>

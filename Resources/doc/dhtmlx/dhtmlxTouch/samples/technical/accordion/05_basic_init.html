@@ -1,0 +1,50 @@
+<!DOCTYPE HTML> 
+<html> 
+	<head> 
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8"> 
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script> 
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head> 
+	<body> 
+	<div id="gridbox" style="width:270px;height:430px";border:1px solid #A4BED4;></div>
+		<script type="text/javascript" charset="utf-8"> 
+                    dhx.ui({// specifies a view
+			    type:"wide", // specifies a subtype of the border
+				container:"gridbox",
+				cols:[ // in the first column we  specify accordion
+					{ view:"accordion",
+						rows:[ // in such way we specify vertical accordion
+							{ // the first pane of the accordion	
+								header:"panel 1", // the header text in expanded state
+								headerAlt:"panel 1 (closed)", // the header text in collapsed state
+								body:{//content of the pane's body
+									view:"form", elements:[
+												{view:"radio", height:84, labelWidth:200, labelAlign:"left", position:"label-right", value:"2", options:[{label:"Round Trip", value:"2"}, {label:"One Way", value:"1"}]},
+												{view:"text", labelWidth:100, label:"From", value:"London"},
+												{view:"text", labelWidth:100, label:"To", value:"Madrid"},
+												{view:"datepicker", labelWidth:100, label:"Depart:"},
+												{view:"datepicker", labelWidth:100, label:"Return:"},
+												{view:"button", label:"Find Flights"}
+									]}
+ 
+							},
+							{ // the second pane of the accordion
+								header:"panel 2",
+								headerAlt:"panel 2 (closed)",
+								body:"panel 2"
+							},
+						{ // the third pane of the accordion
+								header:"panel 3",
+								headerAlt:"panel 3 (closed)",
+								body:"panel 3"
+							}
+					]}
+				]
+			});
+		</script> 
+	</body> 
+</html>
+

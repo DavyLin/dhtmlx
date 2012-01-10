@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DataView</title>
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+		html,body{
+            background-color:#ffffff;
+        }
+		body{
+			user-select:none;
+			-moz-user-select:none;
+			-moz-user-select:-moz-none;
+			-webkit-user-select:none;
+		}
+        </style>
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+<body>
+
+
+	<script>
+
+	
+
+	dhx.ready(function() {
+		dhx.ui({
+			view:"window",
+			id:"win1",
+			body:{
+				template:"Fixed"
+			},
+			head:{
+				view:"toolbar", type:"MainBar", elements:[
+					{view:"label", label: "Backpackr", align:'left'},
+					{ view:"button", label: 'Save', align: 'right'}
+				]
+			},
+			top:50, left:20,
+			move:true
+		});
+
+		dhx.ui({
+			view:"window",
+			id:"win2",
+			body:{
+				template:"Fixed"
+			},
+			head:{
+				view:"toolbar", type:"MainBar", elements:[
+					{view:"label", label: "Backpackr", align:'left'},
+					{ view:"button", label: 'Save', align: 'right'}
+				]
+			},
+			top:50, left:420
+		});
+
+
+		var drop_control = {
+			onDrop:function() {
+				alert("Drop detected");
+			}
+		};
+
+		dhx.DragControl.addDrag('dragme');
+		dhx.DragControl.addDrop($$('win1').getNode(), drop_control);
+		dhx.DragControl.addDrop($$('win2').getNode(), drop_control);
+	});
+
+
+	</script>
+
+</body>
+<div id="dragme" style="width: 100px; height: 24px; border: 1px solid #aaaaaa; backgorund-color: #ffffff;">Drag me</div>
+</html>

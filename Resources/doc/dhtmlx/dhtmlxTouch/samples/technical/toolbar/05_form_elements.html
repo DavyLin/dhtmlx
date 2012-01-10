@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">		
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+		.dhx_el_radio div{
+			float:left;
+		}
+        html,body{
+            background-color:#ffffff;
+        }
+        </style>
+        <title>Toolbar: form elements</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			var cities = [
+				{id:3, value:"London"},
+				{id:1, value:"Stockholm"},
+				{id:4, value:"Berlin"},
+				{id:2, value:"Moscow"}
+			];
+			
+			dhx.ui({
+				view:"popup",
+				id:"cities",
+				body:{
+					view:"list", 
+					template: "<div>#value#</div>",
+					data:cities,
+					type:{
+						width:160
+					},
+					yCount:4
+				}
+			}).hide();
+			
+			dhx.ui({
+				cols:[
+				{width:100},
+				{
+					rows:[
+					{	height:10},
+					{ 	view:"toolbar", type:"MainBar", elements:[{ view:"richselect", name: "from", label: 'From', value: 1, popup:"cities" }]},
+					{	height:10},
+					{ 	view:"toolbar", type:"MainBar", elements:[{ view:"combo", name: "to", label: 'To', value: 3, popup:"cities", labelAlign:"right", inputAlign:"right" }]},
+					{	height:10},
+					{ 	view:"toolbar", type:"MainBar", elements:[{ view:"toggle", name: "type", options: ["Roundtrip","Oneway"]} ]},
+					{	height:10},
+					{ 	view:"toolbar", type:"MainBar", elements:[{ view:"datepicker", name: "depart", label: 'depart'} ]},
+					{	height:10},
+					{ 	view:"toolbar", type:"MainBar", elements:[
+						{ view:"counter", name:"pnum", label: '<span class="pass_number">Passengers 12+</span>', step: 1, value: 1, min: 1, max: 20, labelWidth: 140, position: "label-left", labelAlign: "left"}
+					]},
+					{	height:10},
+					{ 	view:"toolbar", type:"MainBar", elements:[{ view:"radio", name:"changes", labelWidth:"300", labelAlign:"left", value:"1", options:[
+						{ label:"direct flights", value: "0" },
+						{ label:"any flights", value: "1" }
+						] }
+					]},
+					{	height:10},
+					{ 	view:"toolbar", type:"MainBar", elements:[
+						{ view:"checkbox", name: "hotels", label:"find hotels", labelWidth: 100, value: 1 },
+						{ view:"checkbox", name: "cars", label:"find car hire", labelWidth: 100 }
+					]},
+					{	height:10},
+					{ 	view:"toolbar", type:"MainBar", elements:[{ view:"button", type:"form", name: "field_d", label: 'Find flight' }]},
+					{	 template:"&nbsp;"  }
+				
+				]},
+				{width:100}
+				]
+			});
+		
+		</script>
+	</body>
+</html>

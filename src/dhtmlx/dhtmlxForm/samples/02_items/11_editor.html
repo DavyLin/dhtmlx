@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>dhtmlxEditor</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="featured" content="yes"><meta name="title" content="Samples" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../common/css/style.css" type="text/css" media="screen" />
+
+	</head>
+	<body onload="doOnLoad();">
+        <div class="header">
+            <a class="logo" href="http://www.dhtmlx.com" title="DHTMLX homepage"></a>
+            <div class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</div>
+            <div class="search-field">
+                <form action="http://docs.dhtmlx.com/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit">Search</button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>
+            </div>
+            <div class="buttons">
+                <a class="doc_inact" href="../../../docsExplorer/index.html" title="DHTMLX Documentation homepage"></a>
+                <a class="sample"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="navigation-div">
+                <a href="../../../docsExplorer/samples.html" class="navigation"><img src="../common/icons/file.gif" alt="" >All components</a>
+                <div class="arrow"></div>
+                <a href="../index.html" class="navigation"><img height="22" src="../common/icons/form.gif" alt="" >dhtmlxForm</a>
+                <div class="arrow"></div>
+                <a href="./index.html" class="navigation"><img src="../common/icons/none.gif" alt="" >Items</a>
+            </div>
+            <div style="display:block;">
+                <h3>dhtmlxEditor</h3>
+            </div>
+            <div class="navigation-div">
+                <a href="#code" class="navigation view-source"><img src="../common/icons/source.gif" alt="" >View page source</a>
+            </div>
+            <link rel="stylesheet" type="text/css" href="../../codebase/skins/dhtmlxform_dhx_skyblue.css">
+	<link rel="stylesheet" type="text/css" href="../../../dhtmlxEditor/codebase/skins/dhtmlxeditor_dhx_skyblue.css">
+	<script src="../../codebase/dhtmlxcommon.js"></script>
+	<script src="../../../dhtmlxEditor/codebase/dhtmlxeditor.js"></script>
+	<script src="../../codebase/dhtmlxform.js"></script>
+	<script src="../../codebase/ext/dhtmlxform_item_editor.js"></script>
+	<script>
+		var myForm, formData;
+		function doOnLoad() {
+			dhtmlx.skin = "dhx_skyblue";
+			window.dhx_globalImgPath = "../../../dhtmlxCombo/codebase/imgs/";
+			formData = [
+				{type: "settings", labelWidth: 90},
+				{type: "editor", label: "Band", inputWidth: 400, inputHeight: 60, value: "Motorhead"},
+				{type: "editor", label: "Title", inputWidth: 400, inputHeight: 60, value: "Smiling Like A Killer"},
+				{type: "editor", label: "Lyrics", inputWidth: 400, inputHeight: 220, value: "I'm the one you never see, in the dead of night,<br>Peeking in your window, staying out of sight,<br>GO to bed, lock the door, don't look in the mirror,<br>What if I was right behind you,<br>Smiling Like A Killer,<br><br>I'm the knocking at your door, when you're all alone,<br>I'm the scratching zombie claw, in your twilight zone,<br>Cut your throat, catch your breath, blood run like a river,<br>Last thing you see before your death,<br>Smiling Like A Killer"}
+			];
+			myForm = new dhtmlXForm("myForm", formData);
+		}
+	</script>
+
+
+	<div id="myForm" style="height:450px;"></div>
+			
+			
+         </div>
+    <div class="source">
+        <div class="teg">Source</div>
+        <div class="code" id="code">
+		<div class="hl-main"><pre><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-code"> </span><span class="hl-var">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">stylesheet</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/skins/dhtmlxform_dhx_skyblue.css</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-code"> </span><span class="hl-var">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">stylesheet</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../../dhtmlxEditor/codebase/skins/dhtmlxeditor_dhx_skyblue.css</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxcommon.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../../dhtmlxEditor/codebase/dhtmlxeditor.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxform.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/ext/dhtmlxform_item_editor.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myForm</span><span class="hl-code">,
+</span><span class="hl-identifier">formData</span><span class="hl-code">;
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">doOnLoad</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">dhtmlx</span><span class="hl-code">.</span><span class="hl-identifier">skin</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">dhx_skyblue</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+    </span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">dhx_globalImgPath</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">../../../dhtmlxCombo/codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+    </span><span class="hl-identifier">formData</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">type</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">settings</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">labelWidth</span><span class="hl-code">: </span><span class="hl-number">90</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">type</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">editor</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-reserved">label</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">Band</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">inputWidth</span><span class="hl-code">: </span><span class="hl-number">400</span><span class="hl-code">,
+        </span><span class="hl-identifier">inputHeight</span><span class="hl-code">: </span><span class="hl-number">60</span><span class="hl-code">,
+        </span><span class="hl-identifier">value</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">Motorhead</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">type</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">editor</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-reserved">label</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">Title</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">inputWidth</span><span class="hl-code">: </span><span class="hl-number">400</span><span class="hl-code">,
+        </span><span class="hl-identifier">inputHeight</span><span class="hl-code">: </span><span class="hl-number">60</span><span class="hl-code">,
+        </span><span class="hl-identifier">value</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">Smiling Like A Killer</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">type</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">editor</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-reserved">label</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">Lyrics</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">inputWidth</span><span class="hl-code">: </span><span class="hl-number">400</span><span class="hl-code">,
+        </span><span class="hl-identifier">inputHeight</span><span class="hl-code">: </span><span class="hl-number">220</span><span class="hl-code">,
+        </span><span class="hl-identifier">value</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">I'm the one you never see, in the dead of night,&lt;br&gt;Peeking in your window, staying out of sight,&lt;br&gt;GO to bed, lock the door, don't look in the mirror,&lt;br&gt;What if I was right behind you,&lt;br&gt;Smiling Like A Killer,&lt;br&gt;&lt;br&gt;I'm the knocking at your door, when you're all alone,&lt;br&gt;I'm the scratching zombie claw, in your twilight zone,&lt;br&gt;Cut your throat, catch your breath, blood run like a river,&lt;br&gt;Last thing you see before your death,&lt;br&gt;Smiling Like A Killer</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-brackets">]</span><span class="hl-code">;
+    </span><span class="hl-identifier">myForm</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXForm</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">myForm</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">formData</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+ 
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">myForm</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">height:450px;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span></pre></div>
+        </div>
+    <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright &copy; 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+    </div>
+	</body>
+</html>

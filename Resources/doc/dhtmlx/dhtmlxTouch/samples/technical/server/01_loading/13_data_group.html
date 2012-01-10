@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<script src="../../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../../../../codebase/touchui.css" type="text/css" charset="utf-8">
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ready(function(){
+				dhx.ui({
+					rows:[
+						{ cols:[
+							{
+								id:"testT1", template:"label start<br><hr>#prefix#<br><hr>label end"
+							},
+							{
+								id:"testT2", template:"label start<br><hr>#label#<br><hr>label end"
+							},
+							{
+								id:"testT3", template:"label start<br><hr>#prefix# #label#<br><hr>label end"
+							}
+						]},
+						{
+							view:"form", id:"formT", elements:[
+								{ view:"text", id:"prefix" },
+								{ view:"text", id:"label" },
+								{ view:"button", label:"save", click:"$$('formT').save()" }
+							]
+						}
+					]
+				})
+			
+				var data = new dhx.DataRecord({
+					id:"name",
+					label:"Stanislav Wolski",
+					prefix:"Mr."
+				});
+
+				$$('testT1').bind(data);
+				$$('testT2').bind(data);
+				$$('testT3').bind(data);
+				
+				$$("formT").bind(data);
+				
+			});
+		</script>
+	</body>
+</html>

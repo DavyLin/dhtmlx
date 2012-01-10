@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<script src="../../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../../../../codebase/touchui.css" type="text/css" charset="utf-8">
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ready(function(){
+				dhx.ui({
+					rows:[
+						{ view:"richselect", id:"sel1", options:[] },
+						{ view:"richselect", id:"sel2", options:[] },
+					]
+				});
+				
+
+				$$("sel1_list").define("template","#id#");				
+				$$("sel1_list").parse([{ id:"A"},{ id:"D"},{ id:"E"},{ id:"N"},{ id:"S"},{ id:"W"},{ id:"Z"}]);
+
+				$$("sel2_list").define("template","#name#");
+				$$("sel2_list").load("data.json");
+
+				
+
+				$$('sel2_list').bind($$('sel1'), function(linked, master){
+					if (!master) return true;
+					return linked.name.indexOf(master) == 0;
+				});
+				
+			});
+			
+
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <title>Template view</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		
+	<div id="flight_template" style="display:none;">
+			<pre style='width:800px;'><xmp>
+				dhx.assert_method_process = function (obj, name, descr, rules, min, skip){
+    var old = obj[name];
+    if (!skip)
+        obj[name] = function(){
+            if (arguments.length != rules.length && arguments.length < min) 
+                dhx.log("warn","Incorrect count of parameters\n"+obj[name].describe()+"\n\nExpecting "+rules.length+" but have only "+arguments.length);
+            else
+                for (var i=0; i<rules.length; i++)
+                    if (!rules[i][3] && !rules[i][2](arguments[i]))
+                        dhx.log("warn","Incorrect method call\n"+obj[name].describe()+"\n\nActual value of "+(i+1)+" parameter: {"+(typeof arguments[i])+"} "+arguments[i]);
+            
+            return old.apply(this, arguments);
+        };
+    obj[name].describe = function(){    return dhx.assert_method_info(obj, name, descr, rules); };
+};
+dhx.assert_event_call = function(obj, name, args){
+    if (obj._event_check){
+        if (!obj._event_check[name])
+            dhx.log("warn","Not expected event call :"+name);
+        else if (dhx.isNotDefined(args))
+            dhx.log("warn","Event without parameters :"+name);
+        else if (obj._event_check_size[name] != args.length)
+            dhx.log("warn","Incorrect event call, expected "+obj._event_check_size[name]+" parameter(s), but have "+args.length +" parameter(s), for "+name+" event");
+    }       
+};
+dhx.assert_event_attach = function(obj, name){
+    if (obj._event_check && !obj._event_check[name]) 
+            dhx.log("warn","Unknown event name: "+name);
+};
+//register names of properties, which can be used in object's configuration
+dhx.assert_property = function(obj, evs){
+    if (!obj._settings_check)
+        obj._settings_check={};
+    dhx.extend(obj._settings_check, evs);       
+};
+//check all options in collection, against list of allowed properties
+dhx.assert_check = function(data,coll){
+    if (typeof data == "object"){
+        for (var key in data){
+            dhx.assert_settings(key,data[key],coll);
+        }
+    }
+};
+//check if type and value of property is the same as in scheme
+dhx.assert_settings = function(mode,value,coll){
+    coll = coll || this._settings_check;
+
+    //if value is not in collection of defined ones
+    if (coll){
+        if (!coll[mode])    //not registered property
+            return dhx.log("warn","Unknown propery: "+mode);
+            
+        var descr = "";
+        var error = "";
+        var check = false;
+        for (var i=0; i<coll[mode].length; i++){
+            var rule = coll[mode][i];
+            if (typeof rule == "string")
+                continue;
+            if (typeof rule == "function")
+                check = check || rule(value);
+            else if (typeof rule == "object" && typeof rule[1] == "function"){
+                check = check || rule[1](value);
+                if (check && rule[2])
+                    dhx["assert_check"](value, rule[2]); //temporary fix , for sources generator
+            }
+            if (check) break;
+        }
+        if (!check )
+            dhx.log("warn","Invalid configuration\n"+dhx.assert_info(mode,coll)+"\nActual value: {"+(typeof value)+"} "+value);
+    }
+};
+			</xmp></pre>
+			
+	</div>
+		
+		<script type="text/javascript" charset="utf-8">
+
+		dhx.ui({
+			rows:[
+				{
+					id:"content",
+					view:"template", scroll:"x",
+					url:"template_data.xml",datatype:"xml",
+					template:"html->flight_template"
+				},
+				{
+					id:"content",
+					view:"template", scroll:"y",
+					url:"template_data.xml",datatype:"xml",
+					template:"html->flight_template"
+				},
+				{
+					id:"content",
+					view:"template", scroll:"xy",
+					url:"template_data.xml",datatype:"xml",
+					template:"html->flight_template"
+				},						
+				{
+					view:"toolbar", 
+                    id:"SubBar",
+					type:"SubBar", 
+					elements:[
+						{ view:"label", label: "Template view", align:'left'},
+						{ view:"button", label: "update", align:'right' ,id:"update", click:"update_view"}
+					]
+				}
+			]
+		});
+		
+		
+		var data = {
+			type:"one way",
+			from:"Berlin",
+			to:"Oslo",
+			depart:"2010-12-25",
+			arrive:"2011-01-02",
+			pnum:4,
+			changes:"yes",
+			hotels:"no",
+			hire:"no"
+		}
+		function update_view(){
+			$$("content").parse(data,"json");
+		}
+
+		</script>
+	</body>
+</html>

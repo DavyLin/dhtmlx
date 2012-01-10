@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Components.xml editor</title>
+
+		<link rel="stylesheet" href="../../dhtmlxLayout/codebase/dhtmlxlayout.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="../../dhtmlxLayout/codebase/skins/dhtmlxlayout_dhx_skyblue.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="../../dhtmlxTree/codebase/dhtmlxtree.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="../../dhtmlxToolbar/codebase/skins/dhtmlxtoolbar_dhx_skyblue.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+		<script src="../../dhtmlxLayout/codebase/dhtmlxcommon.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../dhtmlxLayout/codebase/dhtmlxcontainer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../dhtmlxLayout/codebase/dhtmlxlayout.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../dhtmlxTree/codebase/dhtmlxtree.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../dhtmlxTree/codebase/ext/dhtmlxtree_xw.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../dhtmlxToolbar/codebase/dhtmlxtoolbar.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style>
+
+		div#editor {
+			width: 1000px;
+			height: 600px;
+		}
+
+		div#details_form {
+			width: 100%;
+			height: 100%;
+			padding: 10px;
+			font-size: 11px;
+			font-family: 'Tahoma';
+		}
+
+		div.details_line {
+			padding-bottom: 10px;
+		}
+
+		label {
+			display: block;
+			width: 20%;
+			float: left;
+			text-align: right;
+			padding-right: 5px;
+			padding-top: 7px;
+			font-weight: bold;
+		}
+
+		label.for_radio {
+			display: inline;
+			float: none;
+			font-weight: normal;
+		}
+
+		input.details_input {
+			width: 70%;
+		}
+
+		textarea.details_textarea {
+			width: 70%;
+			height: 100px;
+		}
+	</style>
+	<script type="text/javascript" charset="utf-8">
+		var layout;
+		var tree;
+		var unsaved_details = false;
+		var details_id = false;
+		function doOnLoad() {
+			layout = new dhtmlXLayoutObject("editor", "2U","dhx_skyblue");
+			layout.cells("a").setWidth(400);
+			layout.cells("a").setText("Components structure");
+			layout.cells("b").setText("Details");
+			layout.cells("b").attachObject(document.getElementById("details_form"));
+			toolbar = layout.cells("a").attachToolbar();
+			toolbar.setIconsPath('../../dhtmlxToolbar/samples/common/imgs/');
+			toolbar.addButton('add', 1, 'Add', 'new.gif');
+			toolbar.addButton('remove', 2, 'Remove', 'save.gif');
+			toolbar.addButton('save', 3, 'Save', 'save.gif');
+			toolbar.attachEvent('onClick', toolbar_clicked);
+			tree = layout.cells("a").attachTree();
+			tree.setImagePath("../../dhtmlxTree/codebase/imgs/csh_vista/");
+			tree.attachEvent("onSelect", loadDetails);
+			tree.attachEvent("onXLE", get_opened_states);
+			tree.enableDragAndDrop(true);
+			tree.setDragBehavior('complex', true);
+			tree.attachEvent('onBeforeDrag', function(id) {
+				return (!unsaved_details)||(id == details_id);
+			});
+			tree.loadXML("./xml_change.php");
+
+			dhtmlxEvent(document.getElementById('details_id'), 'keypress', changed);
+			dhtmlxEvent(document.getElementById('details_name'), 'keypress', changed);
+			dhtmlxEvent(document.getElementById('details_dsc'), 'keypress', changed);
+			dhtmlxEvent(document.getElementById('details_files'), 'keypress', changed);
+			dhtmlxEvent(document.getElementById('details_chunk'), 'keypress', changed);
+			dhtmlxEvent(document.getElementById('details_depends'), 'keypress', changed);
+			dhtmlxEvent(document.getElementById('details_open'), 'change', changed);
+			dhtmlxEvent(document.getElementById('details_close'), 'change', changed);
+			dhtmlxEvent(document.getElementById('details_load_to_tree'), 'click', loadDetailsToTree);
+		}
+
+		function loadDetails(id) {
+			if (!checkUnsaved(id))
+				return false;
+			details_id = id;
+
+			var name = tree.getItemText(id);
+			var dsc = tree.getUserData(id, 'details');
+			dsc = (dsc || '');
+
+			var regexp = /;/g;
+			var depends = tree.getUserData(id, 'depends');
+			depends = (depends || '');
+			depends = depends.replace(regexp, "\n");
+
+			var files = tree.getUserData(id, 'path');
+			files = (files || '');
+			files = files.replace(regexp, "\n");
+
+			var chunk = tree.getUserData(id, 'chunk');
+			chunk = (chunk || '');
+			chunk = chunk.replace(regexp, "\n");
+
+			var open = tree.getUserData(id, 'open');
+			open = (open || '0');
+
+			document.getElementById('details_id').value = id;
+			document.getElementById('details_name').value = name;
+			document.getElementById('details_dsc').value = dsc;
+			document.getElementById('details_depends').value = depends;
+			document.getElementById('details_files').value = files;
+			document.getElementById('details_chunk').value = chunk;
+
+			if (open == '1')
+				document.getElementById('details_open').checked = true;
+			else
+				document.getElementById('details_close').checked = true;
+
+			document.getElementById('details_id').focus();
+		}
+
+		function toolbar_clicked(id) {
+			switch (id) {
+				case 'add':
+					add_item();
+					break;
+				case 'remove':
+					remove_item();
+					break;
+				case 'save':
+					save();
+					break;
+			}
+		}
+
+		function add_item() {
+			var parent_id = tree.getSelectedItemId();
+			if (parent_id != '')
+				tree.insertNewChild(parent_id, 'new_item', "New item", 0, null, null, null, 'SELECT');
+		}
+
+		function remove_item() {
+			var id = tree.getSelectedItemId();
+			if ((id != '')&&(confirm('Item "' + id + '" will be deleted. Are you sure?')))
+				tree.deleteItem(id, true);
+
+			var parent_id = tree.getSelectedItemId();
+			loadDetails(parent_id);
+		}
+
+		function save() {
+			loadDetailsToTree();
+			var xml = '<tree id="0">';
+			var ids = tree.getSubItems('0');
+			ids = ids.split(',');
+			for (var i = 0; i < ids.length; i++) {
+				xml += serialize_node(ids[i]);
+			}
+			xml += '</tree>';
+
+			dhtmlxAjax.post('save.php', 'xml=' + encodeURIComponent(xml), function() {
+				alert('xml saved');
+			});
+		}
+
+		function serialize_node(id) {
+			var name = tree.getItemText(id);
+			name = (name || false);
+			var open = tree.getUserData(id, 'open');
+			open = (open || false);
+			var dsc = tree.getUserData(id, 'details');
+			dsc = (dsc || false);
+
+			var depends = tree.getUserData(id, 'depends');
+			depends = (depends || false);
+			var files = tree.getUserData(id, 'path');
+			files = (files || false);
+			var chunk = tree.getUserData(id, 'chunk');
+			chunk = (chunk || false);
+			var top_offset = tree.getUserData(id, 'topoffset');
+			top_offset = (top_offset || false);
+
+			var xml = '<item id="' + id + '"';
+			xml += (open == '1') ? ' open="1"' : '';
+			xml += (files ? ' path="' + files + '"' : '');
+			xml += (chunk ? ' chunk="' + chunk + '"' : '');
+			xml += (depends ? ' depends="' + depends + '"' : '');
+			xml += (top_offset ? ' topoffset="' + top_offset + '"' : '');
+			xml += '>';
+			xml += (name != false) ? ('<itemtext><![CDATA[' + name + ']]></itemtext>') : '';
+			xml += (dsc != false) ? ('<userdata name="details"><![CDATA[' + dsc + ']]></userdata>') : '';
+
+			var ids = tree.getSubItems(id);
+			if (ids.length > 0) {
+				ids = ids.split(',');
+				for (var i = 0; i < ids.length; i++) {
+					xml += serialize_node(ids[i]);
+				}
+			}
+			xml += '</item>';
+			return xml;
+		}
+
+		function changed() {
+			unsaved_details = true;
+		}
+
+		function loadDetailsToTree() {
+			var id = document.getElementById('details_id').value;
+			var name = document.getElementById('details_name').value;
+			var dsc = document.getElementById('details_dsc').value;
+			var regexp = /\n/g;
+			var path = document.getElementById('details_files').value;
+			path = path.replace(regexp, ";");
+			var chunk = document.getElementById('details_chunk').value;
+			chunk = chunk.replace(regexp, ";");
+			var depends = document.getElementById('details_depends').value;
+			depends = depends.replace(regexp, ";");
+			var open = document.getElementById('details_open').checked;
+			open = (open == true) ? '1' : '0';
+
+			tree.setItemText(details_id, name, name);
+			tree.setUserData(details_id, 'details', dsc);
+			tree.setUserData(details_id, 'path', path);
+			tree.setUserData(details_id, 'chunk', chunk);
+			tree.setUserData(details_id, 'depends', depends);
+			tree.setUserData(details_id, 'open', open);
+			tree.changeItemId(details_id, id);
+			details_id = id;
+			unsaved_details = false;
+		}
+
+		function checkUnsaved(id) {
+			if (unsaved_details == true) {
+				if (id == details_id)
+					return false;
+				if (confirm('You have not saved "' + details_id + '" details. Do you want to continue without saving?')) {
+					unsaved_details = false;
+				} else {
+					tree.selectItem(details_id, false, false);
+					return false;
+				}
+			}
+			return true;
+		}
+
+		function get_opened_states() {
+			var ids = tree.getAllItemsWithKids();
+			ids = ids.split(",");
+			for (var i = 0; i < ids.length; i++) {
+				if (tree.getOpenState(ids[i]) == true) {
+					tree.setUserData(ids[i], 'open', '1');
+				} else {
+					tree.setUserData(ids[i], 'open', '0');
+				}
+			}
+		}
+	</script>
+	<body onload="doOnLoad();">
+		<div id="editor"></div>
+
+		<div id="details_form">
+			<div class="details_line">
+				<label>Id:</label>
+				<input type="text" class="details_input" id="details_id" />
+			</div>
+
+			<div class="details_line">
+				<label>Name:</label>
+				<input type="text" class="details_input" id="details_name" />
+			</div>
+
+			<div class="details_line">
+				<label>Descr:</label>
+				<input type="text" class="details_input" id="details_dsc" />
+			</div>
+
+			<div class="details_line">
+				<label>Depends:</label>
+				<textarea class="details_textarea" id="details_depends"></textarea>
+			</div>
+
+			<div class="details_line">
+				<label>Files:</label>
+				<textarea class="details_textarea" id="details_files"></textarea>
+			</div>
+
+			<div class="details_line">
+				<label>Chunks:</label>
+				<textarea class="details_textarea" id="details_chunk"></textarea>
+			</div>
+			<div class="details_line">
+				<label>Open:</label>
+				<input type="radio" class="details_radio" id="details_open" value="Open" name="details_open" />
+				<label for="details_open" class="for_radio">Open</label>
+				<br />
+				<input type="radio" class="details_radio" id="details_close" value="Close" name="details_open" />
+				<label for="details_close" class="for_radio">Close</label>
+			</div>
+			<label></label>
+			<input type="button" value="Load changes to tree" id="details_load_to_tree" />
+		</div>
+	</body>
+</html>

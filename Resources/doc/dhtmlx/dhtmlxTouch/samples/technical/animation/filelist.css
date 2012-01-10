@@ -1,0 +1,54 @@
+.dhx_filelist {
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.dhx_filelist_name {
+    float: left;
+    padding-left: 10px;
+    line-height: 42px;
+    width: 1px;
+    overflow: visible;
+}
+
+.dhx_filelist_file_avi {
+    background-image: url(./imgs/file_avi.png);
+}
+.dhx_filelist_file_jpg {
+    background-image: url(./imgs/file_jpg.png);
+}
+.dhx_filelist_file_mp3 {
+    background-image: url(./imgs/file_mp3.png);
+}
+.dhx_filelist_file_m4a {
+    background-image: url(./imgs/file_m4a.png);
+}
+.dhx_filelist_file_wav {
+    background-image: url(./imgs/file_wav.png);
+}
+.dhx_filelist_file_mpg {
+    background-image: url(./imgs/file_mpg.png);
+}
+.dhx_filelist_file_png {
+    background-image: url(./imgs/file_png.png);
+}
+.dhx_filelist_file_gif {
+    background-image: url(./imgs/file_gif.png);
+}
+.dhx_filelist_folder_music {
+    background-image: url(./imgs/folder_music.png);
+}
+.dhx_filelist_folder_video {
+    background-image: url(./imgs/folder_video.png);
+}
+.dhx_filelist_folder_pictures {
+    background-image: url(./imgs/folder_pictures.png);
+}
+.dhx_filelist_folder_favorite {
+    background-image: url(./imgs/folder_favorite.png);
+}
+.dhx_filelist_folder {
+    background-image: url(./imgs/folder.png);
+}

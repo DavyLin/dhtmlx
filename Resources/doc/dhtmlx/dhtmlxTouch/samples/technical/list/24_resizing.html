@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+    <title>Resizing</title>
+    <link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">     
+    <script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+ 	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+ 
+ <body> 
+	<div id="buttonBox">
+		<input type="button" id="resize" value="resize" onclick='doResize()'> 
+	</div>
+	
+	<script type="text/javascript" charset="utf-8">
+	
+	function doResize(){
+		$$('list1').define("height", 300);
+		$$('list1').resize();
+
+		$$('areaA').define("width", 10);
+		$$('areaB').define("width", 10);
+		$$('top').resize(true);
+	};
+			
+	dhx.ready(function(){
+		dhx.ui({ type:"wide",
+			id:"top", cols:[ 
+				{ width:250, id:"areaB" },
+				{ type: "head", rows:[
+					{ content:"buttonBox" },
+					{
+						view:"toolbar", 
+						type:"MainBar",
+						elements:[{ view:"label", label:"List 1"}]
+					},
+					{
+						view:"list", 
+						id:"list1",
+						template: "#name# (#author#)",
+						url:"songs.xml", 
+						datatype:"xml",
+						select:true
+					},
+					{}
+				]},
+				{ type:"head", rows:[
+					{},
+					{
+						view:"toolbar", 
+						type:"MainBar",
+						elements:[{ view:"label", label:"List 2"}]
+					},
+					{
+						view:"list", 
+						id:"list2",
+						template: "#name# (#author#)",
+						url:"songs.xml", 
+						datatype:"xml",
+						select:true
+					},
+					{}
+				]},
+				{ width:100, id:"areaA" }
+			]
+		})
+	});
+	</script>
+  </body>
+</html>

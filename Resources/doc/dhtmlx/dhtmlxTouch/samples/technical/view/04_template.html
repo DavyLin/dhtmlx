@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.title{
+				margin: 10px 0 5px 0;
+				color:#3399cc;
+			}
+		
+        html,body{
+            background-color:#ffffff;
+        }
+        </style>
+        <title>Template view</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		
+	<div id="flight_template" style="display:none;">
+		<div style="padding:10px; font-weight:bold;text-align:left;">
+			#type# ticket
+			<div class="title">Depart</div>
+			<table><tr><td style="width:150px">#from#</td><td>#depart#</td></tr></table>
+			<div class="title">Arrive</div>
+			<table><tr><td style="width:150px">#to#</td><td>#arrive#</td></tr></table>
+			<div class="title">Adults</div>
+			#pnum#
+			<div class="title">Details</div>
+			<table style="font-size:13px">
+				<tr><td style="width:150px">Only direct flights</td><td>#changes#</td></tr>
+				<tr><td>Find hotel</td><td>#hotels#</td></tr>
+				<tr><td>Car hire</td><td>#hire#</td></tr>
+			</table>
+		</div>
+	</div>
+		
+		<script type="text/javascript" charset="utf-8">
+
+		dhx.ui({
+			rows:[
+				{
+					id:"content",
+					view:"template",
+					url:"template_data.xml",datatype:"xml",
+					template:"html->flight_template"
+				},
+				{
+					view:"toolbar", 
+					id:"bottom_toolbar",
+					type:"SubBar", 
+					elements:[
+						{view:"label", label: "Template view", align:'left'},
+						{ view:"button", label: "update", align:'right' ,click:"update_view"}
+					]
+				}
+			]
+		});
+		
+		
+		var data = {
+			type:"one way",
+			from:"Berlin",
+			to:"Oslo",
+			depart:"2010-12-25",
+			arrive:"2011-01-02",
+			pnum:4,
+			changes:"yes",
+			hotels:"no",
+			hire:"no"
+		}
+		function update_view(){
+			$$("content").parse(data,"json");
+		}
+
+		</script>
+	</body>
+</html>

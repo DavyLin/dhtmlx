@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+ 
+<html>
+<head>
+	<title>Dataview Usage</title>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+<body>
+	<script>
+		dhx.ui({
+				view:"window",
+				head:{
+					view:"toolbar", type:"MainBar",
+					elements:[{view:"label", label:"Your favourite music"}]
+				},
+				body:{
+					view:"dataview",
+					width:322,
+					height:200,
+					type:{
+						template:"<span class='dhx_strong'>#name#</span>#author#<span class='dhx_light'>#year#</span>",
+						height:35,
+						width:140
+					},
+					url:"music.xml",
+					datatype:"xml"
+				}
+		});
+ 
+	</script>
+ 
+</body>
+</html>

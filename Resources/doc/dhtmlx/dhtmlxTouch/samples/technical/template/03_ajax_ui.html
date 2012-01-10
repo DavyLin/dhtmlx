@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<title>Template view</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		
+		<script type="text/javascript" charset="utf-8">
+		dhx.ui({
+			id:"top",
+			rows:[
+				{
+					id:"content",
+					view:"template",
+					template:"press load button"
+				},
+				{
+					view:"toolbar", 
+                    id:"SubBar",
+					type:"SubBar", 
+					elements:[
+						{ view:"label", label: "Template view", align:'left'},
+						{ view:"button", label: "Load UI", id:"loadUI", align:'right' ,click:"load_view"}
+					]
+				}
+			]
+		});
+		
+		
+	
+		function load_view(){
+			dhx.ajax("config.json", function(text){
+				dhx.ui(dhx.DataDriver.json.toObject(text), $$('top'));
+			});
+		}
+		</script>
+	</body>
+</html>

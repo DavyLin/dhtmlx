@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" href="../codebase/default.css" type="text/css" media="screen" title="no title" charset="utf-8"><title>
+    visualdesigner:designer_form:design_principles    [DHX documentation]
+  </title></head>
+
+<body>
+<div class="dokuwiki">
+  
+  <div class="stylehead">
+
+    <div class="header">
+    <a class="logo" href="http://dhtmlx.com" title="DHTMLX Home Page"></a>
+    <span class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</span>
+
+    <div class="search-field">
+        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>    </div>
+        <div class="buttons">
+                <a class="doc"></a>
+                <a title="DHTMLX Samples homepage" href="../samples.html" class="sample"/></a>
+        </div>
+     <!-- <div class="pagename">
+        [[<a href="#"  title="Backlinks">visualdesigner:designer_form:design_principles</a>]]
+      </div>
+      <div class="logo">
+        <a href="/dhtmlx/docs/doku.php"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[H]">DHX documentation</a>      </div>
+
+      <div class="clearer"></div>-->
+        
+    </div>
+
+    
+<!--   <div class="bar" id="bar__top">
+      <div class="bar-left" id="bar__topleft">
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>        <form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>      </div>
+
+      <div class="bar-right" id="bar__topright">
+        <form class="button btn_recent" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="recent" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Recent changes" class="button" accesskey="r" title="Recent changes [R]" /></div></form>        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>&nbsp;
+      </div>
+
+      <div class="clearer"></div>
+    </div> -->
+
+<!--        <div class="breadcrumbs">
+      <span class="bchead">Trace:</span> <span class="bcsep">&raquo;</span> <span class="curid"><a href="/dhtmlx/docs/doku.php?id=visualdesigner:designer_form:design_principles"  class="breadcrumbs" title="visualdesigner:designer_form:design_principles">design_principles</a></span>    </div>
+    -->
+
+    
+  </div>
+  
+  
+  <div class="page">
+    <!-- wikipage start -->
+    <!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="#general_design_principles" class="toc">General design principles</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="#adding_the_needed_controls" class="toc">Adding the needed controls</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#setting_properties" class="toc">Setting properties</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#configuring_form_through_properties_pane" class="toc">Configuring form through Properties pane</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#configuring_form_through_toolbar_s_items" class="toc">Configuring form through toolbar&#039;s items</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="#saving_the_configuration" class="toc">Saving the configuration</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<p>
+<div class='backlinks'><div class='backlink last_backlink'><img src="icons___file.gif"  class="media" alt="" /><a href="../index.html" class="wikilink1" title="start">Index</a></div><div class='arrow'></div><div class='backlink last_backlink'><img src="icons___file.gif"  class="media" alt="" /><a href="index.html" class="wikilink1" title="visualdesigner:toc">DHTMLX Designer</a></div><div class='arrow'></div><div class='backlink'><a href="visualdesigner___designer_form.html" class="wikilink1" title="visualdesigner:designer_form">Form designer</a></div></div>
+
+</p>
+
+<h1><a name="general_design_principles" id="general_design_principles">General design principles</a></h1>
+<div class="level1">
+
+<p>
+Form designing can be divided into 3 stages:
+</p>
+<ol>
+<li class="level1"><div class="li"> Adding the needed controls.</div>
+</li>
+<li class="level1"><div class="li"> Setting their properties.</div>
+</li>
+<li class="level1"><div class="li"> Saving the configuration.</div>
+</li>
+</ol>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="116-293" /><input type="hidden" name="rev" value="1310062355" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Edit" class="button" title="General design principles" /></div></form></div>
+<h2><a name="adding_the_needed_controls" id="adding_the_needed_controls">Adding the needed controls</a></h2>
+<div class="level2">
+
+<p>
+To add controls to form you should simply drag and drop them from the <strong>Controls pane</strong> onto your workspace.
+</p>
+
+<p>
+<img src="designer___designer_1.30_form_step_1.png"  class="media" alt="" />
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="294-488" /><input type="hidden" name="rev" value="1310062355" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Edit" class="button" title="Adding the needed controls" /></div></form></div>
+<h2><a name="setting_properties" id="setting_properties">Setting properties</a></h2>
+<div class="level2">
+
+<p>
+The form can be configured in 2 ways:
+</p>
+<ul>
+<li class="level1"><div class="li"> through <strong>Properties pane</strong>.</div>
+</li>
+<li class="level1"><div class="li"> through <strong>Toolbar</strong>&#039;s items.</div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="489-623" /><input type="hidden" name="rev" value="1310062355" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Edit" class="button" title="Setting properties" /></div></form></div>
+<h3><a name="configuring_form_through_properties_pane" id="configuring_form_through_properties_pane">Configuring form through Properties pane</a></h3>
+<div class="level3">
+
+<p>
+To start configure a control, select it in the <strong>Workspace</strong> and its properties start to display in the <strong>Properties pane</strong>. Once visible in the <strong>Properties pane</strong>, these values can be edited.
+</p>
+
+<p>
+<img src="designer___designer_1.30_form_step_2_1.png"  class="media" alt="" />
+</p>
+
+<p>
+<div class='dhx_note'><div class='dhx_note_img'>&nbsp;</div>
+Click a control to select it. The selected item is highlighted.
+</div>
+</p>
+
+<p>
+To set the same property for all the controls placed onto the workspace you should open <strong>Globals</strong> tab.<br/>
+ The value specified in <strong>Globals</strong> tab can be changed for a single control, i.e. when you define a property in <strong>Properties</strong> tab, the value defined for the same property of the control in the <strong>Globals</strong> pane will be ignored. But just for this control. It continues to work for other controls placed onto  the workspace.<br/>
+ <br/>
+ <img src="designer___designer_1.30_form_step_2_2.png"  class="media" alt="" /> 
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="624-1479" /><input type="hidden" name="rev" value="1310062355" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Edit" class="button" title="Configuring form through Properties pane" /></div></form></div>
+<h3><a name="configuring_form_through_toolbar_s_items" id="configuring_form_through_toolbar_s_items">Configuring form through toolbar&#039;s items</a></h3>
+<div class="level3">
+
+<p>
+In addition to <strong>Property pane</strong> you can use the <strong>Toolbar</strong>&#039;s buttons <strong>Alignment</strong>, <strong>Distance</strong> to configure controls. Alignment and distance settings can be applied to several controls at a time.
+</p>
+
+<p>
+<div class='dhx_note'><div class='dhx_note_img'>&nbsp;</div>
+ To select several controls, drag the mouse cursor across elements with 
+the left button held down until the area you want defined is selected. Let up 
+on the button and the controls placed in this area will be selected.
+</div>
+
+</p>
+
+</div>
+
+<h4><a name="setting_alignment" id="setting_alignment">Setting alignment</a></h4>
+<div class="level4">
+
+<p>
+To set alignment of the control(s):
+</p>
+<ul>
+<li class="level1"><div class="li"> Select elements you want to align.</div>
+</li>
+<li class="level1"><div class="li"> Click the button <img src="designer___designer_1.30_alignment_button.png"  class="media" alt="" />. </div>
+</li>
+<li class="level1"><div class="li"> In the opened dropdown menu select the desired item.</div>
+</li>
+</ul>
+
+<p>
+<img src="designer___designer_1.30_form_step_2_3_.png"  class="media" alt="" />
+
+</p>
+
+</div>
+
+<h4><a name="setting_the_same_distance_between_controls" id="setting_the_same_distance_between_controls">Setting the same distance between controls</a></h4>
+<div class="level4">
+
+<p>
+To set the same distance between controls:
+</p>
+<ul>
+<li class="level1"><div class="li"> Select the needed elements.</div>
+</li>
+<li class="level1"><div class="li"> Click the button <img src="designer___designer_1.30_distance_button.png"  class="media" alt="" />. </div>
+</li>
+<li class="level1"><div class="li"> In the opened dropdown menu select the desired item.</div>
+</li>
+</ul>
+
+<p>
+<img src="designer___designer_1.30_form_step_2_4_.png"  class="media" alt="" />
+
+</p>
+
+</div>
+
+<h4><a name="deleting_added_elements" id="deleting_added_elements">Deleting added elements</a></h4>
+<div class="level4">
+
+<p>
+To delete an element already added to form:
+</p>
+<ul>
+<li class="level1"><div class="li"> Select an element you want to delete.</div>
+</li>
+<li class="level1"><div class="li"> Click the button <img src="designer___designer_1.30_delete_button.png"  class="media" alt="" />. </div>
+</li>
+<li class="level1"><div class="li"> After you click the button, a confirm window will appear.<br/>
+ <br/>
+ <img src="designer___designer_1.30_confirm_window.png"  class="media" alt="" /></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> In the confirm window, click <strong>OK</strong> to confirm the operation or <strong>Cancel</strong> to cancel it.</div>
+</li>
+</ul>
+
+<p>
+<img src="designer___designer_1.30_form_deletion1.png"  class="media" alt="" />
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="1480-2989" /><input type="hidden" name="rev" value="1310062355" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Edit" class="button" title="Configuring form through toolbar's items" /></div></form></div>
+<h2><a name="saving_the_configuration" id="saving_the_configuration">Saving the configuration</a></h2>
+<div class="level2">
+
+<p>
+To save the configuration, click the button <img src="designer___designer_1.30_save_button.png"  class="media" alt="" /> from the <strong>Toolbar</strong>.<br/>
+
+If you want to cancel all made actions  - just close the window by clicking the button <img src="designer___designer_1.30_close_button.png"  class="media" alt="" />.
+</p>
+
+<p>
+<img src="designer___designer_1.30_form_saving.png"  class="media" alt="" />
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="2990-" /><input type="hidden" name="rev" value="1310062355" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Edit" class="button" title="Saving the configuration" /></div></form></div>
+    <!-- wikipage stop -->
+  </div>
+
+  <div class="clearer">&nbsp;</div>
+
+  
+  <div class="stylefoot">
+
+    <div class="meta">
+      <div class="user">
+              </div>
+     <!-- <div class="doc">
+        visualdesigner/designer_form/design_principles.txt &middot; Last modified: 2011/07/07 21:12 by 192.168.1.110      </div>
+    </div>-->
+
+   
+    <!--<div class="bar" id="bar__bottom">-->
+      <!--<div class="bar-left" id="bar__bottomleft">-->
+        <!--<form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>-->
+        <!--<form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>-->
+      <!--</div>-->
+      <!--<div class="bar-right" id="bar__bottomright">-->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!--<form class="button btn_index" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="index" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Index" class="button" accesskey="x" title="Index [X]" /></div></form>-->
+        <!--<a class="nolink" href="#dokuwiki__top"><input type="button" class="button" value="Back to top" onclick="window.scrollTo(0, 0)" title="Back to top" /></a>&nbsp;-->
+      <!--</div>-->
+      <!--<div class="clearer"></div>-->
+    <!--</div>-->
+
+  </div>
+
+  
+
+</div>
+
+<div class="footerinc">
+
+
+</div>
+
+<div class="no"><img src="/dhtmlx/docs/lib/exe/indexer.php?id=visualdesigner%3Adesigner_form%3Adesign_principles&amp;1310566279" width="1" height="1" alt=""  /></div>
+     <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright © 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="visualdesigner:designer_form:design_principles" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>    	    </div>
+</body>
+</html>

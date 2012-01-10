@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Window initialization</title>
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+<body>
+	
+	
+	<script>
+	
+		dhx.ui({
+			view:"window",
+			body:"Movable",
+			head:{
+				view:"toolbar", type:"MainBar", elements:[
+					{view:"label", label: "Backpackr", align:'left'}
+				]
+			},
+			top:20, left:20,
+			move:true
+		});	
+			
+		dhx.ui({
+			view:"window",
+			body:{
+				id:"win2",
+				template:"Fixed"
+			},
+			head:{
+				view:"toolbar", type:"MainBar", elements:[
+					{view:"label", label: "Backpackr", align:'left'},
+					{ view:"button", label: 'Save', align: 'right'}
+				]
+			},
+			top:20, left:420
+		});			
+		
+
+		
+	</script>
+
+</body>
+</html>
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		 <meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">		
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+       
+		<script type="text/javascript" charset="utf-8">
+dhx.ready(function() {
+	
+	dhx.protoUI({
+		name:"activeList"
+	}, dhx.ui.list, dhx.ActiveContent);
+
+    dhx.ui({
+       
+        rows: [
+        {
+            cols: [
+            {
+                view: "activeList",
+                id: "mylist3",
+                data:[ { title:"On", toggleButton:"on"},{ title:"Off", toggleButton:"off"},{ title:"On", toggleButton:"on"} ],
+                activeContent:{
+                	toggleButton:{
+                		view:"toggle",
+                		options:["on","off"],
+                		width:180
+                	}, 
+                },
+                template: "<div style='float:right'>{common.toggleButton()}</div> #title#",
+                type: {
+                    width: "auto",
+                    height:32
+                },
+                select:false
+            },
+            {
+                view: "activeList",
+                id: "mylist4",
+                data:[ { id:"t1", title:"one", counterButton:1},{ title:"two", counterButton:2},{ title:"three", counterButton:3} ],
+                activeContent:{
+                	counterButton:{
+                		view:"counter",
+                		min:0, max:10,
+                		width:180
+                	}, 
+                },
+                template: "<div style='float:right'>{common.counterButton()}</div> #title#",
+                type: {
+                    width: "auto",
+                    height:32
+                },
+                select:false
+            }]
+        }]
+    });
+
+		
+});
+
+					
+			
+			
+			
+		</script>
+	</body>
+</html>

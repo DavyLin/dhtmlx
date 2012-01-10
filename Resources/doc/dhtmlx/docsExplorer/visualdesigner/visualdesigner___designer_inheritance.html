@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" href="../codebase/default.css" type="text/css" media="screen" title="no title" charset="utf-8"><title>
+    visualdesigner:designer_inheritance    [DHX documentation]
+  </title></head>
+
+<body>
+<div class="dokuwiki">
+  
+  <div class="stylehead">
+
+    <div class="header">
+    <a class="logo" href="http://dhtmlx.com" title="DHTMLX Home Page"></a>
+    <span class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</span>
+
+    <div class="search-field">
+        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>    </div>
+        <div class="buttons">
+                <a class="doc"></a>
+                <a title="DHTMLX Samples homepage" href="../samples.html" class="sample"/></a>
+        </div>
+     <!-- <div class="pagename">
+        [[<a href="#"  title="Backlinks">visualdesigner:designer_inheritance</a>]]
+      </div>
+      <div class="logo">
+        <a href="/dhtmlx/docs/doku.php"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[H]">DHX documentation</a>      </div>
+
+      <div class="clearer"></div>-->
+        
+    </div>
+
+    
+<!--   <div class="bar" id="bar__top">
+      <div class="bar-left" id="bar__topleft">
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>        <form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>      </div>
+
+      <div class="bar-right" id="bar__topright">
+        <form class="button btn_recent" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="recent" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Recent changes" class="button" accesskey="r" title="Recent changes [R]" /></div></form>        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>&nbsp;
+      </div>
+
+      <div class="clearer"></div>
+    </div> -->
+
+<!--        <div class="breadcrumbs">
+      <span class="bchead">Trace:</span> <span class="bcsep">&raquo;</span> <span class="curid"><a href="/dhtmlx/docs/doku.php?id=visualdesigner:designer_inheritance"  class="breadcrumbs" title="visualdesigner:designer_inheritance">designer_inheritance</a></span>    </div>
+    -->
+
+    
+  </div>
+  
+  
+  <div class="page">
+    <!-- wikipage start -->
+    <!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="#general_principles" class="toc">General principles</a></span></div>
+<ul class="toc">
+<li class="clear">
+
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#step_1._designing_starts_from_main_layout" class="toc">Step 1. Designing starts from &#039;Main layout&#039;.</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_2._adding_the_desired_elements" class="toc">Step 2. Adding the desired elements.</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_3._configuring_the_elements" class="toc">Step 3. Configuring the elements</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_4._saving_your_design" class="toc">Step 4. Saving your design</a></span></div></li></ul>
+</li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<p>
+<div class='backlinks'><div class='backlink last_backlink'><img src="icons___file.gif"  class="media" alt="" /><a href="../index.html" class="wikilink1" title="start">Index</a></div><div class='arrow'></div><div class='backlink last_backlink'><a href="/dhtmlx/docs/doku.php?id=visualdesigner:toc" class="media" title="visualdesigner:toc"></a><a href="index.html" class="wikilink1" title="visualdesigner:toc">DHTMLX Designer</a></div></div>
+
+</p>
+
+<h1><a name="general_principles" id="general_principles">General principles</a></h1>
+<div class="level1">
+
+<p>
+In this chapter you&#039;ll find out general principles of building design (inheritance and disposal of components).
+</p>
+
+<p>
+<strong>The main building ground of your design is <a href="visualdesigner___designer_componenttree.html" class="wikilink1" title="visualdesigner:designer_componenttree">Components tree</a>. Exactly there you add and delete elements of the design.
+</strong>
+<div class='dhx_note'><div class='dhx_note_img'>&nbsp;</div>
+Please note, to see the changes you need to refresh a view. We recommend to use auto-refresh, so that a view is refreshed after each change automatically.
+</div>
+<br/>
+
+Shortly, designing consists of four stages:
+</p>
+<ol>
+<li class="level1"><div class="li"> Setting the scheme of &#039;Main layout&#039;.</div>
+</li>
+<li class="level1"><div class="li"> Adding the needed elements.</div>
+</li>
+<li class="level1"><div class="li"> Configuring the elements.</div>
+</li>
+<li class="level1"><div class="li"> Saving the design.</div>
+</li>
+</ol>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="58-711" /><input type="hidden" name="rev" value="1310063071" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Edit" class="button" title="General principles" /></div></form></div>
+<h3><a name="step_1._designing_starts_from_main_layout" id="step_1._designing_starts_from_main_layout">Step 1. Designing starts from &#039;Main layout&#039;.</a></h3>
+<div class="level3">
+
+<p>
+ <br/>
+ It&#039;s a mandatory component and can&#039;t be deleted. But you can set for it any scheme you wish (by default, 3U scheme).
+</p>
+
+<p>
+<img src="designer___designer_1.30_step_1.png"  class="media" alt="" />
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="712-929" /><input type="hidden" name="rev" value="1310063071" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Edit" class="button" title="Step 1. Designing starts from 'Main layout'." /></div></form></div>
+<h3><a name="step_2._adding_the_desired_elements" id="step_2._adding_the_desired_elements">Step 2. Adding the desired elements.</a></h3>
+<div class="level3">
+
+<p>
+From all the DHTMLX components we should single out a little group of items that differ from all others. These are  container components which intend for disposal other components into them.
+They are:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../dhtmlxlayout/index.html" class="wikilink1" title="dhtmlxlayout:toc">layout</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../dhtmlxaccordion/index.html" class="wikilink1" title="dhtmlxaccordion:toc">accordion</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../dhtmlxtabbar/index.html" class="wikilink1" title="dhtmlxtabbar:toc">tabbar</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../dhtmlxwindows/index.html" class="wikilink1" title="dhtmlxwindows:toc">window</a> (available from <strong>Popups</strong> root)</div>
+</li>
+</ul>
+
+<p>
+
+<strong>The inheritance chain of the tree has four basic nesting levels:</strong>
+</p>
+
+<p>
+<img src="designer___inheritancechain.png"  class="media" alt="" />
+
+</p>
+<ul>
+<li class="level1"><div class="li"> container components can be nested one into another. So, in the inheritance chain can be several container components with the appropriate constituent parts.</div>
+</li>
+<li class="level1"><div class="li"> constituent parts of common components can have its own constituent parts. So, in the inheritance chain these blocks can also be repeated.</div>
+</li>
+</ul>
+
+<p>
+
+<img src="designer___designer_1.30_step_2.png"  class="media" alt="" />
+</p>
+
+<p>
+There are 2 ways to add component of the same or of the lower nesting level: <a href="visualdesigner___designer_adding.html" class="wikilink1" title="visualdesigner:designer_adding">through pop-up context menu</a> and <a href="visualdesigner___designer_adding.html" class="wikilink1" title="visualdesigner:designer_adding">through controls of the &#039;Components tree&#039;</a>.
+</p>
+
+<p>
+<div class='dhx_note'><div class='dhx_note_img'>&nbsp;</div>
+If you need to add pop-up elements, such as window or context menu, right click the root element 'Popups' and select the desired item.
+</div>
+<br/>
+
+<br/>
+
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="930-2281" /><input type="hidden" name="rev" value="1310063071" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Edit" class="button" title="Step 2. Adding the desired elements." /></div></form></div>
+<h3><a name="step_3._configuring_the_elements" id="step_3._configuring_the_elements">Step 3. Configuring the elements</a></h3>
+<div class="level3">
+
+<p>
+By that we mean to <a href="visualdesigner___designer_configuration.html" class="wikilink1" title="visualdesigner:designer_configuration">set their properties to the desired values</a> and <a href="visualdesigner___designer_events.html" class="wikilink1" title="visualdesigner:designer_events">add the appropriate event handlers</a> from the <a href="visualdesigner___designer_propertypane.html" class="wikilink1" title="visualdesigner:designer_propertypane">Properties/events pane</a>.
+</p>
+
+<p>
+<img src="designer___designer_1.30_step_3.png"  class="media" alt="" />
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="2282-2618" /><input type="hidden" name="rev" value="1310063071" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Edit" class="button" title="Step 3. Configuring the elements" /></div></form></div>
+<h3><a name="step_4._saving_your_design" id="step_4._saving_your_design">Step 4. Saving your design</a></h3>
+<div class="level3">
+
+<p>
+At this point, you should <a href="visualdesigner___designer_saving.html" class="wikilink1" title="visualdesigner:designer_saving">save your design as .zip file</a> for further usage in your app.<br/>
+
+<a href="visualdesigner___designer_saving.html" class="wikilink1" title="visualdesigner:designer_saving">Save it to local storage</a> too, if you may need to use this design in <strong>Designer</strong> later.
+
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="2619-" /><input type="hidden" name="rev" value="1310063071" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Edit" class="button" title="Step 4. Saving your design" /></div></form></div>
+    <!-- wikipage stop -->
+  </div>
+
+  <div class="clearer">&nbsp;</div>
+
+  
+  <div class="stylefoot">
+
+    <div class="meta">
+      <div class="user">
+              </div>
+     <!-- <div class="doc">
+        visualdesigner/designer_inheritance.txt &middot; Last modified: 2011/07/07 21:24 by 192.168.1.110      </div>
+    </div>-->
+
+   
+    <!--<div class="bar" id="bar__bottom">-->
+      <!--<div class="bar-left" id="bar__bottomleft">-->
+        <!--<form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>-->
+        <!--<form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>-->
+      <!--</div>-->
+      <!--<div class="bar-right" id="bar__bottomright">-->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!--<form class="button btn_index" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="index" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Index" class="button" accesskey="x" title="Index [X]" /></div></form>-->
+        <!--<a class="nolink" href="#dokuwiki__top"><input type="button" class="button" value="Back to top" onclick="window.scrollTo(0, 0)" title="Back to top" /></a>&nbsp;-->
+      <!--</div>-->
+      <!--<div class="clearer"></div>-->
+    <!--</div>-->
+
+  </div>
+
+  
+
+</div>
+
+<div class="footerinc">
+
+
+</div>
+
+<div class="no"><img src="/dhtmlx/docs/lib/exe/indexer.php?id=visualdesigner%3Adesigner_inheritance&amp;1310566282" width="1" height="1" alt=""  /></div>
+     <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright © 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="visualdesigner:designer_inheritance" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>    	    </div>
+</body>
+</html>

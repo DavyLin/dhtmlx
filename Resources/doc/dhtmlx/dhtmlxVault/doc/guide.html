@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>DHTML Vault v.1.6 guide and samples</title>
+</head>
+
+<body>
+<style>
+	body {font-size:14px;line-height:18px;}
+	.{font-family:arial;}
+	h2 {cursor:pointer;font-size:20px;margin:30px 0px 40px 5px;line-height:10px}
+	h3 {cursor:pointer;font-weight:normal;color:black;text-decoration:underline;line-height:10px}
+	h4 {cursor:pointer;font-weight:normal;color:black;text-decoration:underline;line-height:10px}
+	h5{
+		font-weight:bold;color:green;
+		margin:5px;
+	}
+	h6{
+		font-weight:bold;color:gray;
+		margin:0px;
+	}
+	a h4{
+		color:blue;
+		font-weight:bold;
+	}
+	.op {cursor:pointer;}
+	div.block {margin-left:5px;}
+	xmp {color:green;font-size:12px;margin:0px;font-family:courier;background-color:#e6e6fa;padding:2px}
+	li {margin-top:2px;}
+	span.important {font-weight:bold;color:maroon;}
+	sup {color:#ff0000;font-size:9pt}
+</style>
+<h2><a href="http://dhtmlx.com/docs/products/dhtmlxVault/index.shtml" target="_top" title="Visit javascript uploader home page">dhtmlXVault</a> Guide and Samples</h2>
+<div class="block">
+<!---  --->
+	<a name="mf"><h3 >Main features</h3
+	></a><div style="display:show" class="block">
+		<li>Multibrowser/Multiplatform support (Windows, Linux, MacOS)</li>
+		<li>Progress bar indicator while uploading </li>
+		<li>Full control with JavaScript</li>
+		<li>ASP.NET support</li>
+		<li>JSP support</li>
+		<li>Perl support</li>
+		<br/>And new:<br/>
+		<li>PHP support (with progress bar)<sup>new</sup></li>
+		<li>Ability to control the number of uploaded files<sup>new</sup></li>
+		<li>Ability to check file types (extensions)<sup>new</sup></li>
+		<li>Callback events for better integration with DhtmlXSuite<sup>new</sup></li>
+		<li>Add custom form fields<sup>new</sup></li>
+		<li>Localization for text Labels<sup>new</sup></li>
+		<li>Theme Sky Blue<sup>new</sup></li>
+	</div>
+	
+	<a name="browsers"><h3 >Supported browsers</h3
+	></a><div style="display:show" class="block">
+		<li>IE 5.x and above</li>
+		<li>Mozilla 1.4 and above</li>
+		<li>Firefox 0.9 and above</li>
+		<li>Safari 4</li>
+		<li>Google Chrome</li>
+		<li>Opera 10</li>
+	</div>
+
+	<a name="contact"><h3 >Contact information</h3
+	></a><div style="display:show" class="block">
+	Please post your comments and questions to <a href="mailto:info@dhtmlx.com?subject=dhtmlXVault">info@dhtmlx.com</a>
+	</div>
+
+	<h3 >Working with dhtmlXVault</h3
+	><div style="display:show" class="block">
+	You can see the example code in our /samples folder. Simply copy those files to the root folder of your web server (together with /codebase folder) and run them.
+<!--- Initialize object on page --->
+		<a name="init"><h4 >Initialize object on page</h4
+		></a><div class="block">
+<XMP>
+<div id="vaultDiv"></div>
+<script>
+	vault=new dhtmlXVaultObject();
+            vault.setImagePath("codebase/imgs/");
+            vault.setServerHandlers("UploadHandler.php",
+                                    "GetInfoHandler.php",
+                                    "GetIdHandler.php");
+            vault.create("vaultDiv");
+</script>
+</XMP>
+		As you may see, it is pretty easy to initialize the Vault on your page.<br>
+		You only pass your div identifier (it should be created before the call) in "create()" method, and that will build the control for you.
+
+
+		</div>
+
+		<a name="ServerHandlers"><h4>Server Handlers description</h4
+		></a><div class="block">
+		<li>Upload handler - it is the main upload handler. It should parse the request (multipart-form data) and store file on server.
+			<br>Also, it is gathering progress information and stores it in Application or Session context, so the next handler can read it.
+		<li>GetInfo handler - this handler aimed to return progress information (as percent uploaded).
+			<br>It receives "sessionId" parameter as a unique File Transfer identifier, so concurrent uploading is possible.
+		<li>GetId handler - this handler is called once per upload, to get a unique File Transfer Id.
+			<br>This value is used later to read the upload progress information.
+		</div>
+
+
+		<a name="FilesLimit"><h4>Control the number of uploaded files</h4
+		></a><div class="block">
+		Use <i>setFilesLimit(count)</i> method.<br/>
+		The code below will set files limit to 1, so user will be able to upload one and only one file.
+		When he chooses one file, the "Add" button is disabled.
+<XMP>
+<div id="vaultDiv"></div>
+<script>
+	vault=new dhtmlXVaultObject();
+            vault.setImagePath("codebase/imgs/");
+            vault.setServerHandlers("UploadHandler.php",
+                                    "GetInfoHandler.php",
+                                    "GetIdHandler.php");
+
+            vault.setFilesLimit(1);
+
+            vault.create("vaultDiv");
+</script>
+</XMP>
+		If you want to set it to unlimited, use the 0 (zero) count value - <i>vault.setFilesLimit(0)</i>.
+		</div>
+
+
+		<a name="FileTypes"><h4>Check file types</h4
+		></a><div class="block">
+		Use <i>onAddFile</i> event handler to check file extension.<br/>
+
+<XMP>
+<div id="vaultDiv"></div>
+<script>
+	vault=new dhtmlXVaultObject();
+            vault.setImagePath("codebase/imgs/");
+            vault.setServerHandlers("UploadHandler.php",
+                                    "GetInfoHandler.php",
+                                    "GetIdHandler.php");
+
+            vault.onAddFile = function(fileName) {
+                var ext = this.getFileExtension(fileName);
+                if (ext != "txt" && ext != "doc") {
+                    alert("You may upload only text documents (txt, doc). Please retry.");
+                    return false;
+                } else return true;
+            };
+
+            vault.create("vaultDiv");
+</script>
+</XMP>
+		If the handler function returns <i>false</i>, this file is not added to the list and will not be uploaded.
+		</div>
+
+		<a name="OnUploadComplete"><h4>On upload complete</h4
+		></a><div class="block">
+		Use <i>onUploadComplete</i> event handler to update your DhtmlX controls or check the upload status.<br/>
+<XMP>
+<div id="vaultDiv"></div>
+<script>
+	vault=new dhtmlXVaultObject();
+            vault.setImagePath("codebase/imgs/");
+            vault.setServerHandlers("UploadHandler.php",
+                                    "GetInfoHandler.php",
+                                    "GetIdHandler.php");
+
+            vault.onUploadComplete = function(files) {
+                var s="";
+                for (var i=0; i<files.length; i++) {
+                    var file = files[i];
+                    s += ("id:" + file.id + ",name:" + file.name + ",uploaded:" + file.uploaded + ",error:" + file.error)+"\n";
+                }
+                alert(s);
+            };
+
+            vault.create("vaultDiv");
+</script>
+</XMP>
+		The handler is called with <i>files</i> array as an argument. It contains <i>file</i> objects with the following properties:
+<XMP>
+	file = {
+		id: "1",
+		name: "file.name",
+		uploaded: true/false,
+		error: true/false
+	};
+</XMP>
+                <i>uploaded</i> is <i>true</i> if the file was successfully uploaded.
+		If error happened during upload, <i>error</i> property will be <i>true</i> and the upload will stop.
+		</div>
+
+		<a name="OnEveryFile"><h4>On every file</h4
+		></a><div class="block">
+		Use <i>onFileUploaded</i> event handler to react on every particular file uploaded.<br/>
+		The handler is called with <i>file</i> object as an argument.
+<XMP>
+<div id="vaultDiv"></div>
+<script>
+	vault=new dhtmlXVaultObject();
+            vault.setImagePath("codebase/imgs/");
+            vault.setServerHandlers("UploadHandler.php",
+                                    "GetInfoHandler.php",
+                                    "GetIdHandler.php");
+
+            vault.onFileUploaded = function(file) {
+                alert("id:" + file.id + ",name:" + file.name + ",uploaded:" + file.uploaded + ",error:" + file.error);
+            };
+
+            vault.create("vaultDiv");
+</script>
+</XMP>
+		</div>
+
+		<a name="FormFields"><h4>Add custom form fields</h4
+		></a><div class="block">
+		Use <i>setFormField(fieldName,value)</i> method to add your own fields to the form.<br/>
+		You can call this method only <u>after</u> the <i>create()</i> method, when the object is instantiated on the page.<br/>
+		You may call this method with value <i>null</i> to remove corresponding field from the form.
+<XMP>
+<div id="vaultDiv"></div>
+<script>
+	vault=new dhtmlXVaultObject();
+            vault.setImagePath("codebase/imgs/");
+            vault.setServerHandlers("UploadHandler.php",
+                                    "GetInfoHandler.php",
+                                    "GetIdHandler.php");
+            vault.create("vaultDiv");
+
+            vault.setFormField("customerId", "PS104");
+            vault.setFormField("country", "UK");
+
+            vault.setFormField("groupId", null);  // will remove this field from the form
+</script>
+</XMP>
+		</div>
+
+		<a name="Localize"><h4>Localize text labels</h4
+		></a><div class="block">
+		Use <i>vault.strings</i> collection to replace english labels with your localized equivalents.<br/>
+
+<XMP>
+<div id="vaultDiv"></div>
+<script>
+	vault=new dhtmlXVaultObject();
+            vault.setImagePath("codebase/imgs/");
+            vault.setServerHandlers("UploadHandler.php",
+                                    "GetInfoHandler.php",
+                                    "GetIdHandler.php");
+
+            // Translate to German
+	    vault.strings.remove = "Entfernen"; // Remove
+	    vault.strings.done = "Fertig";      // Done
+	    vault.strings.error = "Fehler";     // Error
+
+            vault.strings.btnAdd = "Add file";
+            vault.strings.btnUpload = "Upload";
+            vault.strings.btnClean = "Clean";
+            vault.strings.errors["TooBig"] = "File is too big ({0} bytes).\nMax allowed size is {1}.";
+	    vault.strings.errors["PostSize"] = "Undefined server error. Possible issues:\n"+
+		"- Unicode file name incorrectly processed by the server;\n"+
+		"- File size is bigger than server's post-request limit ({0}).";
+
+            vault.create("vaultDiv");
+</script>
+</XMP>
+		You may replace the following labels:
+<XMP>
+	vault.strings = {
+		remove: "Remove",
+		done: "Done",
+		error: "Error",
+
+		btnAdd: "Add file",
+		btnUpload: "Upload",
+		btnClean: "Clean"
+	};
+
+	vault.strings.errors = {
+		"TooBig": "File is too big ({0} bytes).\nMax allowed size is {1}.",
+		"PostSize": "Undefined server error. Possible issues:\n"+
+			"- Unicode file name incorrectly processed by the server;\n"+
+			"- File size is bigger than server's post-request limit ({0})."
+	};
+
+</XMP>
+		</div>
+</div>
+
+	<h3>Running dhtmlXVault on different Servers</h3
+	><div style="display:show" class="block">
+
+		<a name="runASP"><h4>ASP.Net</h4
+		></a><div class="block">
+		To run this sample, create a new virtual directory in your IIS, call it "vault" and point to our "/handlers/aspx/" folder.<br/>
+		Copy over /codebase folder to the same location.<br/>
+		Check that it uses ASP.Net version 2.0 framework (use "Properties" menu, then the "ASP.Net" tab).
+		<br />
+		You can specify upload folder in the "UploadHandler.ashx",
+		by default it is:
+<XMP>
+    FileProcessor fp = new FileProcessor(@"c:\upload\");
+</XMP>
+        Check that this folder has write (or Full) permissions.<br />
+        </div>	
+	
+		<a name="runJSP"><h4>JSP/Java</h4
+		></a><div class="block">
+		To run this sample, copy our "/handlers/jsp" folder to your Tomcat webapp root.<br/>
+		Copy over /codebase folder to the same location.<br/>
+		You can specify upload folder in the "UploadHandler.jsp",
+		by default it is:
+<XMP>
+    String uploadFolder = "c:\\upload\\";
+</XMP>
+        Check that this folder has write (or Full) permissions.<br />
+        We use in this sample Apache's "commons-fileupload" library extended with our own "ProgressMonitorFileItemFactory".
+        Those libraries reside on "WEB-INF\lib" and should go to your application's WEB-INF folder respectively.
+        </div>	
+
+		<a name="runPHP"><h4>PHP</h4
+		></a><div class="block">
+		To run this sample, copy our "/handlers/php" folder to your Apache htdocs.<br />
+		Copy over /codebase folder to the same location.<br/>
+		You can specify upload folder in the "UploadHandler.php",
+		by default it is:
+<XMP>
+    $target_path = 'c:\\upload\\';
+</XMP>
+        Check that this folder has write (or Full) permissions.
+
+        <br/><br/>
+	To see the progress bar, PHP version 5.2.x is required and PECL "uploadprogress" module be installed: <a href="http://pecl.php.net/package/uploadprogress" target="_blank">http://pecl.php.net/package/uploadprogress</a>.<br/>
+	If you have some problems with this module on Windows (it's rather difficult to find a working dll on their site), you may use the dll located in /handlers/php_PECL_windows_dll.
+	Do not forget to define the following property in your php.ini: uploadprogress.file.filename_template = "C:\php\temp\upload_prog_%s.txt".
+	This file will store a temporary uploading info for "uploadprogress", and should be write enabled by your apache user.
+
+	<br/>
+        If you cannot use this extension, you may use Vault with simple uploading indicator from /handlers/php_simple, or <a href="#runPerl">Perl</a> CGI scripts instead.
+
+	<br/><br/>
+        You may also need to modify your "php.ini" file with the following settings:
+<XMP>
+upload_tmp_dir = "c:\\upload\\uploadtemp"
+upload_max_filesize = 500M
+post_max_size = 508M
+max_execution_time = 900
+max_input_time = 900
+</XMP>
+	We check the "upload_max_filesize" property (in GetInfoHandler.php script), and provide an error message back to the user, with id "TooBig". The upload is cancelled.
+	You may customize/<a href="#Localize">translate</a> message text.
+	<br/>If the file uploaded is bigger than "post_max_size",
+	then we cannot detect this case exactly, because php does not pass such a big request to our script at all. We only get a common error message and pass it to the user with id "PostSize".
+	You may translate it as well.
+        </div>	
+
+		<a name="runPerl"><h4>Perl</h4
+		></a><div class="block">
+		To run this sample, copy our "/handlers/perl" folder to your Apache htdocs/cgi-bin folder.<br />
+		Copy over /codebase folder to htdocs root folder.<br/>
+		Do not forget to modify the top line in each perl file, set your own path to perl executable:
+<XMP>
+#!D:/Perl/bin/perl.exe -w
+</XMP>
+        "upload_settings.inc" file contains path information for temporary and upload folders. You may modify them on your need.
+        Check that those folders have write (or Full) permissions.
+
+        </div>	
+
+    </div>
+
+</div>
+
+<p>
+<h6>Version/Edition: v1.6/Professional/Standard</h6>
+<h6>Required js file:dhtmlXVault.js</h6>
+
+</body>
+</html>

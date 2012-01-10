@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabbar</title>
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="STYLESHEET" type="text/css" href="demo.css">
+    <style>
+            html,body{
+                background-color:#ffffff;
+            }
+			.tb_sup{
+				font-size:10px;
+				text-shadow: none;
+				font-style:italic;
+			}
+    </style>
+    <script>
+			var config={
+                container:"groupBox",
+                rows:[
+                        {
+                            gravity:2,  
+                            view:"multiview",
+                            cells:[    
+                                { template:"Tab A data here <br>Tab A data here <br>Tab A data here <br> AAAA", id:"tabbar_1" },
+                                { template:"Tab B data here <br>Tab B data here <br>Tab B data here <br> BBBB", id:"tabbar_2" },
+                                { id:"tabbar_3", rows:[
+                                	{ view:"toolbar", elements:[
+                                		{view:'button', label:'show', click:"$$('tabbar_c_2').show()"}
+                                	]},
+	                                { view:"multiview", cells:[
+	                                	{ template:"Tab C 1", id:"tabbar_c_1" },
+	                                	{ template:"Tab C 2", id:"tabbar_c_2" }
+	                                ]}
+	                            ]}
+                            ]
+                        },
+                        { 
+                            view:"toolbar", 
+                            id:"BottomBar", type:"BigTabBar",
+                            elements:[
+                            	{ view:"tabbar", multiview:true, selected: 'tabbar_1', inputWidth:300, options: [   
+                            	    { label: 'Games', src: 'images/tabbar/games.png', value: 'tabbar_1'},
+                            	    { label: 'Video', src: 'images/tabbar/video.png', value: 'tabbar_2'},
+                            	    { label: 'Music', src: 'images/tabbar/music.png', value: 'tabbar_3'},
+                            	]},
+                            ]
+                        }    
+    				]
+            };
+            
+        dhx.ready(function(){
+            dhx.ui(config);
+        });
+        
+        
+                
+    </script>
+<body>
+
+    <div style="width:320px;height:450px;border:1px solid #969696; margin:50px;">
+		<div id="groupBox" style='width:100%; height:100%;'>
+		</div>
+	</div>
+
+</body>
+</html>
+

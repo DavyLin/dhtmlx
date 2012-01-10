@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+              <script type="text/javascript" charset="utf-8">
+ 
+	      dhx.ui({// creates a view and a popup within it
+	            height: 300,// the height of the popup
+	            view:"popup",
+	            body:{	
+				 view:"list", 
+				 id:"mylist", 
+				 url:"categories.xml", 
+				 datatype:"xml",
+			  	 template:"#name#", 
+				 select:true, 
+				 type: { width: 300 }
+		    }
+              });    
+	      </script>
+ 
+	</body>
+</html>

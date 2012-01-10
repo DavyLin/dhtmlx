@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+	<title>Alert</title>
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+<body>
+
+	
+	<script>
+	
+		dhx.ui({
+			view:"window",
+			id:"alert",
+			position:"top",
+			head:{
+					view:"toolbar", type:"MainBar",
+					elements:[{view:"label", label:"Alert"}]
+			},
+			body:{
+				type:"clean", rows:[
+				{	template:"do something"	},
+				{
+					view:"toolbar", type:"TransparentBar", 
+					elements:[
+						{view:"button", label:"Ok", click:"close"},
+						{view:"button", label:"Cancel", click:"close"}
+					]
+				}
+				]
+			}
+		});
+		
+		function close() {
+			$$("alert").hide();
+		}
+
+		
+	</script>
+
+</body>
+</html>
+

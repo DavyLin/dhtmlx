@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="dhtmlxVault v1.6" open="1" id="root" select="1">
+		<item text="Main Features" id="mf">
+			<userdata name="file">guide.html</userdata>
+		</item>
+		<item text="Supported Browsers" id="browsers">
+			<userdata name="file">guide.html</userdata>
+		</item>
+		<item text="Contact information" id="contact">
+			<userdata name="file">guide.html</userdata>
+		</item>
+		<item text="Guide" id="guide" open="1">
+			<userdata name="file">guide.html</userdata>
+			<item text="Initialize object on page" id="init"/>
+			<item text="Server Handlers description" id="ServerHandlers"/>
+			<item text="Control the number of uploaded files" id="FilesLimit"/>
+			<item text="Check file types" id="FileTypes"/>
+			<item text="On upload complete" id="OnUploadComplete"/>
+			<item text="On every file" id="OnEveryFile"/>
+			<item text="Add custom form fields" id="FormFields"/>
+			<item text="Localize text labels" id="Localize"/>
+			<item text="Running dhtmlXVault on different Servers" id="running" open="1">
+				<item text="ASP.Net" id="runASP"/>
+				<item text="JSP/Java" id="runJSP"/>
+				<item text="PHP" id="runPHP"/>
+				<item text="Perl" id="runPerl"/>
+			</item>
+		</item>
+
+
+	</item>
+</tree> 

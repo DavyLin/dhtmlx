@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<title>Template view</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		
+		<script type="text/javascript" charset="utf-8">
+		dhx.ui({
+			rows:[
+				{
+					id:"content",
+					view:"template",
+					template:"press load button",
+					waitMessage:true
+				},
+				{
+					view:"toolbar", 
+                    id:"SubBar",
+					type:"SubBar", 
+					elements:[
+						{ view:"label", label: "Template view", align:'left'},
+						{ view:"button", label: "Load page A", id:"loadA", align:'right' ,click:"load_viewA"},
+						{ view:"button", label: "Load page B", id:"loadB", align:'right' ,click:"load_viewB"}
+					]
+				}
+			]
+		});
+		
+		
+	
+		function load_viewA(){
+			$$("content").define("src","slow_data.php");
+		}
+		function load_viewB(){
+			$$("content").define("src","static.html");
+		}
+
+		</script>
+
+	</body>
+</html>

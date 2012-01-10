@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <item id="1">
+    <model> Samsung NC10 </model>
+  </item>
+  <item id="2">
+    <model> Dell Mini 10 </model>
+  </item>
+  <item id="3">
+    <model> ASUS EEEPC 1000HE </model>
+  </item>
+  <item id="4">
+    <model> Acer Aspire One </model>
+  </item>
+  <item id="5">
+    <model> MSI Wind </model>
+  </item>
+</data>

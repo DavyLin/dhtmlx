@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+		<title>Layout: ipad sample</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ui({
+				id:"top_layout", type:"wide", cols:[
+					{ view:"grouplist", url:"../list/books_tree.xml", datatype:"xml", select:true, id:"left_area",
+						type:{
+							templateItem:"#title# (#author#)",
+							templateGroup:"#title#",
+							templateBack:"&lt;-- #title#",
+							width:250
+						} 
+					},
+					{	
+						type:"clean", rows:[
+							{
+								view:"toolbar", type:"SubBar", id:"topright", visibleBatch:"h_layout", elements:[
+									{ view:"label", label: "Equipment Hire", align:'left' },
+									{ view:"button", label: 'Show List', align: 'right', popup:"popup_list", batch:"v_layout" }
+								]
+							},
+							{ type:"wide", rows:[
+								{ template:"right top" },
+								{ template:"right bottom" }
+							]}
+						]
+					}
+				]
+			});
+			
+			dhx.ui({
+				id:"popup_list",
+				view:"popup",
+				hidden:true,
+				body:{},
+				width:320, height:600
+			})
+			
+			function fix_layout(dir){
+				if (dir){
+					$$("popup_list").hide();
+					$$("topright").showBatch("h_layout");
+					dhx.ui($$("left_area"), $$("top_layout"), 0);
+				} else {
+					$$("topright").showBatch("v_layout");
+					dhx.ui($$("left_area"), $$("popup_list"));
+				} 
+			};
+			dhx.attachEvent("onRotate", fix_layout);
+			if (!dhx.ui.orientation) //vertical
+				fix_layout(false);
+				
+				
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data total_count="6">
+  <item id="1">
+    <name><![CDATA[Cell Phones & PDAs]]>></name>
+  </item>
+  <item id="2">
+    <name><![CDATA[DVDs & Movies]]></name>
+  </item>
+  <item id="3">
+    <name><![CDATA[Computers & Networking]]></name>
+  </item>
+  <item id="4">
+    <name><![CDATA[Cameras & Photo]]></name>
+  </item>
+  <item id="5">
+    <name><![CDATA[Books]]></name>
+  </item>
+  <item id="6">
+    <name><![CDATA[Musical Instruments]]></name>
+  </item>
+</data>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+        <title>Layout: initialization</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+        <div id="content_container" style="width:280px;height:210px;"></div>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ui({
+                container:"content_container",
+            	rows:[{type:"head", 
+            	       cols:[{ rows:[{width: 70}] },  
+                                         { type:"wide", rows:[{},
+            				                  {type:"head", cols:[{},
+            					                              {rows:[{},
+            									     {},
+            									     {},
+                                                                                  ]},
+            						                      {rows:[{},
+            							                     {}
+            							              ]}
+                                                              ]}
+            			     ]}
+                                 ]}
+                   ]
+            })
+			//
+		</script>
+	</body>
+</html>

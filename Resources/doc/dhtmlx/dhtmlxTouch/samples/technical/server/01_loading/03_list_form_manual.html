@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<script src="../../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../../../../codebase/touchui.css" type="text/css" charset="utf-8">
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ready(function(){
+				
+				dhx.ui({
+					rows:[
+						{view:"toolbar", type:"MainBar", elements:[
+							{view:"label", label:"Just select something in the list"}
+						]},
+						{
+							cols:[
+								{
+									view:"list", id:"mylist", url:"data.php", select:true,
+									type:{ width:"auto", template:"#name#" }
+								},
+								{ rows:[
+									{
+										view:"form", id:"myform", elements:[
+											{ view:"text", label:"Name", id:"name"},
+											{ view:"text", label:"Age",  id:"age"},
+											{ view:"text", label:"City", id:"city"},
+											{ view:"button", type:"form", label:"Save", width:290, click:"save_data" }
+										]
+									},
+									{
+										id:"mytext", template:" <blockquote> Name: #name#<br>Age: #age#<br>City: #city# <blockquote>"
+									}
+								]}
+							]
+						}
+					]
+				});
+				
+				$$('mylist').attachEvent("onItemClick", function(id){
+					var data = this.item(id);
+					$$('myform').setValues(data);
+					$$('mytext').setValues(data);
+				});
+			});
+			
+			function save_data(){
+				var id = $$('mylist').getSelected(id);
+				if (id){
+					var data = $$('mylist').item(id);
+					var form_data = $$('myform').getValues();
+					dhx.extend(data, form_data, true); //copy values from form to the list
+					
+					$$('mylist').refresh(id);
+					$$('mytext').setValues(data);
+				}
+			};
+			
+		</script>
+	</body>
+</html>

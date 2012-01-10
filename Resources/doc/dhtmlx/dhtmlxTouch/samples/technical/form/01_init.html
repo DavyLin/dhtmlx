@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<title>Form</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<textarea style="width:200px;height:100px;display:none" name="xml" id="xml">
+			<data>
+				<item>
+					<field_a>Minsk</field_a>
+					<field_b>London</field_b>
+					<field_c>18</field_c>
+					<field_d>Check filght</field_d>
+					<field_e>2</field_e>
+					<field_m>3</field_m>
+					<field_f></field_f>
+					<field_g>right</field_g>
+					<field_g1>1k</field_g1>
+					<field_h>0</field_h>
+					<field_i>i1</field_i>
+					<field_j>0</field_j>
+					<field_k>1</field_k>
+				</item>
+			</data>
+		</textarea>
+		
+		<script type="text/javascript" charset="utf-8">
+		
+		
+		var ui = dhx.ui({
+				
+				rows:[
+						{ 	view:"toolbar", type:"MainBar", elements:[
+								{ view:"button", label: 'Clear', click:"clear_form" },
+								{ view:"button", label: 'Set', click:"set_form" },
+								{ view:"button", label: 'Get', click:"get_form" },
+								{ view:"button", label: 'Parse from XML', click:"parse_xml" }
+							]
+						},
+						{ cols:[
+							
+						{ 	view:"form",width:320, id:"myform", elements:[
+							    { view:"textarea", id:'field_ta', label: "Placeholder", height:60 },
+								{ view:"text", id:'field_a', label: 'from', value: "Moscow"},
+								{ view:"text", id:'field_b', label: 'to', 	value: "Guatemala"},
+								{ view:"counter", id:'field_c', value: 1, min: 1, max: 20, 
+									label: 'passengers 12+', labelPosition:'left' },
+								{ view:"richselect", id:'field_e', label: 'Type', value: "1", yCount:"3", options:[
+										{ value:"1", label:"One"   },
+										{ value:"2", label:"Two"   },
+										{ value:"3", label:"Three" }
+								]},
+								{ view:"combo", id:'field_m', label: 'Combo', value:"One", yCount:"3", options:["One", "Two", "Three"]},
+								{ view:"datepicker", label: 'Date', id:'field_f', value:new Date(2010,7,5)},
+								{ view:"toggle", id:'field_g', options: ["Roundtrip","Oneway"], align: "center" },
+								{ view:"radio", id:'field_i', value:"2", labelWidth:250, height:84, options:[
+									{ label:"only direct flights", value: "1" },
+									{ label:"any flights", value: "2" }
+								]},
+                                { type:"clean",
+                                    cols:[
+                                        { view:"checkbox", id:'field_j', labelWidth:100, label:"find hotels", value: 1},
+                                        { view:"checkbox", id: "field_k", labelWidth:100, label:"find car here"}
+                                    ]
+                                },
+								{ view:"button", type:"form", id:'field_d', label: 'Find flight', align:"center", inputWidth: 150 }						
+							]
+						},
+						{ id:"log", template:function(obj){ return "<pre>"+JSON.stringify(obj).replace(/,/g,"\n,")+"</pre>"; }}
+					]}
+				]
+			});
+
+			
+			function set_form(){
+				$$('myform').setValues({
+					field_a: "Minsk",
+					field_b: "Deli",
+					field_c: 18,
+					field_d: "Button",
+					field_e: "3",
+					field_f: "25.12.2010",
+					field_g: "right",
+					field_h: 1,
+					field_i: "i2",
+					field_j: false,
+					field_k: true
+				});
+			};
+			function clear_form(){
+				$$('myform').clear();
+			};
+			function get_form(){
+				$$('log').parse($$('myform').getValues());
+			};
+			
+			function parse_xml(){
+				//alert(document.getElementById("xml").value)
+				$$('myform').parse(document.getElementById("xml").value,"xml");
+			};
+
+		</script>
+		
+	</body>
+</html>

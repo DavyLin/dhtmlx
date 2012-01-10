@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<data>
+	<item id="1">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Pizza with spinach]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[12]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="2">
+		<Img><![CDATA[imgs/pizza/dish2.png]]></Img>
+		<Name><![CDATA[Pepperoni pizza]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[7]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="3">
+		<Img><![CDATA[imgs/pizza/dish3.png]]></Img>
+		<Name><![CDATA[Thai Pizza]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[12]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="4">
+		<Img><![CDATA[imgs/pizza/dish4.png]]></Img>
+		<Name><![CDATA[Muffuleta Pizza]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[7]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="5">
+		<Img><![CDATA[imgs/pizza/dish5.png]]></Img>
+		<Name><![CDATA[Triple Meat Pizza]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[12]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="6">
+		<Img><![CDATA[imgs/pizza/dish6.png]]></Img>
+		<Name><![CDATA[Seafood]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[7]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="7">
+		<Img><![CDATA[imgs/pizza/dish7.png]]></Img>
+		<Name><![CDATA[Sicilian]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[12]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="8">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Greek Style]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[7]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="9">
+		<Img><![CDATA[imgs/pizza/dish2.png]]></Img>
+		<Name><![CDATA[Mexican]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[12]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="10">
+		<Img><![CDATA[imgs/pizza/dish4.png]]></Img>
+		<Name><![CDATA[Californian]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[7]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pizza]]></Group>
+	</item>
+	<item id="14">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Pasta]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[14]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pasta]]></Group>
+	</item>
+	<item id="15">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Pasta]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[9]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pasta]]></Group>
+	</item>
+	<item id="16">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Pasta]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[14]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pasta]]></Group>
+	</item>
+	<item id="17">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Pasta]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[9]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pasta]]></Group>
+	</item>
+	<item id="18">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Pasta]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[14]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Pasta]]></Group>
+	</item>
+	
+	<item id="19">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Drinks]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Drinks]]></Group>
+	</item>
+	<item id="20">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Drinks]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Drinks]]></Group>
+	</item>
+	<item id="21">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Drinks]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Drinks]]></Group>
+	</item>
+	<item id="22">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Drinks]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Drinks]]></Group>
+	</item>
+	<item id="23">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Drinks]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Drinks]]></Group>
+	</item>
+	<item id="24">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Drinks]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Drinks]]></Group>
+	</item>
+	<item id="25">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Drinks]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Drinks]]></Group>
+	</item>
+	<item id="26">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Drinks]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Drinks]]></Group>
+	</item>
+	<item id="27">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Cofee]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Cofee]]></Group>
+	</item>
+	<item id="28">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Cofee]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Cofee]]></Group>
+	</item>
+	<item id="29">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Cofee]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Cofee]]></Group>
+	</item>
+	<item id="30">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Cofee]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Cofee]]></Group>
+	</item>
+	<item id="31">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Cofee]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Cofee]]></Group>
+	</item>
+	<item id="32">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Cofee]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Cofee]]></Group>
+	</item>
+	<item id="33">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Cofee]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Cofee]]></Group>
+	</item>
+	<item id="34">
+		<Img><![CDATA[imgs/pizza/dish1.png]]></Img>
+		<Name><![CDATA[Cofee]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit. Sed eleifend, augue sed bibendum elementum, totor nulla ullamcorper nibh, ut feugiat neque tellus sed massa.]]></Description>
+		<Price><![CDATA[11]]></Price>
+		<Count><![CDATA[0]]></Count>
+		<Group><![CDATA[Cofee]]></Group>
+	</item>
+</data>

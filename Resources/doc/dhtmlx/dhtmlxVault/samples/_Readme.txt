@@ -1,0 +1,1 @@
+To run a sample, copy it to the root folder.

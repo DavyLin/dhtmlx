@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Grid: complex templates</title>
+	
+	<script src="../../../codebase/touchui.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../../codebase/touchui.css">
+<style>
+	.with_stops{
+		font-size:15px;
+	}
+	.direct{
+		font-size:15px;
+		color:red;
+	}
+	.details{
+		height:20px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		padding: 0 4px;
+		font-size:15px;
+		line-height: 20px;
+		color:#ffffff;
+		text-shadow:0 1px 0 #333300;
+		font-weight:bold;
+		background-color:#669900; 
+	}
+	.dhx_native_button{
+		font-size:18px;
+	}
+
+        html,body{
+            background-color:#ffffff;
+        }
+        </style>
+            
+<body>
+
+	<h1>DataGrid</h1>
+	
+	<div id="grid_container" style="width:700px;height:288px;"></div>
+
+	<script>
+	
+		flights = [
+			{id:1,from:"Moscow",to:"Bangkok",type:0,price:230,details:"best price",available:10},
+			{id:2,from:"Oslo",to:"Cape Town",type:0,price:489,details:"best price",available:25},
+			{id:3,from:"Viena",to:"Dubai",type:0,price:225,details:"",available:5},
+			{id:4,from:"Viena",to:"Stockholm",type:0,price:225,details:"",available:2},
+			{id:5,from:"Niew York",to:"London",type:0,price:429,details:"",available:5},
+			{id:6,from:"Moscow",to:"Bangkok",type:1,price:589,details:"",available:0},
+			{id:7,from:"Oslo",to:"Cape Town",type:1,price:489,details:"",available:2},
+			{id:8,from:"Dubai",to:"Yerevan",type:1,price:225,details:"",available:0}
+		]
+		
+		var grid = dhx.ui({
+			container:"grid_container",
+			rows:[{
+				view:"grid",
+				scroll:true,
+				fields:[
+					{
+						id:"dir",
+						label:"Direction",
+						width:250,
+						template:"#from#&nbsp;<img src='images/plane.png' style='vertical-align:middle'></img>&nbsp;#to#",
+						sort:{
+							by:"#from##to#"
+						}
+					},
+					{
+						id:"type",
+						label:"Type",
+						width:100,
+						template:function(obj){
+							return obj.type?"<span class='direct'>direct</span>":"<span class='with_stops'>with stops</span>";
+						}
+					},
+					{
+						id:"price",
+						label:"Price",
+						width:100,
+						template:"$#price#",
+						sort:{
+							as:"int"
+						}
+					},
+					{
+						id:"details",
+						label:"",
+						width:250,
+						template:function(obj){
+							return create_price_marker(obj.details)+(obj.$selected?create_fight_button(obj.available):"");
+							
+						}
+					}
+				],
+				datatype:"json", 
+				data:flights
+			}]
+		});	
+		
+		function create_fight_button(available){
+			var str = "<div style='float:right;width:145px;'>";
+			str += "<input onclick='checkFight("+available+");' type='button' class='dhx_native_button' value='check flight'>";
+			str += "</div>";
+			return str;				
+		};
+		
+		function create_price_marker(label){
+			return (label==""?"":"<div style='float:left;height:100%;padding-top:10px'><div class='details'>"+label+"</div></div>");	
+		}
+		
+		function checkFight(value){
+			if(value) alert(value+" tickets are available");
+			else
+				alert("Sorry, there are not available tickets for this flight");
+		}
+		
+
+	</script>
+
+</body>
+</html>

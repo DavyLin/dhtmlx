@@ -1,0 +1,679 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">		
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript" charset="utf-8"></script>
+		<title>DHTML Touch</title>
+		<style>
+			.plus{
+				color:green;
+			}
+			.minus{
+				color:red;
+			}
+			.borderBottom{
+				border-bottom: 1px solid gray !important;
+			}
+			.listbg{
+				background-color:#F3F3F3;
+			}
+		</style>
+		<script>
+			var curActiveId = "";
+			
+			
+		//RUN APP
+			dhx.attachEvent("onReady", dhx.ui.fullScreen );
+			dhx.ready(function(){
+				/*var script = document.createElement("SCRIPT");
+				script.setAttribute("src","http://maps.google.com/maps/api/js?sensor=false");
+				document.head.appendChild(script);
+				*/
+				dhx.debug = false;
+				dhx.ui({
+					id:"top_view",
+					rows:[
+						{view:"toolbar", id:"top_toolbar",type:"MainBar",height:40, visibleBatch:"init", cols:[
+							{view:"label", id:"top_label",label:"TOUCH", align:"center", batch:"init"},
+							
+							{view:"button", width:100, label: 'Back', align:'right', click:function(){$$("top_list").show();$$("top_toolbar").showBatch("init");}, batch:"sub"},
+							{view:"label", id:"sub_label", label:"", align:"center", batch:"sub"},
+							{width:100, batch:"sub"}
+							//{view:"button", width:110, label: 'Src/View', align:'right', click:showSrc, batch:"sub"}
+							
+						]},
+						{view:"multiview", id:"top_view", cells:[
+							{view:"list",id:"top_list", template:"#name#", datatype:"json", data:list_top,select:false},
+							mv_calendar,
+							mv_dataview,
+							mv_form,
+							mv_grid,
+							mv_accordion,
+							mv_carousel,
+							mv_video,
+							mv_lists,
+							mv_charts,
+							mv_multiview,
+							mv_layout,
+							mv_windows,
+							mv_map,
+							{view:"list",id:"sub_list", template:"#name#", siblist:"sub_list2", datatype:"json", data:list_top,select:false},
+							{view:"list",id:"sub_list2",subtype:"an", siblist:"sub_list", template:"#name#", datatype:"json", data:list_an, css:"listbg", select:false},
+						]}
+					]});
+			//set event handler on top list	
+				$$("top_list").attachEvent("onitemclick",function(id){
+					if(typeof(window["list_"+id])!='undefined'){//if exists data for sublist
+						$$("sub_list").clearAll()
+						$$("sub_list").define("data",eval("list_"+id));
+						$$("sub_list").define("subtype",id);
+						$$("sub_list").show()
+					}else{
+						if(typeof($$(id))!='undefined' && this.config.subtype!="an")//if there is a view with control, but not animation
+							$$(id).show()
+						else if(this.config.subtype=="an"){//special functional for animations demo - show same list with animation
+							$$(this.config.siblist).show(this.item(id));
+						}
+					}
+					//show buttons for 
+					$$("top_toolbar").showBatch("sub");
+					$$("sub_label").define("label",this.item(id).name);
+					$$("sub_label").refresh();
+					
+				})
+			//set event handler on sublist
+				$$("sub_list").attachEvent("onitemclick",doOnSubListClick);
+				$$("sub_list2").attachEvent("onitemclick",doOnSubListClick)
+				function doOnSubListClick(id){
+					if(typeof($$(id))!='undefined' && this.config.subtype!="an")
+						$$(id).show()
+					else if(this.config.subtype=="an"){//special functional for animations demo - show same list with animation
+						$$(this.config.siblist).show(this.item(id));
+					}
+					if (id == "mn_lt")
+						load_skin("green");
+						
+					//$$("top_toolbar").showBatch("third");
+					//$$("third_label").setValue(this.item(id).name)
+				}
+			});
+			
+		
+		//FUNCTIONS
+			function showSrc(id){
+				var activeId = $$("topMView").getActive();
+				if($$(activeId+"_view").isVisible()){
+					$$(activeId+"_src").show();
+				}else{
+					$$(activeId+"_view").show();
+				}
+			};
+			
+			
+		//DATA
+			var list_top = [
+				{name:"Animation",id:"an"},
+				{name:"Calendar",id:"calendar"},
+				{name:"Chart", id:"charts"},
+				{name:"DataView", id:"dataview"},
+				{name:"Form", id:"form"},
+				{name:"Grid", id:"grid"},
+				{name:"Accordion",id:"accordion"},
+				{name:"Carousel", id:"carousel"},
+				{name:"Video",id:"video"},
+				{name:"Lists", id:"lists"},
+				{name:"Layout",id:"layout"},
+				{name:"Multiview", id:"multiview"},
+				{name:"Map", id:"map"},
+				{name:"Window", id:"windows"}
+			]
+			var list_an = [
+				{name:"Slide in", id:"sl_in", type:"slide", subtype:"in"},
+				{name:"Slide out", id:"sl_out", type:"slide", subtype:"out"},
+				{name:"Slide together",id:"sl_tg", type:"slide", subtype:"together"},
+				{name:"Flip horizontal", id:"fl_hr", type:"flip", subtype:"horizontal"},
+				{name:"Flip vertical", id:"fl_vt", type:"flip", subtype:"vertical"}
+			]
+			
+			
+			var salesData = [
+				{year:1990,sales:20000,dyn:1.00, stuct:[
+					{name:"Construction",value:12000},
+					{name:"IT", value:6000},
+					{name:"Tourism", value:2000}
+				]},
+				{year:1994,sales:20000,dyn:1.00, stuct:[
+					{name:"Construction",value:12000},
+					{name:"IT", value:6000},
+					{name:"Tourism", value:2000}
+				]},
+				{year:1995,sales:18000,dyn:0.90, stuct:[
+					{name:"Construction",value:8000},
+					{name:"IT", value:7000},
+					{name:"Tourism", value:3000}
+				]},
+				{year:2000,sales:35000,dyn:1.94, stuct:[
+					{name:"Construction",value:11000},
+					{name:"IT", value:14000},
+					{name:"Tourism", value:10000}
+				]},
+				{year:2005,sales:28000,dyn:0.80, stuct:[
+					{name:"Construction",value:10000},
+					{name:"IT", value:12000},
+					{name:"Tourism", value:6000}
+				]},
+				{year:2006,sales:24000,dyn:0.85, stuct:[
+					{name:"Construction",value:6000},
+					{name:"IT", value:12000},
+					{name:"Tourism", value:6000}
+				]},
+				{year:2007,sales:12000,dyn:0.50, stuct:[
+					{name:"Construction",value:9000},
+					{name:"IT", value:2000},
+					{name:"Tourism", value:1000}
+				]},
+				{year:2008,sales:32000,dyn:2.67, stuct:[
+					{name:"Construction",value:12000},
+					{name:"IT", value:14000},
+					{name:"Tourism", value:6000}
+				]},
+				{year:2009,sales:27000,dyn:0.84, stuct:[
+					{name:"Construction",value:10000},
+					{name:"IT", value:12000},
+					{name:"Tourism", value:7000}
+				]},
+				{year:2010,sales:32000,dyn:1.19, stuct:[
+					{name:"Construction",value:14000},
+					{name:"IT", value:16000},
+					{name:"Tourism", value:4000}
+				]}
+			];
+			var colorData = [
+				{index:1,bg:"#303F53",fg:"#5B6882"},
+				{index:2,bg:"#990000",fg:"#A44D4D"},
+				{index:3,bg:"#996600",fg:"#AB8E5A"},
+				{index:4,bg:"#E2C550",fg:"#958213"},
+				{index:5,bg:"#99CC00",fg:"#CBD39C"},
+				{index:6,bg:"#9999CC",fg:"#D9D9EA"}
+			]
+			
+			function getNestedStruct(elements,levels,down){
+				var out = Array();
+				if(!down)
+					down = 0;
+				for(var i=1;i<=elements;i++){
+					var obj = {index:(down==0?"":down)+""+i}
+					if(levels>0)
+						obj.item = getNestedStruct(elements,levels-1, down+1)
+					out.push(obj)
+				}
+				return out;
+				
+			}
+			
+			
+		//MODULES	
+			var mv_calendar = {view:"multiview", id:"calendar",  cells:[
+				{ rows:[
+					{ view:"calendar",
+						 id:"calendar_view",
+						 date: new Date(2011, 5, 31), 
+						 weekHeader: true, 
+						 calendar_date_format: "%Y-%m-%d", 
+						 weekNumber: true
+					},
+					{ }
+				], animate:{type:"flip", subtype:"vertical"} },
+				{ view:"template",animate:{type:"flip", subtype:"vertical"},
+					id:"calendar_src",	
+					src:"sources/calendar.html"
+				}	
+			]}
+			
+			var mv_dataview = {view:"multiview", id:"dataview", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"dataview", 
+					 id:"dataview_view",
+					 datatype:"json",
+					 data: colorData,
+					 type:"FreeSize",
+					 template:"html->dv_tpl"
+				},
+				{ view:"template",
+					id:"dataview_src",	
+					src:"sources/dataview.html",
+					scroll:true
+				}
+			]}
+			
+			
+			var mv_form = {view:"multiview", id:"form", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"form", 
+					id:"form_view", 
+					rows: [
+							{ view: 'datepicker', label: 'Datepicker', inputWidth: 300, labelWidth:120 },
+							{ view: 'toggle', options: [ 'On', 'Off'], label: '' },
+							{ view: 'text', label: 'Text Field', inputWidth: 300, labelWidth:120 },
+							{ view: 'textarea', label: 'Text Field', height: 50, inputWidth: 300 },
+							{ view:"richselect", label: 'Richselect', value: "2", yCount:"3", inputWidth: 300, labelWidth:120,
+								options:[
+									{ value:"1", label:"One"  },
+									{ value:"2", label:"Two"   },
+									{ value:"3", label:"Three" }
+							]},
+							{ view: 'radio', name: 'name', value:1, 
+								options: [
+									{ label: 'Radio 1', value: '1' },
+									{ label: 'Radio 2', value: '2' }
+								]
+							},
+							{ view: 'counter', label: '', step: 1, value: 10 },
+							{
+								type:"clean", cols:[
+									{ view: 'checkbox', label: 'Checkbox', value: 1, width:150 },
+									{ view: 'button', name: 'name', label: 'Button', inputWidth: 150, align:"left", id: 'form_data_button_2'}
+								]
+							}
+						]
+				},
+				{ view:"template",
+					id:"form_src",	
+					src:"sources/form.html",
+					scroll:true
+				}
+			]}
+			
+			var mv_grid = {view:"multiview", id:"grid", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"grid",
+					id:"grid_view",
+					fields:[
+						{
+							id:"year",
+							label:"Year",
+							width:110,
+							template:"#year#",
+							sort:{
+								as:"int"
+							}
+						},
+						{
+							id:"sales",
+							label:"Sales",
+							width:110,
+							align:"right",
+							template:"#sales#"
+						},
+						{
+							id:"ind",
+							label:"Index",
+							width:100,
+							align:"right",
+							template:function(obj){
+								return obj.dyn>1?"<span class='plus'>"+obj.dyn+"</span>":"<span class='minus'>"+obj.dyn+"</span>";
+							}
+						}
+					],
+					datatype:"json", 
+					data:salesData
+					
+				},
+				{ view:"template",
+					id:"grid_src",	
+					src:"sources/grid.html",
+					scroll:true
+				}
+			]}
+			
+			
+			var mv_accordion = {view:"multiview", id:"accordion", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"accordion", 
+					id:"accordion_view",
+					rows:[
+						{	header:"Panel #1",
+							body:"html->acc_1"
+						},
+						{	header:"Panel #2",
+							body:"html->acc_2"
+						},
+						{	header:"Panel #3",
+							body:"html->acc_3"
+						}
+				   ]
+				},
+				{ view:"template",
+						id:"accordion_src",	
+						src:"sources/accordion.html",
+						scroll:true
+				}
+			]}
+			
+			var mv_layout = {view:"multiview", id:"layout", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"layout", 
+					id:"layout_view",
+					rows:[
+						{ view:"template", id:"v1", template:"html->acc_1"
+						},
+						{cols:[
+							{  view:"template", id:"v2", template:"html->acc_2"
+							},
+							{  view:"template", id:"v3", template:"html->acc_3"
+							}
+						]}
+				   ]
+				},
+				{ view:"template",
+						id:"layout_src",	
+						src:"sources/layout.html",
+						scroll:true
+				}
+			]}
+			
+			var mv_multiview = {view:"multiview", id:"multiview", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"layout",
+					id:"multiview_view",
+					rows:[	 
+						{view:"multiview", id:"multiview_all", animate:{type:"slide", subtype:"horizontal"},
+							 cells:[
+								{ view:"template", id:"v11", template:"html->acc_1"
+								},
+								{  view:"template", id:"v12", template:"html->acc_2"
+								},
+								{  view:"template", id:"v13",	template:"html->acc_3"
+								}
+							 ]
+						},
+						{view:"toolbar", height:40,
+							cols:[
+								{ view: 'segmented', 
+										id:"viewstabs",
+										selected:"v11",
+										multiview:"multiview_all",
+										inputWidth:250,
+										options:[ 
+											{label:"View 1", value:"v11"},
+											{label:"View 2", value:"v12"},
+											{label:"View 3", value:"v13"}
+										]
+								}
+							]
+						}
+					 ]
+				},
+				{ view:"template",
+						id:"multiview_src",	
+						src:"sources/multiview.html",
+						scroll:true
+				}
+			]}
+			
+			
+			var mv_carousel = {view:"multiview", id:"carousel", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"carousel",
+					id:"carousel_view",
+					cols:[
+						{ view:"template",template:"html->acc_1"
+						},
+						{  view:"template", template:"html->acc_2"
+						},
+						{  view:"template",	template:"html->acc_3"
+						}
+					],
+					panel:{	align:"bottom"}
+				},
+				{ view:"template",
+						id:"carousel_src",	
+						src:"sources/carousel.html",
+						scroll:true
+				}
+			]}
+			
+			
+			var mv_charts = {view:"multiview", id:"charts", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"layout",
+					id:"charts_view",
+					rows:[	 
+						{view:"multiview", id:"charts_all", animate:{type:"slide", subtype:"horizontal"},
+							 cells:[
+								{view:"chart",
+									id:"barchart",
+									type:"bar",
+									data:salesData,
+									value:"#sales#",
+									details:"#year#",
+									yAxis:{
+										title:"Sales"
+									},
+									xAxis:{
+										title:"Years",
+										template:function(obj){
+											return obj.year.toString().substr(2,2)
+										}
+									},
+									padding:{
+										left:70,
+										bottom:40
+									}},
+								{view:"chart",
+									id:"linechart",
+									type:"line",
+									data:salesData,
+									value:"#sales#",
+									details:"#year#",
+									yAxis:{
+										title:"Sales"
+									},
+									xAxis:{
+										title:"Years",
+										template:function(obj){
+											return obj.year.toString().substr(2,2)
+										},
+										lines:true
+									},
+									padding:{
+										left:70,
+										bottom:40
+									}},
+								{view:"chart",
+									id:"pie",
+									type:"pie",
+									data:salesData,
+									value:"#sales#",
+									pieInnerText:"#year#",
+									padding:{
+										left:20
+									}},
+								{view:"chart",
+									id:"area",
+									type:"area",
+									data:salesData,
+									value:"#sales#",
+									details:"#year#",
+									yAxis:{
+										title:"Sales"
+									},
+									xAxis:{
+										title:"Years",
+										template:function(obj){
+											return obj.year.toString().substr(2,2)
+										}
+									},
+									padding:{
+										left:70,
+										bottom:40
+									}}
+							 ]
+						},
+						{view:"toolbar", 
+							cols:[
+								{ view: 'segmented', 
+										id:"charttabs",
+										selected:"barchart",
+										multiview:"charts_all",
+										inputWidth:250,
+										options:[ 
+											{label:"Bars", value:"barchart"},
+											{label:"Line", value:"linechart"},
+											{label:"Pie", value:"pie"},
+											{label:"Area", value:"area"}
+										]
+								}
+							]
+						}
+					 ]
+				},
+				{ view:"template",
+						id:"charts_src",	
+						src:"sources/charts.html",
+						scroll:true
+				}
+			]}
+		
+			var mv_video = {view:"multiview", id:"video", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"video",
+					id:"video_view",
+					src:"./data/movie.mp4",
+					autoplay:false,
+					controls:false
+				},
+				{ view:"template",
+					id:"video_src",	
+					src:"sources/video.html",
+					scroll:true
+				}
+			]}
+			
+			var mv_map = {view:"multiview", id:"map", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{
+                        view:"googlemap",
+						id:"map_view"
+				},
+				{ view:"template",
+					id:"map_src",	
+					src:"sources/map.html",
+					scroll:true
+				}
+			]}
+			
+			var mv_windows = {view:"multiview", id:"windows", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"layout",
+					id:"windows_view",
+					rows:[
+						{view:"button", label:"Open Window", click:function(){
+								dhx.ui({view:"window",
+											body:{
+												view:"button", height:150, label:"Close", click:function(){
+													this.getParent().close();
+												}
+											},
+											head:{view:"toolbar", elements:[
+												{view:"label", label:"My Window"}
+											]}, top:100, left:10
+										}).show()
+							}
+						}
+					]
+				},
+				{ view:"template",
+					id:"windows_src",	
+					src:"sources/windows.html",
+					scroll:true
+				}
+			]}
+		
+		
+			var mv_lists = {view:"multiview", id:"lists", animate:{type:"flip", subtype:"vertical"}, cells:[
+				{ view:"layout",
+					id:"lists_view",
+					rows:[	 
+						{view:"multiview", animate:{type:"flip", subtype:"vertical"},
+							 cells:[
+								{view:"list",
+									id:"ordlist",
+									data:getNestedStruct(10,1),
+									template:"List element #index#",
+									select:true
+								},
+								{view:"grouplist",
+									id:"grplist",
+									data:getNestedStruct(10,2),
+									type:{
+										templateItem:"Element #index#",
+										templateGroup:"Element #index#",
+										templateBack:"Element #index#",
+									},
+									select:true
+								},
+								{	view:"pagelist",
+									id:"pglist",
+									layout:"x",
+									panel:false,
+									template:"html->pglist_el",
+									data:colorData,
+									type:{height:"auto",width:220}
+								}
+							 ]
+						},
+						{view:"toolbar",
+							cols:[
+								{ view: 'segmented', 
+										id:"liststabs",
+										selected:"barchart",
+										selected:"ordlist",
+										multiview:"lists",
+										options:[ 
+											{label:"List", value:"ordlist", width:95 },
+											{label:"Group List", value:"grplist"},
+											{label:"Page List", value:"pglist"}
+										]
+								}
+							]
+						}
+					 ]
+				},
+				{ view:"template",
+						id:"lists_src",	
+						src:"sources/list.html",
+						scroll:true
+				}
+			]}
+	</script>
+	<body>
+    <div  id="dv_tpl" style="display:none;">
+		<div
+		style='	width:123px;height:123px;border;
+				5px solid #fg#;
+				background-color:#bg#;
+				color:#fg#;
+				border:8px solid #fg#;
+				font: bold 50px/123px Arial;text-align:center;'>
+				##index#
+		</div>
+	</div>
+	<div  id="pglist_el" style="display:none;">
+		<div
+		style='	width:200px;height:200px;border;
+				5px solid #fg#;
+				background-color:#bg#;
+				color:#fg#;
+				border:8px solid #fg#;
+				font: bold 50px/123px Arial;text-align:center;'>
+				##index#
+		</div>
+	</div>
+	<div id="acc_1" style="display:none;">
+		<div  style="width:100%;height:100%;background-color:#5B6882;color:#303F53;font: bold 50px/123px Arial;text-align:center;;padding-top:50px">
+			Panel #1
+		</div>
+	</div>
+	<div id="acc_2" style="display:none;">
+		<div  style="width:100%;height:100%;background-color:#A44D4D;color:#990000;font: bold 50px/70px Arial;text-align:center;;padding-top:50px">
+			Panel #2
+		</div>
+	</div>
+	<div id="acc_3" style="display:none;">
+		<div  style="width:100%;height:100%;background-color:#AB8E5A;color:#996600;font: bold 50px/70px Arial;text-align:center;padding-top:50px">
+			Panel #3
+		</div>
+	</div>
+	</body>
+</html>		

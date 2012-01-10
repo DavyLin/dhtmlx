@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <item id="1">
+    <name>Load data</name>
+  </item>
+  <item id="2">
+    <name>Save data</name>
+  </item>
+  <item id="3">
+    <name>Exit</name>
+  </item>
+</data>

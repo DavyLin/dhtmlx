@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" href="../codebase/default.css" type="text/css" media="screen" title="no title" charset="utf-8"><title>
+    dhtmlxdatastore:toc    [DHX documentation]
+  </title></head>
+
+<body>
+<div class="dokuwiki">
+  
+  <div class="stylehead">
+
+    <div class="header">
+    <a class="logo" href="http://dhtmlx.com" title="DHTMLX Home Page"></a>
+    <span class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</span>
+
+    <div class="search-field">
+        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>    </div>
+        <div class="buttons">
+                <a class="doc"></a>
+                <a title="DHTMLX Samples homepage" href="../samples.html" class="sample"/></a>
+        </div>
+     <!-- <div class="pagename">
+        [[<a href="#"  title="Backlinks">dhtmlxdatastore:toc</a>]]
+      </div>
+      <div class="logo">
+        <a href="/dhtmlx/docs/doku.php"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[H]">DHX documentation</a>      </div>
+
+      <div class="clearer"></div>-->
+        
+    </div>
+
+    
+<!--   <div class="bar" id="bar__top">
+      <div class="bar-left" id="bar__topleft">
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>        <form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>      </div>
+
+      <div class="bar-right" id="bar__topright">
+        <form class="button btn_recent" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="recent" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Recent changes" class="button" accesskey="r" title="Recent changes [R]" /></div></form>        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>&nbsp;
+      </div>
+
+      <div class="clearer"></div>
+    </div> -->
+
+<!--        <div class="breadcrumbs">
+      <span class="bchead">Trace:</span> <span class="bcsep">&raquo;</span> <span class="curid"><a href="/dhtmlx/docs/doku.php?id=dhtmlxdatastore:toc"  class="breadcrumbs" title="dhtmlxdatastore:toc">toc</a></span>    </div>
+    -->
+
+    
+  </div>
+  
+  
+  <div class="page">
+    <!-- wikipage start -->
+    <!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="#global_data_storage" class="toc">Global Data Storage</a></span></div>
+<ul class="toc">
+<li class="clear">
+
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#classic_use-case" class="toc">Classic use-case</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#description" class="toc">Description</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#included_files" class="toc">Included files</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#object_constructor" class="toc">Object Constructor</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#supported_data_formats" class="toc">Supported data formats</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#data_scheme" class="toc">Data scheme</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#binding_components_to_dhtmlxdatastore" class="toc">Binding components to dhtmlXDataStore</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#api_reference" class="toc">API reference</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="#example" class="toc">Example</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#the_goal" class="toc">The goal</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#chosen_components" class="toc">Chosen Components</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#implementation" class="toc">Implementation</a></span></div></li></ul>
+</li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<p>
+<div class='backlinks'><div class='backlink'><a href="../index.html" class="wikilink1" title="start">Index</a></div></div>
+
+</p>
+
+<h1><a name="global_data_storage" id="global_data_storage">Global Data Storage</a></h1>
+<div class="level1">
+
+<p>
+The article tells you about dhtmlXDataStore, the component which is basically designed to perform a function of data store. But at the same time, it&#039;s a full-fledged dhtmlx component with its own <acronym title="Application Programming Interface">API</acronym>.
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="38-273" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Global Data Storage" /></div></form></div>
+<h3><a name="classic_use-case" id="classic_use-case">Classic use-case</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Storing data that&#039;s used by several components on a page. You can use more than one DataStore. They can be linked or not. </div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="274-426" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Classic use-case" /></div></form></div>
+<h3><a name="description" id="description">Description</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Has no graphical representation and used just to store data.<br/>
+ <em>We can compare dhtmlXDataStore with database table or view. UI components can be filled from it. You also can establish relationships between different DataStores like you can do between tables in database.</em></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Any data manipulation is made directly in dhtmlXDataStore object (not in a component that represents this data): sort, filter, delete, add, update.<br/>
+ <em>For example, you need to delete record - you do not need to think if it should be deleted from grid or whatever other place - just delete it from DataStore and it will be removed from other components as well without your direct intervention.</em>   </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Controls relations between components.<br/>
+ <em>If you link grid and form to the same DataStore, details of record selected in grid will be shown in the form automatically. No additional coding is necessary.</em></div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="427-1339" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Description" /></div></form></div>
+<h3><a name="included_files" id="included_files">Included files</a></h3>
+<div class="level3">
+
+<p>
+To use the functionality of dhtmlXDataStore, you need to include one file:
+
+</p>
+<pre class="code javascript"><span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span> src<span class="sy0">=</span><span class="st0">&quot;../codebase/datastore.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span></pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="1340-1536" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Included files" /></div></form></div>
+<h3><a name="object_constructor" id="object_constructor">Object Constructor</a></h3>
+<div class="level3">
+
+<p>
+You have 2 ways to initialize and fill the DataStore: 
+</p>
+<ul>
+<li class="level1"><div class="li"> Create and then fill with script:<br/>
+ <br/>
+ <pre class="code javascript"><span class="kw2">var</span> myDataStore <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXDataStore<span class="br0">&#40;</span><span class="br0">&#41;</span>;
+myDataStore.<span class="me1">parse</span><span class="br0">&#40;</span><span class="br0">&#91;</span>
+		<span class="br0">&#123;</span>id<span class="sy0">:</span><span class="st0">&quot;1&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span><span class="st0">&quot;Accounts Department&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+		<span class="br0">&#123;</span>id<span class="sy0">:</span><span class="st0">&quot;2&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span><span class="st0">&quot;Customer Service&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+		<span class="br0">&#123;</span>id<span class="sy0">:</span><span class="st0">&quot;3&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span><span class="st0">&quot;Developing Department&quot;</span><span class="br0">&#125;</span>
+<span class="br0">&#93;</span><span class="br0">&#41;</span>;</pre></div>
+</li>
+<li class="level1"><div class="li"> Specify the path to a data file in the constructor (fill from server):<br/>
+ <br/>
+ <pre class="code javascript"><span class="kw2">var</span> data <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXDataStore<span class="br0">&#40;</span><span class="br0">&#123;</span>
+		url<span class="sy0">:</span><span class="st0">&quot;data/data.json&quot;</span><span class="sy0">,</span>
+		datatype<span class="sy0">:</span><span class="st0">&quot;json&quot;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span>;</pre></div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="1537-2056" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Object Constructor" /></div></form></div>
+<h3><a name="supported_data_formats" id="supported_data_formats">Supported data formats</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <acronym title="Extensible Markup Language">XML</acronym> (<a href="dhtmlxdatastore___syntax_templates.html" class="wikilink1" title="dhtmlxdatastore:syntax_templates">syntax template</a>)</div>
+</li>
+<li class="level1"><div class="li"> JSON (<a href="dhtmlxdatastore___syntax_templates.html" class="wikilink1" title="dhtmlxdatastore:syntax_templates">syntax template</a>)</div>
+</li>
+<li class="level1"><div class="li"> JSArray (<a href="dhtmlxdatastore___syntax_templates.html" class="wikilink1" title="dhtmlxdatastore:syntax_templates">syntax template</a>)</div>
+</li>
+<li class="level1"><div class="li"> CSV (<a href="dhtmlxdatastore___syntax_templates.html" class="wikilink1" title="dhtmlxdatastore:syntax_templates">syntax template</a>)</div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="2057-2301" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Supported data formats" /></div></form></div>
+<h3><a name="data_scheme" id="data_scheme">Data scheme</a></h3>
+<div class="level3">
+
+<p>
+Data scheme allows to set a default scheme for data records of dhtmlXDataStore. So, in cases when you add an empty record to dhtmlXDataStore (<em>data.add({})</em>), the record will be populated with the values set by the scheme. 
+</p>
+<pre class="code javascript">data.<span class="me1">scheme</span><span class="br0">&#40;</span><span class="br0">&#123;</span>
+	<span class="kw3">name</span><span class="sy0">:</span><span class="st0">&quot;Unknown&quot;</span><span class="sy0">,</span>
+        gender<span class="sy0">:</span><span class="st0">&quot;male&quot;</span><span class="sy0">,</span>
+        age<span class="sy0">:</span><span class="nu0">25</span><span class="sy0">,</span>
+        department<span class="sy0">:</span> <span class="st0">&quot;Unknown&quot;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span>;
+data.<span class="me1">add</span><span class="br0">&#40;</span><span class="br0">&#123;</span><span class="br0">&#125;</span><span class="br0">&#41;</span>;<span class="co1">//will add { name:&quot;Unknown&quot;, gender:&quot;male&quot;, age:25, department:&quot;Unknown&quot;} record</span></pre>
+<p>
+Also, there are 2 special keys you can use in a scheme:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>$init</strong> - called during initial object creation<br/>
+ <br/>
+ <em>Let&#039;s assume, you want to populate combo with data from some column of db (e.g. column &#039;name&#039; with the names of departments). To make combo recognize the names of departments as options, combo should get data as sets of &#039;text&#039; and &#039;value&#039; parameters. In this situation the $init key comes in useful:</em><br/>
+ <br/>
+ <pre class="code javascript">myDataStore.<span class="me1">data</span>.<span class="me1">scheme</span><span class="br0">&#40;</span><span class="br0">&#123;</span>
+  $init<span class="sy0">:</span><span class="kw2">function</span><span class="br0">&#40;</span>obj<span class="br0">&#41;</span><span class="br0">&#123;</span>
+      obj.<span class="me1">value</span> <span class="sy0">=</span> obj.<span class="kw3">name</span>;<span class="co1">// 'name' is the name of the column from the db</span>
+      obj.<span class="me1">text</span> <span class="sy0">=</span> obj.<span class="kw3">name</span>;
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span>; </pre></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <strong>$update</strong> - called each time after data changing<br/>
+ <br/>
+ <pre class="code javascript">myDataStore.<span class="me1">data</span>.<span class="me1">scheme</span><span class="br0">&#40;</span><span class="br0">&#123;</span>
+  $update<span class="sy0">:</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span> 
+        obj.<span class="me1">text</span> <span class="sy0">=</span> obj.<span class="kw3">name</span> <span class="sy0">+</span> <span class="st0">&quot; &quot;</span> <span class="sy0">+</span> obj.<span class="me1">number</span>;
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span>;</pre></div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="2302-3575" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Data scheme" /></div></form></div>
+<h3><a name="binding_components_to_dhtmlxdatastore" id="binding_components_to_dhtmlxdatastore">Binding components to dhtmlXDataStore</a></h3>
+<div class="level3">
+
+<p>
+
+Components, bound to dhtmlXDataStore will keep their data synchronized with the data stored in dhtmlXDataStore. They will also be bound with each other (e.g. grid and form).
+
+</p>
+
+</div>
+
+<h4><a name="methods_used_for_data_binding" id="methods_used_for_data_binding">Methods used for data binding</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <strong>sync()</strong> - copies all the data from store (used for multirecords components like grid).</div>
+</li>
+<li class="level1"><div class="li"> <strong>bind()</strong> - copies just a single record related to some item (used for single record component like form).</div>
+</li>
+<li class="level1"><div class="li"> and <strong>dataFeed()</strong> - helps to reload data from the server (instead of the master component).</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="binding_cases" id="binding_cases">Binding cases</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <strong>binding components to dhtmlXDataStore:</strong><br/>
+ <br/>
+ <pre class="code javascript"><span class="kw2">var</span> list1 <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXDataStore<span class="br0">&#40;</span><span class="br0">&#123;</span> url<span class="sy0">:</span><span class="st0">&quot;../data/data1.json&quot;</span><span class="sy0">,</span> datatype<span class="sy0">:</span><span class="st0">&quot;json&quot;</span> <span class="br0">&#125;</span><span class="br0">&#41;</span>;
+grid.<span class="me1">sync</span><span class="br0">&#40;</span>list1<span class="br0">&#41;</span>;</pre></div>
+</li>
+<li class="level1"><div class="li"> <strong>binding 2 DataStores:</strong><br/>
+ <br/>
+ <pre class="code javascript"><span class="kw2">var</span> list1 <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXDataStore<span class="br0">&#40;</span><span class="br0">&#123;</span> url<span class="sy0">:</span><span class="st0">&quot;../data/data1.json&quot;</span><span class="sy0">,</span> datatype<span class="sy0">:</span><span class="st0">&quot;json&quot;</span> <span class="br0">&#125;</span><span class="br0">&#41;</span>;
+<span class="kw2">var</span> list2 <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXDataStore<span class="br0">&#40;</span><span class="br0">&#123;</span> url<span class="sy0">:</span><span class="st0">&quot;../data/data2.json&quot;</span><span class="sy0">,</span> datatype<span class="sy0">:</span><span class="st0">&quot;json&quot;</span> <span class="br0">&#125;</span><span class="br0">&#41;</span>;
+&nbsp;
+list2.<span class="me1">bind</span><span class="br0">&#40;</span>list1<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span>data<span class="sy0">,</span> filter<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> data.<span class="me1">value</span> <span class="sy0">==</span> filter.<span class="me1">value</span>;
+<span class="br0">&#125;</span><span class="br0">&#41;</span>;</pre></div>
+</li>
+<li class="level1"><div class="li"> <strong>binding DataStore to server-side:</strong><br/>
+ <br/>
+ <pre class="code javascript"><span class="kw2">var</span> list1 <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXDataStore<span class="br0">&#40;</span><span class="br0">&#123;</span> url<span class="sy0">:</span><span class="st0">&quot;../data/data1.json&quot;</span><span class="sy0">,</span> datatype<span class="sy0">:</span><span class="st0">&quot;json&quot;</span> <span class="br0">&#125;</span><span class="br0">&#41;</span>;
+<span class="kw2">var</span> list2 <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXDataStore<span class="br0">&#40;</span><span class="br0">&#123;</span> dataFeed<span class="sy0">:</span><span class="st0">&quot;../data/json.php&quot;</span><span class="sy0">,</span> datatype<span class="sy0">:</span><span class="st0">&quot;json&quot;</span> <span class="br0">&#125;</span><span class="br0">&#41;</span>;
+&nbsp;
+list2.<span class="me1">bind</span><span class="br0">&#40;</span>list1<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span>data<span class="sy0">,</span> filter<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		filter.<span class="kw2">Package</span> <span class="sy0">=</span> <span class="st0">&quot;Filter by &quot;</span><span class="sy0">+</span>data.<span class="kw2">Package</span>;
+<span class="br0">&#125;</span><span class="br0">&#41;</span>;
+grid1.<span class="me1">sync</span><span class="br0">&#40;</span>list1<span class="br0">&#41;</span>;
+grid2.<span class="me1">sync</span><span class="br0">&#40;</span>list2<span class="br0">&#41;</span>;</pre></div>
+</li>
+</ul>
+
+<p>
+
+See also <a href="binding.html" class="wikilink1" title="binding">Data Binding in Code Samples</a>.
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="3576-5063" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Binding components to dhtmlXDataStore" /></div></form></div>
+<h3><a name="api_reference" id="api_reference">API reference</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="dhtmlxdatastore___parameters.html" class="wikilink1" title="dhtmlxdatastore:parameters">Parameters</a> </div>
+</li>
+<li class="level1"><div class="li"> <a href="dhtmlxdatastore___methods.html" class="wikilink1" title="dhtmlxdatastore:methods">Methods</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="dhtmlxdatastore___events.html" class="wikilink1" title="dhtmlxdatastore:events">Events</a></div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="5064-5163" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="API reference" /></div></form></div>
+<h2><a name="example" id="example">Example</a></h2>
+<div class="level2">
+
+<p>
+You probably find it hard to think of situations where this “invisible store” would be useful.<br/>
+ 
+So, let&#039;s consider as example some company. It has some number of departments. Each department contains its employees. <br/>
+
+</p>
+
+<p>
+<img src="datastore_company.png"  class="media" alt="" /><br/>
+ <a href="dhtmlxdatastore___datastore_example.html" class="wikilink1" title="dhtmlxdatastore:datastore_example">Full code of the example</a>
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="5164-5482" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Example" /></div></form></div>
+<h3><a name="the_goal" id="the_goal">The goal</a></h3>
+<div class="level3">
+
+<p>
+Let&#039;s assume we want to present on a page the following:
+</p>
+<ul>
+<li class="level1"><div class="li"> All company&#039;s staff.</div>
+</li>
+<li class="level1"><div class="li"> Some element allowing to filter staff by a department.</div>
+</li>
+<li class="level1"><div class="li"> Details of the selected employee.</div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="5483-5679" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="The goal" /></div></form></div>
+<h3><a name="chosen_components" id="chosen_components">Chosen Components</a></h3>
+<div class="level3">
+
+<p>
+Clearly, we need several components to achieve this. <br/>
+
+The final set of components can very, but we&#039;ve chosen the following:
+</p>
+<ul>
+<li class="level1"><div class="li"> dhtmlxCombo - allows to filter employees by a department.</div>
+</li>
+<li class="level1"><div class="li"> dhtmlxGrid - contains department&#039;s employees.</div>
+</li>
+<li class="level1"><div class="li"> dhtmlxForm - contains employee&#039;s details.</div>
+</li>
+<li class="level1"><div class="li"> dhtmlxlayout - allows to group elements on a page.</div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="5680-6045" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Chosen Components" /></div></form></div>
+<h3><a name="implementation" id="implementation">Implementation</a></h3>
+<div class="level3">
+
+<p>
+This stage we divided into 4 steps:
+</p>
+<ol>
+<li class="level1"><div class="li"> Components initialization (without data loading, just creating instances and their configuration):<br/>
+ <br/>
+ <pre class="code javascript"><span class="kw2">var</span> layout <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXLayoutObject<span class="br0">&#40;</span>...<span class="br0">&#41;</span>;
+<span class="kw2">var</span> myGrid <span class="sy0">=</span> layout.<span class="me1">cells</span><span class="br0">&#40;</span><span class="st0">&quot;c&quot;</span><span class="br0">&#41;</span>.<span class="me1">attachGrid</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;
+<span class="kw2">var</span> myForm <span class="sy0">=</span> layout.<span class="me1">cells</span><span class="br0">&#40;</span><span class="st0">&quot;b&quot;</span><span class="br0">&#41;</span>.<span class="me1">attachForm</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;
+<span class="kw2">var</span> myCombo <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXCombo<span class="br0">&#40;</span>...<span class="br0">&#41;</span>;</pre></div>
+</li>
+<li class="level1"><div class="li"> Creating 2 dhtmlXDataStore objects (one with deparments&#039; names and the second with employees details):<br/>
+ <br/>
+ <pre class="code javascript"><span class="kw2">var</span> employees <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXDataStore<span class="br0">&#40;</span><span class="br0">&#41;</span>; 
+<span class="kw2">var</span> departments <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXDataStore<span class="br0">&#40;</span><span class="br0">&#41;</span>;</pre></div>
+</li>
+<li class="level1"><div class="li"> Loading data to components ( through <strong>sync()</strong> method, so-called synchronization dhtmlxDataStore with the representative component):<br/>
+ <br/>
+ <pre class="code javascript">myCombo.<span class="me1">sync</span><span class="br0">&#40;</span>departments<span class="br0">&#41;</span>;<span class="co1">// to load data to the combo</span>
+myGrid.<span class="me1">sync</span><span class="br0">&#40;</span>employees<span class="br0">&#41;</span>; <span class="co1">// to load data to the grid</span></pre></div>
+</li>
+<li class="level1"><div class="li"> Linking represantative components (through <strong>bind()</strong> command):<br/>
+ <br/>
+ <pre class="code javascript">myGrid.<span class="me1">bind</span><span class="br0">&#40;</span>myCombo<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span>data<span class="sy0">,</span> filter<span class="br0">&#41;</span><span class="br0">&#123;</span>   <span class="co1">// to link the grid with the combo </span>
+		<span class="kw1">return</span> myGrid.<span class="me1">cells</span><span class="br0">&#40;</span>data<span class="sy0">,</span> <span class="nu0">2</span><span class="br0">&#41;</span>.<span class="me1">getValue</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">==</span> filter.<span class="me1">text</span>;
+	<span class="br0">&#125;</span><span class="br0">&#41;</span>;
+myForm.<span class="me1">bind</span><span class="br0">&#40;</span>myGrid<span class="br0">&#41;</span>;<span class="co1">// to link the form with the grid</span></pre>
+<p>
+<br/>
+ <img src="datastore_03.png"  class="media" alt="" />
+</p>
+</div>
+</li>
+</ol>
+
+<p>
+
+As you can see we needed just 4 commands to load data and link the components (steps 3 and 4), that proves the stated above: dhtmlXDataStore is realy a handy way to store data while dealing with several components.
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="6046-" /><input type="hidden" name="rev" value="1310063925" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit" class="button" title="Implementation" /></div></form></div>
+    <!-- wikipage stop -->
+  </div>
+
+  <div class="clearer">&nbsp;</div>
+
+  
+  <div class="stylefoot">
+
+    <div class="meta">
+      <div class="user">
+              </div>
+     <!-- <div class="doc">
+        dhtmlxdatastore/toc.txt &middot; Last modified: 2011/07/07 21:38 by 192.168.1.110      </div>
+    </div>-->
+
+   
+    <!--<div class="bar" id="bar__bottom">-->
+      <!--<div class="bar-left" id="bar__bottomleft">-->
+        <!--<form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>-->
+        <!--<form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>-->
+      <!--</div>-->
+      <!--<div class="bar-right" id="bar__bottomright">-->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!--<form class="button btn_index" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="index" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Index" class="button" accesskey="x" title="Index [X]" /></div></form>-->
+        <!--<a class="nolink" href="#dokuwiki__top"><input type="button" class="button" value="Back to top" onclick="window.scrollTo(0, 0)" title="Back to top" /></a>&nbsp;-->
+      <!--</div>-->
+      <!--<div class="clearer"></div>-->
+    <!--</div>-->
+
+  </div>
+
+  
+
+</div>
+
+<div class="footerinc">
+
+
+</div>
+
+<div class="no"><img src="/dhtmlx/docs/lib/exe/indexer.php?id=dhtmlxdatastore%3Atoc&amp;1310566135" width="1" height="1" alt=""  /></div>
+     <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright © 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxdatastore:toc" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>    	    </div>
+</body>
+</html>

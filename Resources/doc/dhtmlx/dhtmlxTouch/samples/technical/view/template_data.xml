@@ -1,0 +1,13 @@
+<data>
+	<item>
+		<type>one way</type>
+		<from>Minsk	</from>
+		<to>Moscow</to>
+		<depart>2011-03-25</depart>
+		<arrive>2011-03-26</arrive>
+		<pnum>1</pnum>
+		<changes>no</changes>
+		<hotels>no</hotels>
+		<hire>yes</hire>
+	</item>
+</data>

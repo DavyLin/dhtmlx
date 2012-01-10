@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+		.dhx_subbar .dhx_el_button input {
+			padding:0 15px 2px;
+		}
+		.sonnet{
+			align:center;
+			font-family:BRUSH SCRIPT MT;
+			/*font-style:italic;*/
+		}
+		.sonnet p{
+			font-weight:bold;
+		}
+        </style>
+		<title>Scrollview</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		
+	
+		<script type="text/javascript" charset="utf-8">
+
+		
+		dhx.ready(function(){
+			dhx.ui({
+				view:"window",
+				top:50,
+				left:60,
+	            height:300,
+	            width:400,
+				head:{
+					view:"toolbar",
+					type:"MainBar",
+					elements:[ 
+						  { view:"label", label:"Shakespeare's sonnets"}
+					]		
+				},
+				body:{
+					rows:[
+						{
+							view:"scrollview",
+							scroll:"y",
+							id:"sonnets",
+							content:{
+								height:1800,
+								rows:[
+									{content:"s1"},
+									{content:"s2"},
+									{content:"s3"},
+									{content:"s4"},
+									{content:"s5"}
+								]
+							}
+						},
+						{
+							view:"scrollview",
+							scroll:"x",
+							content:{
+								width: 610,
+								view:"toolbar",
+								type:"SubBar",
+								id:"mytoolbar",
+								elements:[ 
+								  { view:"button", label: 'I Sonnet', id: '1'},
+						          { view:"button", label: 'II Sonnet', id: '2'},
+						          { view:"button", label: 'III Sonnet', id: '3'},
+								  { view:"button", label: 'IV Sonnet', id: '4'},
+						          { view:"button", label: 'V Sonnet', id: '5'}
+								
+								]
+							}
+						}
+					]
+					
+				}
+			});
+			$$("mytoolbar").attachEvent("onItemClick",function(id){
+				$$("sonnets").scrollTo(0,359*(id-1))
+			})
+		});
+		
+		</script>
+		<div id="s1" class="sonnet">
+			<p>From fairest creatures we desire increase</p>
+			From fairest creatures we desire increase,<br/>
+			That thereby beauty's rose might never die,<br/>
+			But as the riper should by time decease,<br/>
+			His tender heir might bear his memory:<br/>
+			But thou, contracted to thine own bright eyes,<br/>
+			Feed'st thy light'st flame with self-substantial fuel,<br/>
+			Making a famine where abundance lies,<br/>
+			Thyself thy foe, to thy sweet self too cruel.<br/>
+			Thou that art now the world's fresh ornament<br/>
+			And only herald to the gaudy spring,<br/>
+			Within thine own bud buriest thy content<br/>
+			And, tender churl, makest waste in niggarding.<br/>
+			Pity the world, or else this glutton be,<br/>
+			To eat the world's due, by the grave and thee.
+		</div>
+		<div id="s2" class="sonnet">
+			<p>When forty winters shall besiege thy brow</p>
+			When forty winters shall beseige thy brow,<br/>
+			And dig deep trenches in thy beauty's field,<br/>
+			Thy youth's proud livery, so gazed on now,<br/>
+			Will be a tatter'd weed, of small worth held:<br/>
+			Then being ask'd where all thy beauty lies,<br/>
+			Where all the treasure of thy lusty days,<br/>
+			To say, within thine own deep-sunken eyes,<br/>
+			Were an all-eating shame and thriftless praise.<br/>
+			How much more praise deserved thy beauty's use,<br/>
+			If thou couldst answer 'This fair child of mine<br/>
+			Shall sum my count and make my old excuse,'<br/>
+			Proving his beauty by succession thine!<br/>
+			This were to be new made when thou art old,<br/>
+			And see thy blood warm when thou feel'st it cold.
+		</div>
+		<div id="s3" class="sonnet">
+			<p>Look in thy glass and tell the face thou viewest</p>
+			Look in thy glass, and tell the face thou viewest<br/>
+			Now is the time that face should form another;<br/>
+			Whose fresh repair if now thou not renewest,<br/>
+			Thou dost beguile the world, unbless some mother.<br/>
+			For where is she so fair whose unear'd womb<br/>
+			Disdains the tillage of thy husbandry?<br/>
+			Or who is he so fond will be the tomb<br/>
+			Of his self-love, to stop posterity?<br/>
+			Thou art thy mother's glass, and she in thee<br/>
+			Calls back the lovely April of her prime:<br/>
+			So thou through windows of thine age shall see<br/>
+			Despite of wrinkles this thy golden time.<br/>
+			But if thou live, remember'd not to be,<br/>
+			Die single, and thine image dies with thee.
+		</div>
+		<div id="s4" class="sonnet">
+			<p>Those hours that with gentle work did frame</p>
+			Unthrifty loveliness, why dost thou spend<br/>
+			Upon thyself thy beauty's legacy?<br/>
+			Nature's bequest gives nothing but doth lend,<br/>
+			And being frank she lends to those are free.<br/>
+			Then, beauteous niggard, why dost thou abuse<br/>
+			The bounteous largess given thee to give?<br/>
+			Profitless usurer, why dost thou use<br/>
+			So great a sum of sums, yet canst not live?<br/>
+			For having traffic with thyself alone,<br/>
+			Thou of thyself thy sweet self dost deceive.<br/>
+			Then how, when nature calls thee to be gone,<br/>
+			What acceptable audit canst thou leave?<br/>
+			Thy unused beauty must be tomb'd with thee,<br/>
+			Which, used, lives th' executor to be.
+		</div>
+		<div id="s5" class="sonnet">
+			<p>When forty winters shall besiege thy brow</p>
+			Those hours, that with gentle work did frame<br/>
+			The lovely gaze where every eye doth dwell,<br/>
+			Will play the tyrants to the very same<br/>
+			And that unfair which fairly doth excel:<br/>
+			For never-resting time leads summer on<br/>
+			To hideous winter and confounds him there;<br/>
+			Sap check'd with frost and lusty leaves quite gone,<br/>
+			Beauty o'ersnow'd and bareness every where:<br/>
+			Then, were not summer's distillation left,<br/>
+			A liquid prisoner pent in walls of glass,<br/>
+			Beauty's effect with beauty were bereft,<br/>
+			Nor it nor no remembrance what it was:<br/>
+			But flowers distill'd though they with winter meet,<br/>
+			Leese but their show; their substance still lives sweet.
+		</div>
+	</body>
+</html>

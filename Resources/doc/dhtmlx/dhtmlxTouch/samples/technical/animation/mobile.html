@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+        
+		<style type="text/css" media="screen">
+		.content{
+			width:100%;height:100%;background-color:#565656; text-align:center;
+		}	
+		</style>
+		<link rel="stylesheet" href="filelist.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		
+						
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		
+
+	
+		<script type="text/javascript" charset="utf-8">
+
+		dhx.ui({
+			rows:[
+				{ view:"toolbar", type:"MainBar", id:"ControlBar", elements:[
+					{ view:"segmented", options:[
+						{ value:"carousel_win", label:"Carousel"},
+						{ value:"animate_win", label:"Views"},
+						{ value:"lists_win", label:"List"}
+					]}
+				]},
+				{ view:"multiview", height:220, cells:[
+					{ id:"carousel_win", view:"multiview", cells:[
+						{
+							view:"carousel",
+							cols:[    
+			                    { template:img, data:{src:"imgs/phone/image001.jpg"} },
+								{ template:img, data:{src:"imgs/phone/image002.jpg"} },
+								{ template:img, data:{src:"imgs/phone/image003.jpg"} },
+			                    { template:img, data:{src:"imgs/phone/image004.jpg"} },
+								{ template:img, data:{src:"imgs/phone/image005.jpg"} },
+								{ template:img, data:{src:"imgs/phone/image006.jpg"} }
+			                ],
+			                panel:{
+			                	align:"bottom"
+			                }
+						},
+					]},
+					{
+						id:"animate_win",
+						rows:[
+							{
+							view:"toolbar", type:"MainBar", id:"HeadBar", elements:[
+								{view:"label", label: "Animate", align:'left'},
+								{ align:"center", view:"segmented", id:"animation_type_btn", options:[
+												{value:"slide", label:"Slide" },
+												{value:"flip", label:"Flip"}
+								]},
+								{ align:"center", view:"segmented", id:"animation_subtype_btn", selected: "together", options:[
+												{value:"together", label:"Together"},
+												{value:"in", label:"In"},
+												{value:"out", label:"Out"}
+								]}
+							]},
+							{
+							view:"multiview", id:"MainArea", animate:{},
+							cells:[    
+			                    { template:img, data:{src:"imgs/phone/image001.jpg"}, id:"area1" },
+								{ template:img, data:{src:"imgs/phone/image002.jpg"}, id:"area2" },
+								{ template:img, data:{src:"imgs/phone/image003.jpg"}, id:"area3" },
+			                    { template:img, data:{src:"imgs/phone/image004.jpg"}, id:"area4" },
+								{ template:img, data:{src:"imgs/phone/image005.jpg"}, id:"area5" },
+								{ template:img, data:{src:"imgs/phone/image006.jpg"}, id:"area6" }
+			                ]
+	                	},
+		                {
+	                        view:"toolbar", 
+	                        id:"BottomBar", type:"SubBar",
+	                        elements:[
+	                        	{ view:"segmented", align:"center",  selected: "area1", tabWidth:80, 
+	                        	options: [   
+	                        	    { label: 'Area 1', value: 'area1'},
+	                        	    { label: 'Area 2', value: 'area2'},
+	                        	    { label: 'Area 3', value: 'area3'},
+	                        	    { label: 'Area 4', value: 'area4'},
+	                        	    { label: 'Area 5', value: 'area5'}                            	    
+								]}
+							]
+		                }]
+					},
+					{
+						id:"lists_win",
+						view:"grouplist",
+						scroll:true,
+						url:"filelist.json",
+						datatype:"json",
+						padding: 0,
+						type:{
+						    templateItem:function(obj){
+						        return "<div class='dhx_filelist dhx_filelist_file_"+obj.ext+"'></div><div class='dhx_filelist_name'>"+obj.text+"</div>";
+						    },
+						    templateGroup:function(obj){
+						        return "<div class='dhx_filelist dhx_filelist_"+(obj.css||'folder')+"'></div><div class='dhx_filelist_name'>"+obj.text+"</div>";
+						    },
+						    templateBack:function(obj){
+						        return "<div class='dhx_filelist dhx_filelist_"+(obj.css||'folder')+"'></div><div class='dhx_filelist_name'>"+obj.text+"</div>";
+						    },
+						    width:"auto",
+						    padding: 0,
+						    height: 42
+						},
+						select:true
+					}
+				]}
+			]
+		});
+		
+		
+		function img(obj){
+			return '<div class="content"><img src="'+obj.src+'" width="319px" height="190px" border="0" style="margin:8px 8px 15px 8px" ondragstart="return false"/></div>'
+		}
+		
+		
+		
+
+		
+		
+        $$("BottomBar").attachEvent("onBeforeTabClick",function(button,id){
+            var views = $$('MainArea');
+            var type_btn = $$('animation_type_btn');
+            var subtype_btn = $$('animation_subtype_btn');
+			
+            views.config.animate.type = type_btn.getValue();
+            views.config.animate.subtype = subtype_btn.getValue();
+            $$(id).show();
+            return true
+        });
+        var options = {
+            slide: [
+                {value:"together", label:"Together"},
+                {value:"in", label:"In"},
+                {value:"out", label:"Out"}
+            ],
+            flip: [
+                {value:"horizontal", label:"Horizontal"},
+                {value:"vertical", label:"Vertical"}
+            ]
+        };
+        $$('HeadBar').attachEvent("onAfterTabClick",function(id, key){
+        	if (id != "animation_type_btn") return;
+        	
+            var subtype_btn = $$("animation_subtype_btn");
+            subtype_btn.config.options = options[key];
+            subtype_btn.config.selected = options[key][0][key];
+            subtype_btn.render();
+        });
+
+
+
+		
+		
+		$$('ControlBar').attachEvent('onAfterTabClick', function(id, tab){
+			$$(tab).show();
+		});
+
+		</script>
+
+	</body>
+</html>

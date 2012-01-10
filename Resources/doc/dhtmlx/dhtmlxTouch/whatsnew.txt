@@ -1,0 +1,128 @@
+DHTMLX Touch 1.0
+
+1) Slider input added
+2) Extra skins added ( visit http://dhtmlx.com to access skin-builder )
+3) History API added
+4) Offline API added
+
+DHTMLX Touch 1.0 RC
+
+1) All buttons and form inputs are first class components now, and can be placed in any cell of layout. 
+2) Data binding API
+3) Touch scroll is compatible with FireFox4 and IE10
+4) Optional loading overlays for all components
+5) Active content inside templates and list elements
+6) Support for different layouts for different device orientations
+7) Extended set of form buttons
+8) All gradients now defined through css
+9) show and hide methods added for all components
+10) Better scrolling and faster click processing for iOS based devices
+11) Extra options for ui configuration
+12) Tons of fixes
+
+DHTMLX Touch 0.8
+
+1) Components:
+
+New:
++ dhx.ui.dataview
++ dhx.ui.chart
++ dhx.ui.scrollview
++ dhx.ui.pagelist
+Changed:
+* "tabbar" component => "multiview"
+* "map" component => "googlemap"
+* "_" was excluded from names of controls ( form_button => formbutton ) 
+Removed:
+- content (view:"template" should be used instead)
+Improved:
+* new styling for dhx.notice
+
+2) Methods:
+
+New:
++ extra methods for TreeDataStore
+Renamed:
+* all methods translated to camelCase (set_value => setValue)
+* component.get(id) => component.item(id)
+* component.set(id,data)  => component.update(id,data)
+
+3) Properties:
+
+Renamed:
+* all properties translated to camelCase (template_item => templateItem, start_on_monday => startOnMonday)
+* unit_width property of "tabbar" form control => tabWidth
+
+Improved:
+* templateGroup, templateItem, templateBack can be set directly in the grouplist configuration (without type:{...})
+
+4) Events:
+
+New:
++ onBeforePopup event for popup form controls
++ onBeforeFilter, onAfterFilter events
+
+5) Behaviors
++ scroll improved
++ templates can have scroll
++ components can be linked by data
+
+
+
+DHTMLX Touch 0.5
+
+New animation types, dhx.ui.carousel, dhx.ui.notice, server side integration
+
++ animation samples
+* animation switched to transform3d
+* possible to init calendar using string (should match calendar_date_format setting)
++ getBody, getHead
++ ui.delay
++ form.focus
++ accordion in FF
+* animation is applied when changing lists
+- invalid rendering of long segmented button
++ auto id for all views
++ carousel sample
+- fix form button corners in skin builder
+- incorrect dnd after win moving
++ jsonp transport
++ dhx.notice 
+- double call of nested constructors
++ ajax loading in templates
++ dynamic ui construction ( partially ) 
++ extra samples for template
+* width of the form elements
++ tabbar animations sample
+* it's possible to pass additional arguments in the show() function
+* it's possible to define animation settings for tabbar in the show() function ( something.show({type: 'slide', subtype: 'out'}) )
++ dataprocessor and saving functionality
++ validation for dataprocessor 
++ flip (horizontal, vertical = subtype), slide (in, out) animations
++ layout-> carousel
++ correct error reporting for sql lite
+* format of single record loading is changed, getTopRecord is dropped
+- unnecessary select-related events
++ form supports click, same as toolbar
+* default data loading behavior for template and form
++ samples for dataprocessor in data loading, data linking scenarios 
++ simple data saving protocol
++ JSON data generation
++ onTimedKeyPress event
++ confirm and alert can provide extra details in callback 
+- clearAll doesn't trigger valid stopEdit
+- incorrect result of getRange for empty datastore
+* inner debug is optional now
+* improvments in rendering logic of grouplists and trees 
++ y_count="auto"
++ datastore.serialize(); 
+* chart legend clearing and resize
+* widths property fixed for toggle button
+* label tag added for form inputs
+- show/hide modal window
+* select list will load correctly even if initial option was not defined
+- auto_width and auto_height options for form elements
++ onAfterExpand, onAfterCollapse events
+* accordion correctly process collapse property during init
+
+

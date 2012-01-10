@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Loading: XML</title>
+	<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+	<script src="../../../codebase/touchui.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../../codebase/touchui.css">
+	
+	<style>
+		.dhx_chart_title{
+			padding-left:3px
+		}
+        html,body{
+            background-color:#ffffff;
+        }
+     </style>
+            
+	
+	<script>
+	
+		dhx.ready(function(){
+			dhx.ui({
+				view:"window",
+				body:"SubBar",
+				head:{
+					view:"toolbar", id:"viewsbar",  type:"SubBar", selected:"lines", elements:[
+						{view:"label", label:"Sales per year"},
+						{view:"button", label:"Reload with new type", click:"reload",align:"right",id:"reload"}
+					]
+				},
+				top:250, 
+				left:400,
+				height:300,
+				width:462,
+				move:true,
+				body:{
+					view:"chart",
+					type:"bar",
+					id:"mychart",
+			   		value:"#sales#",
+					label:"#year#",
+					padding:{
+						bottom:50,
+						right:0,
+						left:0
+					},
+					barWidth:30,
+					gradient:true,
+					border:false,
+					url: "./sales.xml",
+					datatype: "xml"
+				}
+			});	
+		});	
+		function reload(){
+	
+			$$("mychart").clearAll();	
+			$$("mychart").define("type", "pie")
+			$$("mychart").load("./sales.xml","xml");
+		}
+
+	</script>
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+<body>
+	<p>Chart data can be loaded from different sources: xml,json,JS array,csv<br/> This samples demonstrates loading from xml file.</p>
+	
+</body>
+</html>

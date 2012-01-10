@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">		
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+		html,body{
+            background-color:#ffffff;
+        }
+		.dhx_list_frame_item{
+			background-color:#565656;
+		}
+		html,body{
+			height:100%;
+			width:100%;
+		}
+        </style>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+ 
+            <div id="container" style='width:642px; height:230px;'></div>
+ 
+ 
+		<script type="text/javascript" charset="utf-8">
+			var sources = [
+				{id:1,img:"../animation/imgs/image001.jpg"},
+				{id:2,img:"../animation/imgs/image002.jpg"},
+				{id:3,img:"../animation/imgs/image003.jpg"},
+				{id:4,img:"../animation/imgs/image004.jpg"},
+				{id:5,img:"../animation/imgs/image005.jpg"},
+				{id:6,img:"../animation/imgs/image006.jpg"}
+			]
+			function img(obj){
+				return '<img src="'+obj.img+'" width="300" height="222" ondragstart="return false"/>'
+			}
+ 
+            dhx.ready(function(){
+                dhx.ui({
+                    container:"container",
+    				rows:[{	
+					height:230,
+					view:"pagelist", 
+					layout:"x",
+				        id:"carousel_list", 
+					data:sources, 
+					datatype:"json",
+				        template:img,
+					type:{
+						css:"frame",
+						height:230,
+						width:300
+					},
+					panel:{
+						align:"bottom"
+					}
+				 }]		
+    		});	
+            });
+ 
+		</script>
+	</body>
+</html>

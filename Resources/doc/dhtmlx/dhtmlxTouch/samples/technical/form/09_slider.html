@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+		
+		
+		var ui = dhx.ui({
+			view:"form", id:"myform", elements:[
+				{ view:"slider", label:"Level", value:"1", name:"s1", options:[
+					{value:0, label:"Empty"},
+					{value:1, label:"1/4"},
+					{value:2, label:"1/2"},
+					{value:3, label:"Full"}
+				]},
+				{ view:"slider", label:"Level", value:"2", name:"s2", options:[
+					{value:0, label:"Empty"},
+					{value:1, label:"1/4"},
+					{value:2, label:"1/2"},
+					{value:3, label:"Full"}
+				]},
+				{ view:"slider", label:"Level", value:"3", name:"s3", options:[
+					{value:0, label:"Empty"},
+					{value:1, label:"1/4"},
+					{value:2, label:"1/2"},
+					{value:3, label:"Full"}
+				]},
+				{ view:"button", id:"slider_set", label:"Set", click:"set()" },
+				{ view:"button", id:"slider_get", label:"Get", click:"get()" }
+			]
+		});
+
+		function set(){
+			$$('myform').setValues({
+				s1:"2", s2:"1", s3:"0"
+			});
+		};
+		function get(){
+			var data = $$('myform').getValues();
+			dhx.notice(data.s1);
+			dhx.notice(data.s2);
+			dhx.notice(data.s3);
+		};
+		</script>
+		
+	</body>
+</html>

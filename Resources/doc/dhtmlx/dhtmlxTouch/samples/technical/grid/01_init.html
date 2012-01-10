@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Grid: initialization</title>
+	
+	<script src="../../../codebase/touchui.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../../codebase/touchui.css">
+<style>
+	.cl_id{
+		background-color:#ededed;
+	}
+
+        html,body{
+            background-color:#ffffff;
+        }
+        </style>
+            
+<body>
+
+	<h1>DataGrid</h1>
+	
+	<div id="grid_container" style="width:590px;height:400px;"></div>
+
+	<script>
+		function my_button(obj){
+			dhx.ui.passive.button.render({ label: obj.Version });
+		};
+		dhx.ui({
+			container:"grid_container",
+			rows:[{
+				id:"grid",
+				view:"grid",
+				select:"multiselect",
+				fields:[
+					{
+						id:"id",
+						width:40,
+						sort:{
+							as:"int"
+						}
+					},
+					{
+						id:"Package",
+						width:350,
+						label:"Package Name",
+						template:"#Package# <span style='color:#919191'>#Version#</span>",
+						type:"custom"
+					},
+					{
+						id:"Maintainer",
+						width:200
+					}
+				],
+				datatype:"json", url:"data.json"
+			}]
+		});	
+
+		
+		
+		
+
+	</script>
+
+</body>
+</html>

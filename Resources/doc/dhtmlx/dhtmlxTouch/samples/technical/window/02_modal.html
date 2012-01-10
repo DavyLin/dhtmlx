@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+	<title>Modal window</title>
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+<body>
+	
+	<script type="text/javascript" charset="utf-8">
+		
+	dhx.ui({
+		rows:[
+			{ view: "toolbar", type:"MainBar",  elements:[
+				{ view:"button", label:"Create", click:"open_modal", id:'create' }
+			  ]
+			},
+			{ template:"Click on Create button" }
+		]
+	})
+
+	var x=100, y=100;
+	function open_modal(){
+		dhx.ui({
+			id:"w1",
+			view:"window",
+			head:{ view:"toolbar", type:"SubBar", elements:[
+				{ view:"button", label:"Create", click:"open_modal" },
+				{ view:"button", label:"Close", click:"close_modal", align:"right" }
+			]},
+			modal:true,
+			body:"Click on Create button",
+			top:y, left:x
+		});
+		x+=50; y+=50;
+	}
+	function close_modal(){
+		this.getParent().getParent().close();
+		x-=50; y-=50;
+	}
+	</script>
+
+</body>
+</html>
+

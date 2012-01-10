@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <item id="1">
+    <name>The Gold Rush</name>
+    <year> 1925 </year>
+  </item>
+  <item id="2">
+    <name>The Last Airbender</name>
+    <year> 2010 </year>
+  </item>
+  <item id="3">
+    <name>Gone With The Wind</name>
+    <year>1939</year>
+  </item>
+  <item id="4">
+    <name>The A-Team</name>
+    <year>2010</year>
+  </item>
+  <item id="5">
+    <name>Piranha</name>
+    <year>2010</year>
+  </item>
+  <item id="6">
+    <name>Fantasia</name>
+    <year> 1940 </year>
+  </item>
+  <item id="7">
+    <name>The Book of Eli</name>
+    <year>2010</year>
+  </item>
+  <item id="8">
+    <name>King Kong</name>
+    <year>1933</year>
+  </item>
+</data>

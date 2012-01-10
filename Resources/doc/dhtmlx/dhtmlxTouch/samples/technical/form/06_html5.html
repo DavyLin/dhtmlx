@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<title>Form</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+		
+		
+		var ui = dhx.ui({ 	
+				view:"form", id:"myform", width:320, elements:[
+					{ view:"text", label:"email", type:"email", placeholder:"type something here" },
+					{ view:"text", label:"url", type:"url", maxlength:10 },
+					{ view:"text", label:"number", type:"number" },
+					{ view:"text", label:"range", type:"range" },
+					{ view:"text", label:"date", type:"date" },
+					{ view:"text", label:"month", type:"month" },
+					{ view:"text", label:"week", type:"week" },
+					{ view:"text", label:"time", type:"time" },
+					{ view:"text", label:"datetime", type:"datetime" },
+					{ view:"text", label:"search", type:"search" },
+					{ view:"text", label:"color", type:"color" }
+				]
+		});
+
+			
+		</script>
+		
+	</body>
+</html>

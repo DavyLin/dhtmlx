@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="../../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../../../../codebase/touchui.css" type="text/css" charset="utf-8">
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ready(function(){
+				dhx.ui({
+					rows:[
+						{view:"toolbar", type:"MainBar", elements:[
+							{view:"label", label:"Just select something in the list"}
+						]},
+						{
+							cols:[
+								{
+									view:"list", id:"mylist", url:"data.php", select:true,
+									type:{ width:"auto", template:"#name#" }
+								},
+								{ rows:[
+									{
+										view:"form", id:"myform", elements:[
+											{ view:"text", label:"Name", id:"name"},
+											{ view:"text", label:"Age",  id:"age"},
+											{ view:"text", label:"City", id:"city"},
+											{ view:"button", type:"form", label:"Save", width:290, click:"save_data"}
+										]
+									},
+									{
+										id:"mytext", template:" <blockquote> Name: #name#<br>Age: #age#<br>City: #city# <blockquote>"
+									}
+								]}
+							]
+						}
+					]
+				});
+				
+				
+				$$('mytext').bind($$('mylist'));
+				$$('myform').bind($$('mylist'));
+			});
+			
+			function save_data(){
+				$$('myform').save();
+			};
+			
+		</script>
+	</body>
+</html>

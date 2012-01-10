@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+		<title>Calendar</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+
+		<script type="text/javascript" charset="utf-8">
+
+		dhx.ui({
+			view:"window",
+			body:{
+				view:"calendar",
+				weekHeader:1,
+				weekNumber:1,
+				timeSelect:1
+			},
+			head:{
+				view:"toolbar", type:"MainBar", elements:[
+					{view:"label", label: "Calendar", align:'left'},
+					{ view:"button", label: 'Close', align: 'right', click:"close_win"}
+				]
+			},
+			top:150,
+			left:300,
+			move:true
+		});
+		
+		function close_win(){
+			this.getParent().hide();
+		}
+
+		</script>
+	</body>
+</html>

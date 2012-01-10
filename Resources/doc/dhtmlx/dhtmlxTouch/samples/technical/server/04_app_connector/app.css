@@ -1,0 +1,25 @@
+#user_profile {
+	display: none;
+}
+.user_profile {
+	padding: 20px;
+	height: 100%;
+}
+.user_profile .label {
+	float: left;
+	font-weight: bold;
+	color: #777777;
+	width: 120px;
+	height: 18px;
+	padding-top: 10px;
+	font-size: 0.9em;
+	border-bottom: 1px dotted #bbbbbb;
+}
+.user_profile .value {
+	font-weight: bold;
+	color: #333333;
+	width: 300px;
+	height: 20px;
+	padding-top: 8px;
+	border-bottom: 1px dotted #bbbbbb;
+}

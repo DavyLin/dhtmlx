@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script src="../../../codebase/touchui.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../../codebase/touchui.css">
+ 
+ 
+	<script>
+ 
+	dhx.ready(function(){
+		dhx.ui.fullScreen(); //activates the full-screen mode and hides the address bar. We use default values (268, 420), that's why don't pass any parameters.
+ 
+		dhx.ui({
+			rows:[{ view:"toolbar", type:"MainBar", elements:[{view:"label", label:"Top songs"},// in the first row we create toolbar
+															  {view:"button", type:"prev", label:"Back", align:"right"}]
+				  },
+				  {	
+					view:"list", // in the second row we create list
+					datatype:"xml", // the data type of loaded data
+					url:"songs.xml", // the relative path to the data file
+					template:"#name# (#author#)", // specifies the represented data
+					scroll:true, //enables list scrolling
+					select:true, // defines whether list's items can be selected
+					type: { width:"auto" }// the width of the list
+				  },
+				  {
+					view:"toolbar", type:"MainBar", elements:[{ view:"button", type:"round", label: 'Download',  align:"center"},// in the third row we also create toolbar
+															  { view:"button", type:"round", label: 'Get Ringtone', align:"center"}]
+			}]
+		})
+ 
+	})
+ 
+	</script>
+ 
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+<body>
+</body>
+</html>

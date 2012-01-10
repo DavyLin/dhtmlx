@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>DataView Usage</title>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+<body>
+	<script>
+		dhx.ui({
+			view:"window",
+			height:300,
+			width:480,
+			left:50,
+			top:50,
+			head:{ view:"toolbar", type:"MainBar", cols:[
+				{ view:"label", label:"Packages", align:"left" },
+				{ view:"button", label:"Download", align:"right" }
+			]},
+			body:{
+				view:"dataview",
+				type:{
+					template:"<span class='dhx_strong'>#Maintainer#</span>#Package# <span class='dhx_light'>#Version#</span>",
+					height:35
+				},
+				edit:true,
+				drag:true,
+				url:"./data.xml",
+				datatype:"xml"
+			}
+		});
+		
+	</script>
+
+</body>
+</html>
+

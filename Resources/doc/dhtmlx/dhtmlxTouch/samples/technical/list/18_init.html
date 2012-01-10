@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+    <link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+    <script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+ 
+<body>
+    <div style="width:270px;height:255px;border:1px solid #969696; margin:50px;">
+    	<div id="groupBox" style='width:100%; height:100%;'>
+    	</div>
+    </div>
+	<script>
+dhx.ready(function(){ // dhx.ready () is analogous to 'onDocumentReady ' event  - occurs when the document has been completely parsed.  The callback function will be invoked even if it was written after the document has loaded.
+  dhx.ui({
+        container:"groupBox",
+        rows:[	{ 	view:"toolbar", type:"MainBar", //specifies 'toolbar' component
+					elements:[{ view:"label", label:"Songs list"}]},
+				{	view:"multiview", // specifies 'multiview' component
+					cells:[{	view:"list",// specify 'list' component as the first view 
+								id:"mylist",
+								datatype:"xml", // data type of loaded data
+								template:"#name#", // specifies the represented data
+								select:true, // defines whether list's item can be selected
+								type: { width: 250 }// width of the list
+							},
+							{ view:"form", // specify 'form' component as the second view 
+								id:"myform",
+								elements:[{	 view:"text", id:"name", width:250, label: 'Song', position: "label-left", align: "center", labelAlign: "center"},// defines simple text fields where we will present details
+										{view:"text", id:"author", width:250, label: 'Singer', position: "label-left", align: "center", labelAlign: "center"},
+										{view:"text", id:"year", width:250, label: 'Year', position: "label-left", align: "center", labelAlign: "center"},
+										{view:"text", id:"time", width:250, label: 'Time', position: "label-left", align: "center", labelAlign: "center"},
+										{view:"button", type:"form", label:"Back to list", width:250, click:function(){$$("mylist").show()}}]
+							}
+					]}
+  ]});
+ 
+  $$("mylist").load("songs.xml", "xml", function(){// as data loading is asynchronous we'll load data to 'list' out of its definition to ensure initial selection
+		$$("mylist").select($$("mylist").first());// makes the first row selected
+		$$("mylist").show();
+  });
+ 
+  $$("mylist").attachEvent("onafterselect",function(id){
+		loadMyForm(id);//this is your function which should load form with data based on clicked item ID
+		$$("myform").show();//this is we here for. MULTIVIEW will be switched to the cell with form view
+		return true
+  })
+ 
+  function loadMyForm(id){
+		$$("myform").setValues( $$("mylist").item($$("mylist").getSelected()));
+  }
+});
+	</script>
+</body>
+</html>
+

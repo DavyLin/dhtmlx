@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>3D view</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="title" content="Samples" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../common/css/style.css" type="text/css" media="screen" />
+
+	</head>
+	<body>
+        <div class="header">
+            <a class="logo" href="http://www.dhtmlx.com" title="DHTMLX homepage"></a>
+            <div class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</div>
+            <div class="search-field">
+                <form action="http://docs.dhtmlx.com/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit">Search</button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>
+            </div>
+            <div class="buttons">
+                <a class="doc_inact" href="../../../docsExplorer/index.html" title="DHTMLX Documentation homepage"></a>
+                <a class="sample"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="navigation-div">
+                <a href="../../../docsExplorer/samples.html" class="navigation"><img src="../common/icons/file.gif" alt="" >All components</a>
+                <div class="arrow"></div>
+                <a href="../index.html" class="navigation"><img height="22" src="../common/icons/chart.gif" alt="" >dhtmlxChart</a>
+                <div class="arrow"></div>
+                <a href="./index.html" class="navigation"><img src="../common/icons/none.gif" alt="" >Pie Charts</a>
+            </div>
+            <div style="display:block;">
+                <h3>3D view</h3>
+            </div>
+            <div class="navigation-div">
+                <a href="#code" class="navigation view-source"><img src="../common/icons/source.gif" alt="" >View page source</a>
+            </div>
+            <script src="../../codebase/dhtmlxchart.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxchart.css">
+	<script>
+	var data = [
+	    { sales:"10.5", component:"dhxGrid",color:"#c7e1f3" },
+		{ sales:"8.7", component:"dhxScheduler",color:"#45abf5" },
+	    { sales:"6.3", component:"dhxTree",color:"#3590d0" },
+		{ sales:"5.3", component:"dhxTabbar",color:"#BDDBF9" },
+		{ sales:"4.5", component:"dhxLayout",color:"#d9e5ed" },
+		{ sales:"4.2", component:"dhxMenu",color:"#aed7f4" }
+	];
+	
+	window.onload = function(){
+		var chart =  new dhtmlXChart({
+			view:"pie3D",
+			container:"chart",
+			value:"#sales#",
+			label:function(obj){
+				var sum = chart.sum("#sales#");
+				return obj.component+" ("+Math.round(parseFloat(obj.sales)/sum*100)+"%)";
+			},
+			color:"#color#",
+			radius:110,
+			tooltip:"#sales#"
+		});
+		chart.parse(data,"json");
+	}
+
+	</script>
+
+
+	<div id="chart" style="width:500px;height:300px;border:1px solid #A4BED4;"></div></td>
+			
+			
+         </div>
+    <div class="source">
+        <div class="teg">Source</div>
+        <div class="code" id="code">
+		<div class="hl-main"><pre><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxchart.js</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/javascript</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-code"> </span><span class="hl-var">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">STYLESHEET</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxchart.css</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">data</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">10.5</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">component</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">dhxGrid</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">color</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#c7e1f3</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">8.7</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">component</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">dhxScheduler</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">color</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#45abf5</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">6.3</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">component</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">dhxTree</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">color</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#3590d0</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">5.3</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">component</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">dhxTabbar</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">color</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#BDDBF9</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">4.5</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">component</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">dhxLayout</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">color</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#d9e5ed</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">4.2</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">component</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">dhxMenu</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">color</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#aed7f4</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">onload</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">chart</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXChart</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">view</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">pie3D</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">container</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">chart</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">value</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#sales#</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-reserved">label</span><span class="hl-code">: </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">sum</span><span class="hl-code"> = </span><span class="hl-identifier">chart</span><span class="hl-code">.</span><span class="hl-identifier">sum</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">#sales#</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">component</span><span class="hl-code"> + </span><span class="hl-quotes">&quot;</span><span class="hl-string"> (</span><span class="hl-quotes">&quot;</span><span class="hl-code"> + </span><span class="hl-builtin">Math</span><span class="hl-code">.</span><span class="hl-identifier">round</span><span class="hl-brackets">(</span><span class="hl-identifier">parseFloat</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">sales</span><span class="hl-brackets">)</span><span class="hl-code"> / </span><span class="hl-identifier">sum</span><span class="hl-code"> * </span><span class="hl-number">100</span><span class="hl-brackets">)</span><span class="hl-code"> + </span><span class="hl-quotes">&quot;</span><span class="hl-string">%)</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+        </span><span class="hl-brackets">}</span><span class="hl-code">,
+        </span><span class="hl-identifier">color</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#color#</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">radius</span><span class="hl-code">: </span><span class="hl-number">110</span><span class="hl-code">,
+        </span><span class="hl-identifier">tooltip</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#sales#</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">chart</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">data</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">json</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">chart</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:500px;height:300px;border:1px solid #A4BED4;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">td</span><span class="hl-brackets">&gt;</span></pre></div>
+        </div>
+    <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright &copy; 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+    </div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+		<title>Layout: wide borders</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ui({
+				type:"head", rows:[
+					{ 	template:"top bar" },
+					{ 
+						type:"wide", cols:[
+						{ 	
+							rows:[
+								{ template:"left top" },
+								{ template:"left top" },
+								{ template:"left top" },
+							]
+						},
+						{	
+							type:"wide",
+							rows:[
+								{ 
+									type:"clean", cols:[
+										{ template:"left" },
+										{ template:"right" },
+									]
+								},
+								{ template:"right top" },
+							]
+						}
+					]},
+				]
+			});
+			//
+		</script>
+	</body>
+</html>

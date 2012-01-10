@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+
+	<style type="text/css" media="screen">
+		html, body{
+			height:100%;
+			-moz-user-select:none;    
+			-moz-user-select:-moz-none;/*latest ff*/
+			-khtml-select:none;  
+		}
+		div{
+			overflow:hidden;
+		}
+	
+        html,body{
+            background-color:#ffffff;
+        }
+        </style>
+            
+<body>
+	<div id="area_1" style='width:500px; height:350px; background-color:#FFFF9D; float:left;'><div></div>
+	</div>
+	<div id="area_2" style='width:250px; height:350px; background-color:#A9E2E7; float:left; overflow-y:hidden;'>
+		<div touch_scroll="y" style='width:500px; height:1350px; background-color:#A9E2E7;'>
+		scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>scroll<br>
+		</div>
+	</div>
+	<div id="area_2" style='width:250px; height:350px; background-color:#A9E2E7; float:left; overflow-y:hidden;'>
+		<div touch_scroll="x" style='width:2250px; height:350px; background-color:#E1AEE1;'>
+		1234567890 1234567890 12345678901234567890 1234567890 12345678901234567890 1234567890 12345678901234567890 1234567890 12345678901234567890 1234567890 12345678901234567890 1234567890 12345678901234567890 1234567890 12345678901234567890 1234567890 12345678901234567890 1234567890 12345678901234567890 1234567890 12345678901234567890 1234567890 1234567890
+		</div>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+		function logger (data) {
+			var log = document.getElementById('area_1');
+			log.insertBefore(dhx.html.create("DIV",{},data),log.firstChild);
+		}
+		
+		dhx.attachEvent("onclick", function(){
+			logger("click");
+		});
+		dhx.attachEvent("ontouch", function(){
+			logger("touch");
+		});
+		dhx.attachEvent("onlongtouch", function(){
+			logger("longtouch");
+		});
+		dhx.attachEvent("onswipex", function(){
+			logger("swipex");
+		});
+		dhx.attachEvent("onswipey", function(){
+			logger("swipey");
+		});
+	</script>
+	<input type="text" name="some_name" value="edit me" id="some_name">
+</body>
+</html>
+

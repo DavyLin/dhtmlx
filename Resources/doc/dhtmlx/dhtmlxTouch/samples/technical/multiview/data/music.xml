@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <item id="1">
+    <name> Let It Be </name>
+    <author> Beatles </author>
+    <year> 1970 </year>
+    <album> Get Back </album>
+  </item>
+  <item id="2">
+    <name> Hotel California </name>
+    <author> Eagles </author>
+    <year> 1976 </year>
+    <album> Hotel California </album>
+  </item>
+  <item id="3">
+    <name> Yesterday </name>
+    <author> Beatles </author>
+    <album> Help! </album>
+  </item>
+  <item id="4">
+    <name> Wish You Were Here </name>
+    <author> Pink Floyd </author>
+    <year> 1975 </year>
+    <album> Wish You Were Here </album>
+  </item>
+  <item id="5">
+    <name> Stairway to Heaven </name>
+    <author> Led Zeppelin </author>
+    <year> 1971 </year>
+    <album> Led Zeppelin IV </album>
+  </item>
+  <item id="6">
+    <name> The Winner Takes It All </name>
+    <author> ABBA </author>
+    <year> 1980 </year>
+    <album> Super Trouper </album>
+  </item>
+</data>

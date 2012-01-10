@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <title>Template view</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		
+		<style type="text/css" media="screen">
+			.inline{
+				display:inline-block;
+			}
+		</style>
+		<script type="text/javascript" charset="utf-8">
+
+
+		dhx.protoUI({
+			name:"activeTemplate"
+		}, dhx.ui.template, dhx.ActiveContent);
+		 
+		dhx.ui({
+			view:"activeTemplate",
+			activeContent:{
+				mybutton:{
+					id:"runbutton",
+					view:"button",
+					width:150,
+					css:"inline",
+					label:"press me",
+					click:"dhx.notice($$('runinput').getValue())"
+				},
+				myinput:{
+					view:"text",
+					id:"runinput",
+					css:"inline",
+					width:350,
+					placeholder:"type here"
+				},
+				mycounter:{
+					view:"counter",
+					value:5,
+					css:"inline",
+					width:350
+				}	
+			},
+			template:"some long text here <br> abc {common.mybutton()} cba {common.myinput()} abc <br> some long text here <br> {common.mycounter()}"
+		});
+		
+		
+
+		</script>
+	</body>
+</html>

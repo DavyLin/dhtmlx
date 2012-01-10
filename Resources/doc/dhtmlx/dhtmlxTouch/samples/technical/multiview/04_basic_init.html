@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Multiview</title>
+    <meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .tb_sup{
+            font-size:10px;
+            text-shadow: none;
+            font-style:italic;
+        }
+    </style>
+ 
+    <script>
+        dhx.ready(function(){
+ 
+            var config={// we declare all the front-end components in the variable and then we just put it into view object
+                container:"box",    
+		rows:[// specifies layout
+                        { 	
+                            view:"toolbar", // in the first row we create toolbar that contains just a label
+                            type:"MainBar", // 
+                            elements:[// specifies toolbar's label
+                                {view:"label", label: "Backpackr <sup class='tb_sup'>mobile</sup>", align:'left'}
+                            ]
+                        },
+                        { // in the second row we also specify toolbar but now it will contain control 'tabbar' which we will use as a changer 
+                            view:"toolbar",
+			    type:"BigTabBar",
+                            id:"TopToolbar", 
+                            elements:[// here we specify toolbar control 'tabbar'
+                            	{ view:"tabbar", id:'tabbar', selected: 'tab_video', align:"center", inputWidth:300, options: [   
+                            	   { label: 'Video', src: 'images/tabbar/video.png', value: 'tab_video'},
+                            	   { label: 'Music', src: 'images/tabbar/music.png', value: 'tab_music'},
+                            	   { label: 'Games', src: 'images/tabbar/games.png', value: 'tab_games'}
+                            	]}
+                                ]},
+                        {
+                            gravity:2,  // dimensional parameter
+                            view:"multiview", // specifies multiview component
+                            cells:[{ view:"list", id:"tab_video", url:"data/video.xml", datatype:"xml",
+			             template:"#name# (#year#)", select:true, type: { width: 300 }
+				   },
+				   { view:"list", id:"tab_music", url:"data/music.xml", datatype:"xml",
+			             template:"#name# (#author#)", select:true, type: { width: 300 }
+				   },
+				   { view:"list", id:"tab_games", url:"data/games.xml", datatype:"xml", //specifies content of each tab
+				     template:"#name#", select:true, type: { width: 300 }
+				   }]
+                        }
+                    ]
+			}
+            dhx.ui(config);// we put the variable with components declaration into the view
+ 
+            $$("tabbar").show(); // specifies which tab will be showed initially
+            $$("TopToolbar").attachEvent("onBeforeTabClick",function(button,id){ //t's a function which allows us to change tabs over
+                $$(id).show();
+                return true
+            })
+        });
+    </script>
+<body>
+    <div style="width:320px;height:340px;border:1px solid #969696; margin:50px;">
+		<div id="box" style='width:100%; height:100%;'></div>
+    </div>
+</body>
+</html>

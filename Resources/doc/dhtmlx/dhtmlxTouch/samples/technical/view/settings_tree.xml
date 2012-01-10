@@ -1,0 +1,29 @@
+<data>
+	<item id="group 01">
+		<title>Language</title>	
+		<item id="l01">
+			<title>Current language</title>
+		</item>		
+		<item id="l02">
+			<title>Text direction</title>
+		</item>
+	</item>
+	<item id="group 02">
+		<title>Map Settings</title>	
+		<item id="m01">
+			<title>Current language</title>
+		</item>		
+		<item id="m02">
+			<title>Text direction</title>
+		</item>
+	</item>
+	<item id="group 03">
+		<title>About Backpackr</title>	
+		<item id="b01">
+			<title>Legal Information</title>
+		</item>		
+		<item id="b02">
+			<title>About us</title>
+		</item>
+	</item>
+</data>

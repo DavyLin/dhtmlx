@@ -1,0 +1,261 @@
+body {
+	margin: 0;
+	font-family: Tahoma, Arial, Verdana, sans-seif;
+	font-size: 12px;
+}
+
+div.center_div {
+	margin: 0 auto;
+	width: 800px;
+}
+
+.input {
+	width: 295px;
+	border: solid 1px #c0d6dd;
+}
+
+
+#db_host {
+	width: 236px;
+}
+
+#db_port {
+	width: 43px;
+}
+
+
+div {
+	width: 800px;
+}
+
+#install_main {
+	width: 927px;
+	padding-top: 12px;
+}
+
+#install_header {
+	background: url('./imgs/header_bg.png');
+	height:81px;
+}
+
+#install_header div {
+	height:81px;
+}
+
+#install_header_left {
+	background: url('./imgs/header_bg_left.png');
+	float: left;
+	width: 500px;
+}
+
+#install_header_right {
+	background: url('./imgs/header_bg_right.png');
+	float: right;
+	width: 6px;
+}
+
+#install_content {
+	margin-top: 40px;
+}
+
+#install_content table {
+	float: left;
+	font-size: 12px;
+	padding: 0px;
+}
+
+table td {
+	padding-bottom: 12px;
+}
+
+
+.first_td {
+	font-weight: bold;
+	text-align: right;
+	/* top: 5px; */
+	position: relative;
+	padding: 3px 20px 0 0;
+}
+
+.but_first_td {
+	text-align: right;
+	position: relative;
+	padding-right:20px;
+}
+
+.button-row td {
+	padding-top: 34px;
+}
+
+.message {
+	font-size: 18px;
+	padding-top: 20px;
+}
+
+.hint {
+	display: block;
+	width:294px;
+	font-family: Tahoma, Arial, Verdana, sans-seif;
+	font-size: 11px;
+	font-weight: normal;
+	padding: 3px 0 0 0;
+	color: #999;
+}
+
+.error_row {
+	color:red;
+}
+
+.error_row .first_td div {
+	height: 16px;
+	width: 60px;
+	float:right;
+	background: url('./imgs/err.gif') no-repeat;
+}
+
+.error_row .error_msg {
+	float:left;
+	border: solid 1px #efadad;
+	background: #ffe1e1;
+	/* padding: 12px 20px 20px 20px; */
+	width: 294px;
+}
+
+.error_row .error_msg div {
+	float:left;
+	width:100%;
+	font-weight:normal;
+	font-size:12px;
+	text-align: center;
+	color: #cc0000;
+	padding: 10px 10px 10px 0px;
+	/* display: block; */
+}
+
+.table_header td {
+	font-weight:bold;
+	font-size:12px;
+}
+
+.save-button {
+	width: 114px;
+	height: 21px;
+	background: none;
+	background: url('./imgs/save_button.gif');
+	border: none;
+}
+
+.continue-button {
+	width: 80px;
+	height: 21px;
+	background: none;
+	background: url('./imgs/continue_button.gif');
+	border: none;
+}
+
+
+.back-button {
+	width: 60px;
+	height: 21px;
+	background: none;
+	background: url('./imgs/back_button.gif');
+	border: none;
+}
+
+.clear-button {
+	width: 61px;
+	height: 21px;
+	background: none;
+	background: url('./imgs/clear_button.gif');
+	border: none;
+}
+
+.checkbox {
+	padding:0;
+	margin:0 5px 0 0;
+}
+
+.save-button:hover,
+.continue-button:hover, 
+.back-button:hover, 
+.clear-button:hover {
+	background-position: 0 -21;
+}
+
+.tr1 {
+	background: #eceef4;
+}
+
+.tr1 td, .tr2 td {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 1px;
+}
+
+#content_step_3 table {
+	width:100%;
+}
+
+#content_step_3 .error_row td {
+	padding-top:12px;
+}
+
+#content_step_3 .button-row td {
+	padding-top:46px;
+}
+
+#content_step_3 .tr1 td.first_td,
+#content_step_3 .tr2 td.first_td {
+	border-right: dotted 1px #8894a3;
+}
+
+#content_step_3 .second_td {
+	padding-left:10px;
+}
+
+#content_step_3 .first_td,
+#content_step_3 .but_first_td {
+	padding-right:10px;
+}
+
+#configure {
+	width:100%;
+	height:167px;
+	overflow:auto;
+	overflow-y:hidden;
+}
+
+
+#configure, #content_step_4 table {
+	clear: both;
+	/* padding-right:10px; */
+}
+
+
+#configure table td {
+	padding: 0 10px 0 10px;
+	height: 25px;
+	border-right: dotted 1px #8894a3;
+}
+
+#configure .first_td {
+	padding: 0 10px 0 0;
+}
+
+#content_step_4 .button-row td {
+	padding-top:46px;
+}
+
+#configure select {
+	width:120px;
+	border:none;
+	border:0;
+	background:none;
+}
+
+#configure input {
+	width:120px;
+	border: solid 1px #c0d6dd;
+}

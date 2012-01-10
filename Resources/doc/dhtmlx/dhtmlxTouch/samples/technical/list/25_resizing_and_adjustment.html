@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+    <title>Resizing</title>
+    <link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">     
+    <script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+ 	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+ 
+ <body> 
+	<div id="testA" style='width:600px; height:300px; overflow:hidden;'></div>
+	<hr>
+	<div id="testB" style='width:600px; height:300px; overflow:hidden;'></div>
+	<div id="buttonBox">
+		<input type="button" id="resize" value="resize" onclick='doResize()'> 
+	</div>
+	<script type="text/javascript" charset="utf-8">
+	
+	function doResize(){
+		list1.define("height", 210);
+		list1.resize();
+		
+		document.getElementById('testB').style.height="210px";
+		list2.adjust();
+	};
+			
+	dhx.ready(function(){
+		list1 =	dhx.ui({
+				container:"testA", 
+				rows:[
+					{
+						view:"toolbar", 
+						type:"MainBar",
+						elements:[{ view:"label", label:"List 1"}]
+					},
+					{
+						view:"list", 
+						template: "#name# (#author#)",
+						url:"songs.xml", 
+						datatype:"xml",
+						select:true
+					}
+			]});
+		
+		list2 =	dhx.ui({
+				container:"testB", 
+				rows:[
+					{
+						view:"toolbar", 
+						type:"MainBar",
+						elements:[{ view:"label", label:"List 2"}]
+					},
+					{
+						view:"list", 
+						template: "#name# (#author#)",
+						url:"songs.xml", 
+						datatype:"xml",
+						select:true
+					}
+			]})
+	});
+	</script>
+  </body>
+</html>

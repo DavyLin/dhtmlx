@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ui({
+				rows:[
+						{ 	view:"toolbar", type:"MainBar", elements:[
+							{ view:"button", label: 'Left', popup:"Menu1"},
+							{ view:"button", label: 'Menu', popup:"Menu1"},
+							{ view:"button", label: 'Menu', popup:"Menu1"},
+							{ view:"button", label: 'Menu', popup:"Menu1"},
+							{ view:"button", label: 'Right', popup:"Menu1"}
+								
+							]
+						},
+						{	template:"<div id='asd'>test</div>" },
+						{ 	view:"toolbar", type:"MainBar", elements:[
+							{ view:"button", label: 'Left', popup:"Menu1"},
+							{ view:"button", label: 'Menu', popup:"Menu1"},
+							{ view:"button", label: 'Menu', popup:"Menu1"},
+							{ view:"button", label: 'Menu', popup:"Menu1"},
+							{ view:"button", label: 'Right', popup:"Menu1"}
+								
+							]
+						}
+				]
+			});
+			
+			dhx.ui({
+				view:"popup",
+				id:"Menu1",
+				body:{
+					view:"list",
+					url:"menu.xml", datatype:"xml",
+					select:true, yCount:3
+				}
+			}).hide();
+			
+			/*
+			$$("list").attachEvent("onItemClick", function(){
+				$$("Menu2").show(this)
+			});*/
+			
+			//$$ == dhx.ui.locateView
+		</script>
+	</body>
+</html>

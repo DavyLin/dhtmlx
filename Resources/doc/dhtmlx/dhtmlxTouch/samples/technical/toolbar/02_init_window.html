@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+	
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+	<title>Toolbar: in window</title>
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+<body>
+	<script>
+		dhx.ui({
+			view:"window",
+			body:"MainBar",
+			head:{
+				view:"toolbar", type:"MainBar", elements:[
+					{view:"label", label: "Backpackr", align:'left'},
+                    {view:"imagebutton", id:"input_id", src: './images/help.png', align: 'right'}
+				]
+			},
+			top:0, left:0,
+			move:true
+		});		
+		dhx.ui({
+			view:"window",
+			body:"MainBar",
+			head:{
+				view:"toolbar", type:"MainBar", elements:[
+					{ view:"label", label: "Backpackr", align:'left'},
+					{ view:'button', label: 'Save', align: 'right'}
+				]
+			},
+			top:0, left:400,
+			move:true
+		});			
+	
+		
+		dhx.ui({
+			view:"window",
+			body:"SubBar",
+			head:{
+				view:"toolbar", type:"SubBar", elements:[
+					{view:"label", label: "Equipment Hire", width:200, align:"left"},
+					{view:"imagebutton", id:"input_id", src: './images/help.png', align: 'right'}
+				]
+			},
+			top:250, left:0,
+			move:true
+		});		
+		dhx.ui({
+			view:"window",
+			body:"SubBar",
+			head:{
+				view:"toolbar", type:"SubBar", elements:[
+					{view:"segmented", id:"tabs", options:[
+							{value:"tab_a", label:"Section A"},{value:"tab_b", label:"Section B"},{value:"tab_c", label:"Section C"}
+					]},
+				]
+			},
+			top:250, left:400,
+			move:true
+		});			
+		dhx.ui({
+			view:"window",
+			body:"SubBar",
+			head:{
+				view:"toolbar", type:"SubBar", elements:[
+					{view:"label", label: "Equipment Hire", width:200, align:"left"},
+					{ view:'button', label: 'Save', align: 'right' }
+				]
+			},
+			top:250, left:800,
+			move:true
+		});				
+
+	</script>
+
+</body>
+</html>
+

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+        <meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        dhx.ready(function(){
+ 
+            dhx.ui({
+                container:"box",
+                    cols:[{
+						rows:[{
+								view:"toolbar", 
+								type:"MainBar",
+								elements:[{ view:"label", label:"games"}]
+							},
+							{
+								view:"list", 
+								url:"data/games.xml", 
+								datatype:"xml",
+								template:"#name#", 
+								select:true, 
+								type: { width: 170 }
+							}
+					]},
+					{	rows:[{
+								view:"toolbar", 
+								type:"MainBar",
+                                                                elements:[{ view:"label", label:"video"}]
+                            },
+							{
+								view:"list",
+								url:"data/video.xml", 
+								datatype:"xml",
+								template:"#name#", 
+								select:true, 
+								type: { width: 170}
+				            }
+					]},
+					{	rows:[{
+								view:"toolbar", 
+								type:"MainBar",
+                                                                elements:[{ view:"label", label:"music"}]
+                            },
+							{ 
+								view:"list", 
+								url:"data/music.xml", 
+								datatype:"xml",
+								template:"#name#", 
+								select:true, 
+								type: { width: 170 }
+							}
+					]}]
+			})
+		})
+    </script>
+<body>
+    <div style="width:572px;height:300px;border:1px solid #969696; margin:50px;">
+    	<div id="box" style='width:100%; height:100%;'>	</div>
+    </div>
+</body>
+</html>
+

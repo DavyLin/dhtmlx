@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chart types</title>
+	<script src="../../../codebase/touchui.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../../codebase/touchui.css">
+	
+	<style>
+		.dhx_chart_title{
+			padding-left:3px
+		}
+	
+        html,body{
+            background-color:#ffffff;
+        }
+        </style>
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+<body>
+	<script>
+	
+		/*Pie Chart*/
+		
+		var pieData = [
+			{ sales:"3.0", year:"2000" },
+			{ sales:"3.8", year:"2001" },
+			{ sales:"3.4", year:"2002" },
+			{ sales:"4.1", year:"2003" },
+			{ sales:"4.3", year:"2004" },
+			{ sales:"9.9", year:"2005" },
+			{ sales:"7.4", year:"2006" },
+			{ sales:"9.0", year:"2007" },
+			{ sales:"7.3", year:"2008" },
+			{ sales:"4.8", year:"2009" }
+		];
+		
+		var pie = {
+			view:"chart",
+			id:"pie",
+			type:"pie",
+			value:"#sales#",
+			pieInnerText:"#sales#",
+			gradient:true,
+			legend:{
+				width:80,
+				template:"#year#"
+			},
+			padding:{
+				left:0,
+				right:0,
+				top:15,
+				bottom:15
+			},
+			data: pieData,
+			datatype: "json"
+		};	
+		
+		/*Line Chart*/
+		var lineData = [
+			{ "companyA":"-1.9", "companyB":1, year:"2000" },
+			{ "companyA":"-0.8", "companyB":0.8, year:"2001" },
+			{ "companyA":"3.4", "companyB":1.9, year:"2002" },
+			{ "companyA":"4.1", "companyB":2.5, year:"2003" },
+			{ "companyA":"4.3", "companyB":3.1, year:"2004" },
+			{ "companyA":"5.9", "companyB":4.5, year:"2005" },
+			{ "companyA":"6.1", "companyB":5.7, year:"2006" },
+			{ "companyA":"6.5", "companyB":7.2, year:"2007" },
+			{ "companyA":"5.2", "companyB":6.5, year:"2008" },
+			{ "companyA":"4.8", "companyB":6.8, year:"2009" }
+		];
+		var lines = {
+			view:"chart",
+			type:"line",
+			id:"lines",
+			series:[
+				{
+			    	value:"#companyA#",
+					item:{
+						borderColor: "#3399ff",
+						color: "#ffffff"
+					},
+					line:{
+						color:"#3399ff",
+						width:3
+					}
+				},
+				{
+					value:"#companyB#",
+					item:{
+						borderColor: "#66cc00",
+						color: "#ffffff"
+					},
+					line:{
+						color:"#66cc00",
+						width:3
+					}
+				}
+			],
+			xAxis:{
+				template:"#year#"
+			},
+			yAxis:{
+				start:-2,
+				step:1,
+				end:8
+			},
+			padding:{
+				left:35,
+				bottom:20
+			},
+			origin:0,
+			legend:{
+				layout:"x",
+				width: 75,
+				align:"center",
+				valign:"bottom",
+				marker:{
+					type:"round",
+					width:15
+				},
+				values:[
+					{text:"company A",color:"#3399ff"},
+					{text:"company B",color:"#66cc00"}
+				]
+			},
+			data: lineData,
+			datatype: "json"
+		};
+		
+		/*Bar Chart*/
+		var barData = [
+			{ sales:"4.2",sales1:"3.4",sales2:"1.2", year:"2000" },
+			{ sales:"3.8",sales1:"4.5",sales2:"2.5", year:"2001" },
+			{ sales:"3.4",sales1:"4.7",sales2:"1.9", year:"2002" }
+		];
+		var bar =  {
+			view:"chart",
+			type:"bar",
+			id:"bar",
+			series:[
+				{
+					value:"#sales#",
+					label:"#sales#",
+					barWidth:30
+				},
+				{
+				    value:"#sales1#",
+					color:"#ff9933",
+					label:"#sales1#"
+				},
+				{
+				    value:"#sales2#",
+					color:"#ffff99",
+					label:"#sales2#"
+				}
+			],
+			xAxis:{
+				title:"Sales per year",
+				template:"#year#"
+			},
+			yAxis:{
+				start:0,
+				step:1,
+				end:5,
+				title:"Sales,million"
+			},
+			gradient:true,
+			border:false,
+			color: "#66cc33",
+			legend:{
+				values:[{text:"department A",color:"#66cc33"},{text:"department B",color:"#ff9933"},{text:"department C",color:"#ffff99"}],
+				valign:"top",
+				align:"center",
+				width:120,
+				layout:"x",
+				marker:{
+					width:15,
+					type:"round"
+				}
+			},
+			data: barData,
+			datatype: "json"
+		};
+	
+	
+		dhx.ready(function(){
+			dhx.ui({
+				view:"window",
+				body:"SubBar",
+				head:{
+					view:"toolbar", id:"viewsbar",  type:"SubBar",  elements:[
+						{view:"segmented", align:"center", id:"chart_types", multiview:true, options:[
+							{value:"pie", label:"Pie Chart"},{value:"lines", label:"Line Chart"},{value:"bar", label:"Bar Chart"}
+						]}
+					]
+				},
+				top:250, 
+				left:400,
+				height:300,
+				width:462,
+				move:true,
+				body:{
+					type:"multiview",
+					cells:[
+						pie,
+						lines,
+						bar
+					]
+				}
+			});	
+			
+			
+	
+		})
+	</script>
+</body>
+</html>

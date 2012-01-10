@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		 <meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">		
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+       
+		<script type="text/javascript" charset="utf-8">
+dhx.ready(function() {
+	
+	dhx.protoUI({
+		name:"activeList"
+	},dhx.ui.list,dhx.ActiveContent);
+
+    dhx.ui({
+       
+        rows: [
+        { view:"button", label:"add", click:"add_to_lists();"},
+        { view:"button", label:"sort", click:"sort_lists();"},
+        { view:"button", label:"get values", click:"get_lists();"},
+        {
+            cols: [
+            {
+                view: "activeList",
+                id: "mylist3",
+                url: "long_list.json",
+                activeContent:{
+                	toggleButton:{
+                		view:"toggle",
+                		options:["on","off"],
+                		width:180
+                	}, 
+                },
+                template: "<div style='float:right'>{common.toggleButton()}</div> #title#",
+                type: {
+                    width: "auto",
+                    height:32
+                },
+                select:false
+            },
+            {
+                view: "activeList",
+                id: "mylist4",
+                url: "long_list.json",
+                activeContent:{
+                	counterButton:{
+                		view:"counter",
+                		min:0, max:10,
+                		width:180
+                	}, 
+                },
+                template: "<div style='float:right'>{common.counterButton()}</div> #title#",
+                type: {
+                    width: "auto",
+                    height:32
+                },
+                select:false
+            }]
+        }]
+    });
+
+		
+});
+               
+	function add_to_lists(){
+		$$("mylist4").add({ title:"new" },0);
+		$$("mylist3").add({ title:"new" },0);
+	} 
+	function sort_lists(){
+		$$("mylist4").sort({by:"#title#"});
+		$$("mylist3").sort({by:"#title#"});
+	} 
+	function get_lists(){
+		var id_left = $$("mylist3").first();
+		var id_right = $$("mylist4").first();
+		
+		var a = $$("mylist3").toggleButton(id_left).getValue();
+		var b = $$("mylist4").counterButton(id_right).getValue();
+		alert("left = "+a+"\n right = "+b);
+	} 
+					
+			
+			
+			
+		</script>
+	</body>
+</html>

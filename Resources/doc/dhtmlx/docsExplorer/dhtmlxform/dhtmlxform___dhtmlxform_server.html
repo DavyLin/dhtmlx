@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" href="../codebase/default.css" type="text/css" media="screen" title="no title" charset="utf-8"><title>
+    dhtmlxform:dhtmlxform_server    [DHX documentation]
+  </title></head>
+
+<body>
+<div class="dokuwiki">
+  
+  <div class="stylehead">
+
+    <div class="header">
+    <a class="logo" href="http://dhtmlx.com" title="DHTMLX Home Page"></a>
+    <span class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</span>
+
+    <div class="search-field">
+        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>    </div>
+        <div class="buttons">
+                <a class="doc"></a>
+                <a title="DHTMLX Samples homepage" href="../samples.html" class="sample"/></a>
+        </div>
+     <!-- <div class="pagename">
+        [[<a href="#"  title="Backlinks">dhtmlxform:dhtmlxform_server</a>]]
+      </div>
+      <div class="logo">
+        <a href="/dhtmlx/docs/doku.php"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[H]">DHX documentation</a>      </div>
+
+      <div class="clearer"></div>-->
+        
+    </div>
+
+    
+<!--   <div class="bar" id="bar__top">
+      <div class="bar-left" id="bar__topleft">
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>        <form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>      </div>
+
+      <div class="bar-right" id="bar__topright">
+        <form class="button btn_recent" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="recent" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Recent changes" class="button" accesskey="r" title="Recent changes [R]" /></div></form>        <form action="/dhtmlx/docs/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit"></button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>&nbsp;
+      </div>
+
+      <div class="clearer"></div>
+    </div> -->
+
+<!--        <div class="breadcrumbs">
+      <span class="bchead">Trace:</span> <span class="bcsep">&raquo;</span> <span class="curid"><a href="/dhtmlx/docs/doku.php?id=dhtmlxform:dhtmlxform_server"  class="breadcrumbs" title="dhtmlxform:dhtmlxform_server">dhtmlxform_server</a></span>    </div>
+    -->
+
+    
+  </div>
+  
+  
+  <div class="page">
+    <!-- wikipage start -->
+    <!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="#server_integration" class="toc">Server Integration</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="#automatic_integration_using_dhtmlxconnector" class="toc">Automatic integration using dhtmlxConnector</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#server_side" class="toc">Server side</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#clients_side" class="toc">Clients side</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="#fill_the_form_with_custom_data_feed" class="toc">Fill the form with custom data feed</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#saving_data_without_dhtmlxconnector" class="toc">Saving data without dhtmlxConnector</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#ajax_post_request" class="toc">AJAX Post Request</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#html_form_submit" class="toc">HTML Form Submit</a></span></div></li></ul>
+</li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<p>
+<div class='backlinks'><div class='backlink last_backlink'><img src="icons___file.gif"  class="media" alt="" /><a href="../index.html" class="wikilink1" title="start">Index</a></div><div class='arrow'></div><div class='backlink last_backlink'><a href="/dhtmlx/docs/doku.php?id=dhtmlxform:toc" class="media" title="dhtmlxform:toc"></a><a href="index.html" class="wikilink1" title="dhtmlxform:toc">dhtmlxForm</a></div></div>
+
+</p>
+
+<h1><a name="server_integration" id="server_integration">Server Integration</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>To fill</strong> dhtmlxForm with data using datasource fields binding. There are two ways of doing this:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Automatically, using <a href="../dhtmlxconnector/index.html" class="wikilink1" title="dhtmlxconnector:toc">dhtmlxConnector</a></div>
+</li>
+<li class="level1"><div class="li"> Using your own (custom) datasource</div>
+</li>
+</ul>
+
+<p>
+
+<strong>To save</strong> data back to server, you can use:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Automatic saving using <a href="../dhtmlxconnector/index.html" class="wikilink1" title="dhtmlxconnector:toc">dhtmlxConnector</a></div>
+</li>
+<li class="level1"><div class="li"> Send data to server using <acronym title="Asynchronous JavaScript and XML">AJAX</acronym> request and save it there using your own processor</div>
+</li>
+</ul>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="53-493" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit" class="button" title="Server Integration" /></div></form></div>
+<h2><a name="automatic_integration_using_dhtmlxconnector" id="automatic_integration_using_dhtmlxconnector">Automatic integration using dhtmlxConnector</a></h2>
+<div class="level2">
+
+<p>
+
+dhtmlxConnector allows binding dhtmlxForm fields to server side datasource with minimal efforts. For details see <a href="../dhtmlxconnector/index.html" class="wikilink1" title="dhtmlxconnector:toc">dhtmlxConnector documentation</a>, here we&#039;ll show you the basics.<br/>
+
+To use dhtmlxConnector you need to follow few steps on client side and create server side file.
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="494-847" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit" class="button" title="Automatic integration using dhtmlxConnector" /></div></form></div>
+<h3><a name="server_side" id="server_side">Server side</a></h3>
+<div class="level3">
+
+<p>
+
+Here is the code sample (<acronym title="Hypertext Preprocessor">PHP</acronym>) you could use to connect the form with <em>Users</em> table on server side. 
+
+</p>
+<pre class="code php"><span class="kw1">require_once</span><span class="br0">&#40;</span><span class="st_h">'form_connector.php'</span><span class="br0">&#41;</span>;
+<span class="re0">$conn</span> <span class="sy0">=</span> <a href="http://www.php.net/mysql_connect"><span class="kw3">mysql_connect</span></a><span class="br0">&#40;</span><span class="st0">&quot;localhost&quot;</span><span class="sy0">,</span><span class="st0">&quot;root&quot;</span><span class="sy0">,</span><span class="st0">&quot;&quot;</span><span class="br0">&#41;</span>;
+<a href="http://www.php.net/mysql_select_db"><span class="kw3">mysql_select_db</span></a><span class="br0">&#40;</span><span class="st0">&quot;db_name&quot;</span><span class="br0">&#41;</span>;
+&nbsp;
+<span class="re0">$form</span> <span class="sy0">=</span> <span class="kw2">new</span> FormConnector<span class="br0">&#40;</span><span class="re0">$conn</span><span class="br0">&#41;</span>;<span class="co1">//create connector for dhtmlxForm using connection to mySQL server</span>
+<span class="re0">$form</span><span class="sy0">-&gt;</span><span class="me1">render_table</span><span class="br0">&#40;</span><span class="st0">&quot;Users&quot;</span><span class="sy0">,</span><span class="st0">&quot;user_id&quot;</span><span class="sy0">,</span><span class="st0">&quot;f_name,l_name,email&quot;</span><span class="br0">&#41;</span>;<span class="co1">//table name, id field name, fields to use to fill the form</span></pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="848-1324" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit" class="button" title="Server side" /></div></form></div>
+<h3><a name="clients_side" id="clients_side">Clients side</a></h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li">   Add dhtmlxdataprocessor.js file to your page (it can be found either in dhtmlxConnector codebase directory)</div>
+</li>
+<li class="level1"><div class="li">   Instantiate DataProcessor (pass server side file url where you use dhtmlxConnector as argument)</div>
+</li>
+<li class="level1"><div class="li">   Connect form to DataProcessor</div>
+</li>
+<li class="level1"><div class="li">   Use <em>load(…)</em> and <em>save()</em> methods of dhtmlxForm to fill form with data and save data back to server </div>
+</li>
+<li class="level1"><div class="li">   Use names for form fields the same as corresponded database table fields names (or aliases if were used)</div>
+</li>
+</ol>
+<pre class="code javascript"><span class="sy0">&lt;</span>script src<span class="sy0">=</span><span class="st0">&quot;./codebase/connector/dhtmlxdataprocessor.js&quot;</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span>
+...
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span>
+  <span class="kw2">var</span> myForm <span class="sy0">=</span> <span class="kw2">new</span> dhtmlxForm<span class="br0">&#40;</span>containerID<span class="sy0">,</span>structureAr<span class="br0">&#41;</span>;<span class="co1">//create form (see its structure below)</span>
+  <span class="kw2">var</span> dp <span class="sy0">=</span> <span class="kw2">new</span> dataProcessor<span class="br0">&#40;</span><span class="st0">&quot;php/user_details.php&quot;</span><span class="br0">&#41;</span>;<span class="co1">//instatiate dataprocessor</span>
+  dp.<span class="me1">init</span><span class="br0">&#40;</span>yourFormObject<span class="br0">&#41;</span>;<span class="co1">//link form to dataprocessor</span>
+  ...
+  <span class="me1">myForm</span>.<span class="me1">load</span><span class="br0">&#40;</span><span class="st0">&quot;php/user_details.php?id=&quot;</span><span class="sy0">+</span>userID<span class="br0">&#41;</span>;<span class="co1">//fill form with data. Where userID is ID or record you want to use to fill the form</span>
+  ...
+  <span class="me1">myForm</span>.<span class="me1">attachEvent</span><span class="br0">&#40;</span><span class="st0">&quot;onButtonClick&quot;</span><span class="sy0">,</span><span class="kw2">function</span><span class="br0">&#40;</span>buttonID<span class="br0">&#41;</span><span class="br0">&#123;</span><span class="co1">//create event handler to save data on button click</span>
+    <span class="kw1">if</span><span class="br0">&#40;</span>buttonID<span class="sy0">==</span><span class="st0">&quot;my_button&quot;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+        myForm.<span class="me1">save</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<span class="co1">//no parameters needed. It will use the url you passed to dataprocessor</span>
+    <span class="br0">&#125;</span>
+  <span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="sy0">&lt;/</span>script<span class="sy0">&gt;</span></pre>
+<p>
+
+<strong>Note:</strong> Client side <a href="dhtmlxform___it_valid.html" class="wikilink1" title="dhtmlxform:it_valid">dhtmlxForm validation</a> will run automatically when <em>save()</em> method is called. If it fails, data will not be sent to server.
+</p>
+
+<p>
+Form elements on client-side should have &#039;name&#039; attributes with the same names as corresponded database table fields names (or aliases) returned by connector (see above):
+</p>
+<pre class="code javascript"><span class="kw2">var</span> structureAr <span class="sy0">=</span> <span class="br0">&#91;</span>
+ <span class="br0">&#123;</span>type<span class="sy0">:</span> <span class="st0">&quot;input&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span> <span class="st0">&quot;f_name&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span><span class="st0">&quot;First name&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span> 
+ <span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;input&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span> <span class="st0">&quot;l_name&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span><span class="st0">&quot;Last Name&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+ <span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;input&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span><span class="st0">&quot;email&quot;</span><span class="sy0">,</span> label<span class="sy0">:</span><span class="st0">&quot;Email&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>	
+ <span class="br0">&#123;</span>type<span class="sy0">:</span><span class="st0">&quot;button&quot;</span><span class="sy0">,</span> <span class="kw3">name</span><span class="sy0">:</span><span class="st0">&quot;my_button&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span><span class="st0">&quot;Save&quot;</span><span class="br0">&#125;</span> 
+<span class="br0">&#93;</span></pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="1325-3151" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit" class="button" title="Clients side" /></div></form></div>
+<h2><a name="fill_the_form_with_custom_data_feed" id="fill_the_form_with_custom_data_feed">Fill the form with custom data feed</a></h2>
+<div class="level2">
+
+<p>
+
+Instead of dhtmlxConnector, you can load data from any custom feed using the same <em>load(…)</em> method. The requirement is - feed elements should have the same names as corresponded form fields have.
+</p>
+<pre class="code javascript"><span class="kw2">var</span> myForm <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXForm<span class="br0">&#40;</span>containderID<span class="sy0">,</span>structureAr<span class="br0">&#41;</span>;
+myForm.<span class="me1">load</span><span class="br0">&#40;</span><span class="st0">&quot;user.xml&quot;</span><span class="br0">&#41;</span>;</pre>
+<p>
+<em>user.xml</em> file:
+
+</p>
+<pre class="code xml"><span class="sc3"><span class="re1">&lt;data<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;f_name<span class="re2">&gt;</span></span></span>John<span class="sc3"><span class="re1">&lt;/f_name<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;l_name<span class="re2">&gt;</span></span></span>Doe<span class="sc3"><span class="re1">&lt;/l_name<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;email<span class="re2">&gt;</span></span></span>jdoe@mail.com<span class="sc3"><span class="re1">&lt;/email<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/data<span class="re2">&gt;</span></span></span></pre>
+<p>
+The name of the top tag in <acronym title="Extensible Markup Language">XML</acronym> - <em>&lt;data&gt;</em> - can be any.
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="3152-3699" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit" class="button" title="Fill the form with custom data feed" /></div></form></div>
+<h2><a name="saving_data_without_dhtmlxconnector" id="saving_data_without_dhtmlxconnector">Saving data without dhtmlxConnector</a></h2>
+<div class="level2">
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="3700-3748" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit" class="button" title="Saving data without dhtmlxConnector" /></div></form></div>
+<h3><a name="ajax_post_request" id="ajax_post_request">AJAX Post Request</a></h3>
+<div class="level3">
+
+<p>
+
+In case you would like to have your own server side processor for form data and do not use dhtmlxConnector, you have an option to use <em><a href="dhtmlxform___api_method_dhtmlxform_send.html" class="wikilink1" title="dhtmlxform:api_method_dhtmlxform_send">send(url)</a></em> method to send form data to server using <strong><acronym title="Asynchronous JavaScript and XML">AJAX</acronym> POST request</strong>.
+</p>
+<pre class="code javascript">myForm.<span class="me1">attachEvent</span><span class="br0">&#40;</span><span class="st0">&quot;onButtonClick&quot;</span><span class="sy0">,</span><span class="kw2">function</span><span class="br0">&#40;</span>id<span class="br0">&#41;</span><span class="br0">&#123;</span>
+    <span class="kw1">if</span><span class="br0">&#40;</span>id<span class="sy0">==</span><span class="st0">&quot;my_button&quot;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+        myForm.<span class="me1">send</span><span class="br0">&#40;</span><span class="st0">&quot;php/save_form.php&quot;</span><span class="br0">&#41;</span>
+    <span class="br0">&#125;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+<p>
+
+<strong>Note:</strong> Client side <a href="dhtmlxform___it_valid.html" class="wikilink1" title="dhtmlxform:it_valid">dhtmlxForm validation</a> will run automatically when <em>send(url)</em> method is called. If it fails, data will not be sent to server.
+</p>
+
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="3749-4336" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit" class="button" title="AJAX Post Request" /></div></form></div>
+<h3><a name="html_form_submit" id="html_form_submit">HTML Form Submit</a></h3>
+<div class="level3">
+
+<p>
+
+Also, you can wrap dhtmlxForm conatinaer with <acronym title="HyperText Markup Language">HTML</acronym> form tags and use <acronym title="HyperText Markup Language">HTML</acronym> form submit to send data to server in common way. Just do not forget to run <a href="dhtmlxform___it_valid.html" class="wikilink1" title="dhtmlxform:it_valid">form fields validation</a> first.
+</p>
+<pre class="code javascript"><span class="sy0">&lt;</span>form action<span class="sy0">=</span><span class="st0">&quot;php/save_form.php&quot;</span> method<span class="sy0">=</span><span class="st0">&quot;post&quot;</span> target<span class="sy0">=</span><span class="st0">&quot;[some target]&quot;</span><span class="sy0">&gt;</span>
+    <span class="sy0">&lt;</span>div id<span class="sy0">=</span><span class="st0">&quot;form_container&quot;</span><span class="sy0">&gt;&lt;/</span>div<span class="sy0">&gt;</span>
+<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span>
+&nbsp;
+<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span>
+  myForm <span class="sy0">=</span> <span class="kw2">new</span> dhtmlXForm<span class="br0">&#40;</span><span class="st0">&quot;form_container&quot;</span><span class="sy0">,</span>structureAr<span class="br0">&#41;</span>;
+  myForm.<span class="me1">attachEvent</span><span class="br0">&#40;</span><span class="st0">&quot;onButtonClick&quot;</span><span class="sy0">,</span><span class="kw2">function</span><span class="br0">&#40;</span>id<span class="br0">&#41;</span><span class="br0">&#123;</span>
+    <span class="kw1">if</span><span class="br0">&#40;</span>id<span class="sy0">==</span><span class="st0">&quot;my_button&quot;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+        <span class="kw1">if</span><span class="br0">&#40;</span>myForm.<span class="me1">validate</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+            document.<span class="me1">forms</span><span class="br0">&#91;</span>0<span class="br0">&#93;</span>.<span class="me1">submit</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="br0">&#125;</span>
+  <span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="sy0">&lt;/</span>script<span class="sy0">&gt;</span></pre>
+</div>
+<div class="secedit"><form class="button btn_secedit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="lines" value="4337-" /><input type="hidden" name="rev" value="1310061276" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit" class="button" title="HTML Form Submit" /></div></form></div>
+    <!-- wikipage stop -->
+  </div>
+
+  <div class="clearer">&nbsp;</div>
+
+  
+  <div class="stylefoot">
+
+    <div class="meta">
+      <div class="user">
+              </div>
+     <!-- <div class="doc">
+        dhtmlxform/dhtmlxform_server.txt &middot; Last modified: 2011/07/07 20:54 (external edit)      </div>
+    </div>-->
+
+   
+    <!--<div class="bar" id="bar__bottom">-->
+      <!--<div class="bar-left" id="bar__bottomleft">-->
+        <!--<form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>-->
+        <!--<form class="button btn_revs" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="revisions" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" /></div></form>-->
+      <!--</div>-->
+      <!--<div class="bar-right" id="bar__bottomright">-->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!--<form class="button btn_index" method="get" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="index" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Index" class="button" accesskey="x" title="Index [X]" /></div></form>-->
+        <!--<a class="nolink" href="#dokuwiki__top"><input type="button" class="button" value="Back to top" onclick="window.scrollTo(0, 0)" title="Back to top" /></a>&nbsp;-->
+      <!--</div>-->
+      <!--<div class="clearer"></div>-->
+    <!--</div>-->
+
+  </div>
+
+  
+
+</div>
+
+<div class="footerinc">
+
+
+</div>
+
+<div class="no"><img src="/dhtmlx/docs/lib/exe/indexer.php?id=dhtmlxform%3Adhtmlxform_server&amp;1310566160" width="1" height="1" alt=""  /></div>
+     <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright © 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+        <form class="button btn_edit" method="post" action="/dhtmlx/docs/doku.php"><div class="no"><input type="hidden" name="do" value="edit" /><input type="hidden" name="rev" value="" /><input type="hidden" name="id" value="dhtmlxform:dhtmlxform_server" /><input type="submit" value="Edit this page" class="button" accesskey="e" title="Edit this page [E]" /></div></form>    	    </div>
+</body>
+</html>

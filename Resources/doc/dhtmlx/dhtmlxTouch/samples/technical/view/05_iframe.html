@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<title>Iframe view</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+	<div id="scrollV" style="height:600px;width:400px"></div>
+	
+		<script type="text/javascript" charset="utf-8">
+			dhx.ready(function(){
+				dhx.ui({
+					container:"scrollV",
+					rows:[
+						{ view:"toolbar" , id:"top", type:"MainBar", elements:[
+							{ view:"segmented", options:[
+								{value:"http://google.com", 	label:"Google", selected:true },
+								{value:"http://yahoo.com", 	label:"Yahoo"},
+								{value:"http://bing.com", 	label:"Bing"}
+							]},
+						]
+					},
+						{ view:"iframe", id:"bottom", src:"http://google.com" },
+					]
+				});
+				
+				$$('top').attachEvent("onAfterTabClick",function(id, key){
+					$$('bottom').define("src", key);
+				});
+			});
+		</script>
+		
+	</body>
+</html>

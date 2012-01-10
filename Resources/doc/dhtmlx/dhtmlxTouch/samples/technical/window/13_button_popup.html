@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+ 
+		<script type="text/javascript" charset="utf-8">
+			dhx.ui({
+				rows:[{
+					view:"toolbar", type:"MainBar", elements:[{view:"button", label: 'Menu', popup:"Menu1", inputWidth:100, align:"left"}]
+				}]
+			});
+ 
+			dhx.ui({
+				view:"popup",
+				id:"Menu1",
+				body:{
+					view:"list",
+					url:"menu.xml", 
+					datatype:"xml",
+					template:"#name#",
+					select:true, 
+					y_count:3
+				}
+			}).hide();
+		</script>
+	</body>
+</html>

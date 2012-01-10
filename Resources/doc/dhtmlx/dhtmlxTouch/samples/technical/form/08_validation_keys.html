@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head> 
+<body>
+ 
+	<script>
+		dhx.ready(function(){
+			confirmPassword = function(obj) {
+				return (obj.pass1 == obj.pass2);
+			}
+ 
+			dhx.ui({ 
+				view:"form", 
+				id:"myform", 
+				elements:[
+					{ view:"text", label:"Password", id:"pass1", inputWidth:200},
+					{ view:"text", label:"Confirm password",  id:"pass2", inputWidth:200},
+					{ view:"button", type:"form", label:"Login", id:"save", click:"validate_data", inputWidth:200}
+				],
+				rules:{
+					$obj:confirmPassword
+                                }
+			});
+ 
+			validate_data=function(){
+				if ($$("myform").validate()==false)
+				{dhx.notice("Passwords don't match");}
+			}
+		})
+	</script>
+</body>
+</html>

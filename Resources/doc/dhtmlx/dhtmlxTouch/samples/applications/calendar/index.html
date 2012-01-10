@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="dhtmlxscheduler_mobile.css" type="text/css" media="screen" charset="utf-8">
+		<script src="dhtmlxscheduler_mobile.js" type="text/javascript"></script>
+
+		<link rel="STYLESHEET" type="text/css" href="css/styles.css">
+		<style>
+            html,body{
+                background-color:#ffffff;
+            }
+		</style>
+		<title>Scheduler</title>
+		<script type="text/javascript" charset="utf-8">
+			
+			  dhx.ready(function(){
+				dhx.ui.fullScreen();
+    			dhx.ui({
+					view: "scheduler",
+					id: "scheduler"
+				});
+				
+				dhx.i18n.fullDateFormat="%Y-%m-%d %H:%i"; 
+				dhx.i18n.setLocale();
+				
+				dhx.DataDriver.xml.records= "/*/event";
+				$$("scheduler").load("data.xml","xml");
+			});
+		</script>
+</head>
+	<body>
+		
+	</body>
+</html>

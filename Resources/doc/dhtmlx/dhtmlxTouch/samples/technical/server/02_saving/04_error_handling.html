@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<script src="../../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../../../../codebase/touchui.css" type="text/css" charset="utf-8">
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			dhx.ready(function(){
+				dhx.ui({
+					rows:[
+						{view:"toolbar", type:"MainBar", elements:[
+							{view:"button", label:"Add", click:"add_item" },
+							{view:"button", label:"Remove", click:"remove_item" }
+						]},
+						{
+							view:"list", id:"mylist", url:"data.php",
+							type:{ width:"auto", template:"#name#" },
+							select:true
+						},
+						{
+							view:"form", id:"myform", elements:[
+								{ view:"text", label:"Name", id:"name"},
+								{ view:"text", label:"Age",  id:"age"},
+								{ view:"text", label:"City", id:"city"},
+								{ view:"button", label:"Save", click:"save_form"}
+							] 
+						}
+					]
+				});
+				
+				var dp = new dhx.DataProcessor({
+					master:$$('mylist'),
+					url:"error.php"
+				});
+				$$('myform').bind($$('mylist'));
+				
+				dp.attachEvent("onDBerror", function(response, update){
+					dhx.alert({
+						title:"DB error",
+						message:"<pre>"+response.value+"</pre>",
+						callback:function(){
+							dp.off();
+							if (update.operation == "delete")
+								$$('mylist').add(update.data, 0);	
+							else if (update.operation == "insert")
+								$$('mylist').remove(update.id);
+							else if (update.operation == "update")
+								$$('mylist').load("data.php?action=get&id="+update.id);	
+							dp.on();							
+						}
+					});
+				});
+			
+			});
+			
+			
+			function add_item(){
+				$$('mylist').add({},1);
+			};
+			function remove_item(){
+				$$('mylist').remove($$('mylist').getSelected());
+			};
+			function save_form() {
+				$$('myform').save();
+			};
+			
+		</script>
+	</body>
+</html>

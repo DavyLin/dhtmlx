@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+		<title>Toolbar: types</title>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	
+	
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			var config = [								
+				{view:"button", width:150, label: 'Left'},
+				{view:"label",  label: 'Center'},
+				{view:"button", width:150, label: 'Right'},
+			];
+			
+			var config2 = [								
+				{view:"button", inputWidth:100, label: 'Left',   align:'right'},
+				{view:"label" , inputWidth:100, label: 'Center', align:'center' },
+				{view:"button", inputWidth:100, label: 'Right',	 align:'left'},
+			];
+			
+			dhx.ui({
+				rows:[
+					{	height:60, template:"<br> Default sizing model"  },
+					{ 	view:"toolbar", type:"MainBar", 		elements:dhx.fullCopy(config), id:"topToolbar"},
+					{	height:20, template:""  },
+					{ 	view:"toolbar", type:"SubBar", 			elements:dhx.fullCopy(config) },
+					{	height:20, template:""  },
+					{ 	view:"toolbar", type:"TransparentBar", 	elements:dhx.fullCopy(config) },
+					
+					
+					
+					{	height:60, template:"<br> Direct input sizing"  },
+					{ 	view:"toolbar", type:"MainBar", 		elements:dhx.fullCopy(config2) },
+					{	height:20, template:""  },
+					{ 	view:"toolbar", type:"SubBar", 			elements:dhx.fullCopy(config2) },
+					{	height:20, template:""  },
+					{ 	view:"toolbar", type:"TransparentBar", 	elements:dhx.fullCopy(config2) },
+			{	height:20, template:""  },]
+					
+			});
+		</script>
+	</body>
+</html>

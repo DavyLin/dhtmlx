@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<data>
+	<item id="1">
+		<Img><![CDATA[imgs/pasta.jpg]]></Img>
+		<Name><![CDATA[Pasta]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit.]]></Description>
+	</item>
+	<item id="2">
+		<Img><![CDATA[imgs/pizza.jpg]]></Img>
+		<Name><![CDATA[Pizza]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit.]]></Description>
+	</item>
+	<item id="3">
+		<Img><![CDATA[imgs/drinks.jpg]]></Img>
+		<Name><![CDATA[Drinks]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit.]]></Description>
+	</item>
+	<item id="4">
+		<Img><![CDATA[imgs/cofee.jpg]]></Img>
+		<Name><![CDATA[Cofee]]></Name>
+		<Description><![CDATA[Lorem ipsum dolor sit amet, consectetum adipicing elit.]]></Description>
+	</item>
+</data>

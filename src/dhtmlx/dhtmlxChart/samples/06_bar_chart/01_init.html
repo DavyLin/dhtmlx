@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Initiazation</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="title" content="Samples" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../common/css/style.css" type="text/css" media="screen" />
+
+	</head>
+	<body >
+        <div class="header">
+            <a class="logo" href="http://www.dhtmlx.com" title="DHTMLX homepage"></a>
+            <div class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</div>
+            <div class="search-field">
+                <form action="http://docs.dhtmlx.com/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit">Search</button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>
+            </div>
+            <div class="buttons">
+                <a class="doc_inact" href="../../../docsExplorer/index.html" title="DHTMLX Documentation homepage"></a>
+                <a class="sample"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="navigation-div">
+                <a href="../../../docsExplorer/samples.html" class="navigation"><img src="../common/icons/file.gif" alt="" >All components</a>
+                <div class="arrow"></div>
+                <a href="../index.html" class="navigation"><img height="22" src="../common/icons/chart.gif" alt="" >dhtmlxChart</a>
+                <div class="arrow"></div>
+                <a href="./index.html" class="navigation"><img src="../common/icons/none.gif" alt="" >Bar Charts</a>
+            </div>
+            <div style="display:block;">
+                <h3>Initiazation</h3>
+            </div>
+            <div class="navigation-div">
+                <a href="#code" class="navigation view-source"><img src="../common/icons/source.gif" alt="" >View page source</a>
+            </div>
+            <script src="../../codebase/dhtmlxchart.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxchart.css">
+	<script>
+	var data = [
+		{ sales:"3.0", year:"2000" },
+		{ sales:"3.8", year:"2001" },
+		{ sales:"3.4", year:"2002" },
+		{ sales:"4.1", year:"2003" },
+		{ sales:"4.3", year:"2004" },
+		{ sales:"9.9", year:"2005" },
+		{ sales:"7.4", year:"2006" },
+		{ sales:"9.0", year:"2007" },
+		{ sales:"7.3", year:"2008" },
+		{ sales:"4.8", year:"2009" }
+	];
+	
+	window.onload = function(){
+	var barChart1 =  new dhtmlXChart({
+		view:"bar",
+		container:"chart1",
+	    value:"#sales#",
+		label:"#year#",
+		width:30,
+		gradient:true,
+		border:false
+	})
+	barChart1.parse(data,"json");
+	
+	var barChart2 =  new dhtmlXChart({
+		view:"bar",
+		container:"chart2",
+		value:"#sales#",
+		label:"#sales#",
+		color:"#66ccff",
+		gradient:"3d",
+		//border:false,
+		width:25,
+		padding:{
+			bottom:0,
+			right:50,
+			left:50
+		}
+	});
+	barChart2.parse(data,"json");
+	}
+	</script>
+
+
+	
+	
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><div id="chart1" style="width:450px;height:300px;border:1px solid #A4BED4;"></div></td>
+			<td><div id="chart2" style="width:450px;height:300px;border:1px solid #A4BED4;"></div></td>
+		</tr>
+	</table>
+			
+			
+         </div>
+    <div class="source">
+        <div class="teg">Source</div>
+        <div class="code" id="code">
+		<div class="hl-main"><pre><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxchart.js</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/javascript</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-code"> </span><span class="hl-var">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">STYLESHEET</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxchart.css</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">data</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">3.0</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2000</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">3.8</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2001</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">3.4</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2002</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">4.1</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2003</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">4.3</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2004</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">9.9</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2005</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">7.4</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2006</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">9.0</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2007</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">7.3</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2008</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">4.8</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2009</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">onload</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">barChart1</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXChart</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">view</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">bar</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">container</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">chart1</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">value</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#sales#</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-reserved">label</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#year#</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">width</span><span class="hl-code">: </span><span class="hl-number">30</span><span class="hl-code">,
+        </span><span class="hl-identifier">gradient</span><span class="hl-code">: </span><span class="hl-reserved">true</span><span class="hl-code">,
+        </span><span class="hl-identifier">border</span><span class="hl-code">: </span><span class="hl-reserved">false</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">barChart1</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">data</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">json</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">barChart2</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXChart</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">view</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">bar</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">container</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">chart2</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">value</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#sales#</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-reserved">label</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#sales#</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">color</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#66ccff</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">gradient</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">3d</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-comment">//</span><span class="hl-comment">border:false,</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">width</span><span class="hl-code">: </span><span class="hl-number">25</span><span class="hl-code">,
+        </span><span class="hl-identifier">padding</span><span class="hl-code">: </span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-identifier">bottom</span><span class="hl-code">: </span><span class="hl-number">0</span><span class="hl-code">,
+            </span><span class="hl-identifier">right</span><span class="hl-code">: </span><span class="hl-number">50</span><span class="hl-code">,
+            </span><span class="hl-identifier">left</span><span class="hl-code">: </span><span class="hl-number">50</span><span class="hl-code">;
+        </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">barChart2</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">data</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">json</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">table</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">tr</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">td</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">td</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">td</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">td</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">tr</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">tr</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">td</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">chart1</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:450px;height:300px;border:1px solid #A4BED4;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">td</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">td</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">chart2</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:450px;height:300px;border:1px solid #A4BED4;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">td</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">tr</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">table</span><span class="hl-brackets">&gt;</span></pre></div>
+        </div>
+    <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright &copy; 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+    </div>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Styling</title>
+	<script src="../../../codebase/touchui.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../../codebase/touchui.css">
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+
+<body> 
+    <div id="gridbox" style="width:300px;height:211px;padding:5"></div>
+
+    <style>
+		.my_style  {
+			font-style: italic;
+		}
+    </style>
+		
+    <script>
+	
+                var sales = [	{ id:"1", sales: "1 341 990 000", year: "2010" },
+				{ id:"2", sales: "1 193 290 000", year: "2009" },
+				{ id:"3", sales: "811 960 000", year: "2008" }
+		];
+	dhx.ready(function(){
+   		dhx.ui({
+			container:"gridbox",
+			rows:[{
+	  			view:"grid",
+				id:"myGrid",
+				fields:[{
+					id:"sales",
+					width:200,
+					label:"Sales"
+				},
+				{
+					id:"year",
+					width:100,
+					label:"Year"
+				}],
+		       		datatype:"json",
+        			data:"sales"
+			},
+			{
+				view:"button", 
+				id:"button",
+				label: "Set custom style", 
+				inputWidth:160, 
+				align:"left",
+				click: function(){	
+							$$("myGrid").define("css","my_style");
+							$$("myGrid").refresh();
+				}
+			}]
+		})
+	})
+	
+   
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>DataView Usage</title>
+		<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+        <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+	
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+<body>
+	<h1>Static loading</h1>
+	<p>All data is loaded at once</p>
+	<div id="data_container" style="border:1px solid #A4BED4; background-color:white; width:700px;height:300px;overflow:hidden;"></div>
+    <div id="actions" style="border:1px solid #A4BED4;position:absolute;top:60px; left:850px;background-color:white;width:400px;height:396px;overflow:auto; float:left;"></div>
+	<script>
+        function log(ev,args){
+                var message=ev;
+                var div="<div>";
+                message+='<ul style="padding:0 0 0 22px;margin:0;font:italic 60% verdana">';
+                for (var i=0; i < args.length; i++) {
+                    message+="<li>"+args[i];
+                };
+                message+='</ul>';
+                div+=message+"</div";
+                document.getElementById('actions').innerHTML=div+document.getElementById('actions').innerHTML;
+            }
+		dhx.ui({
+			view:"dataview",
+			container:"data_container",
+            id:'mydataview',
+			type:{
+				template:"<span class='dhx_strong'>#Maintainer#</span>#Package# <span class='dhx_light'>#Version#</span>",
+				height:35
+			},
+            url:"./data.xml",
+			datatype:"xml"
+		});
+        
+        $$("mydataview").attachEvent('onitemclick',function(){
+            log('onitemclick',arguments);
+        })
+        $$("mydataview").attachEvent('onbeforeselect',function(id){
+            if (id==2) return false;
+            else {
+                log('onbeforeselect',arguments);
+                return true;
+            }
+        })
+        $$("mydataview").attachEvent('onafterselect',function(){
+            log('onafterselect',arguments);
+        })
+		
+	</script>
+
+</body>
+</html>
+

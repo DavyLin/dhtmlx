@@ -1,0 +1,6 @@
+dhtmlxcalendar___dhtmlxcalendar.png
+icons___file.gif
+icons___calendar.gif
+dhtmlxcalendar___calendar_dhx_skyblue.png
+dhtmlxcalendar___calendar_dhx_web.png
+dhtmlxcalendar___calendar_dhx_omega.png

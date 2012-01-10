@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Integration with dhtmlxWindows</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="title" content="Samples" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="../common/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../common/css/style.css" type="text/css" media="screen" />
+
+	</head>
+	<body onload="doOnLoad();">
+        <div class="header">
+            <a class="logo" href="http://www.dhtmlx.com" title="DHTMLX homepage"></a>
+            <div class="tittle-dhtmlx">DHTMLX Docs & Samples Explorer</div>
+            <div class="search-field">
+                <form action="http://docs.dhtmlx.com/doku.php" accept-charset="utf-8" id="dw__search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" title="Search" /><button type="submit">Search</button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>
+            </div>
+            <div class="buttons">
+                <a class="doc_inact" href="../../../docsExplorer/index.html" title="DHTMLX Documentation homepage"></a>
+                <a class="sample"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="navigation-div">
+                <a href="../../../docsExplorer/samples.html" class="navigation"><img src="../common/icons/file.gif" alt="" >All components</a>
+                <div class="arrow"></div>
+                <a href="../index.html" class="navigation"><img height="22" src="../common/icons/chart.gif" alt="" >dhtmlxChart</a>
+                <div class="arrow"></div>
+                <a href="./index.html" class="navigation"><img src="../common/icons/none.gif" alt="" >Integartion with DHTMLX components</a>
+            </div>
+            <div style="display:block;">
+                <h3>Integration with dhtmlxWindows</h3>
+            </div>
+            <div class="navigation-div">
+                <a href="#code" class="navigation view-source"><img src="../common/icons/source.gif" alt="" >View page source</a>
+            </div>
+            <link rel="stylesheet" type="text/css" href="../../../dhtmlxWindows/codebase/dhtmlxwindows.css">
+	<link rel="stylesheet" type="text/css" href="../../../dhtmlxWindows/codebase/skins/dhtmlxwindows_dhx_skyblue.css">
+	
+	<script src="../../../dhtmlxWindows/codebase/dhtmlxcommon.js"></script>
+	<script src="../../../dhtmlxWindows/codebase/dhtmlxwindows.js"></script>
+	<script src="../../../dhtmlxWindows/codebase/dhtmlxcontainer.js"></script>
+	
+	<script src="../../codebase/dhtmlxchart.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxchart.css">
+	
+
+<style type="text/css" media="screen">
+	html, body{
+		height:100%;
+		padding:0px;
+		margin:0px;
+	}
+</style>
+
+
+<script>
+	var dhxWins
+	var data = [
+		{ sales:"3.0", year:"2000" },
+		{ sales:"3.8", year:"2001" },
+		{ sales:"3.4", year:"2002" },
+		{ sales:"4.1", year:"2003" },
+		{ sales:"4.3", year:"2004" },
+		{ sales:"9.9", year:"2005" },
+		{ sales:"7.4", year:"2006" },
+		{ sales:"9.0", year:"2007" },
+		{ sales:"7.3", year:"2008" },
+		{ sales:"4.8", year:"2009" }
+	];
+
+	
+	function doOnLoad() {
+		dhxWinsParams = {
+			image_path: "../../../dhtmlxWindows/codebase/imgs/",
+			wins: [ {id: "w1", left: 230, top: 230, width: 420, height: 340}]
+		};
+		dhxWins = new dhtmlXWindows(dhxWinsParams);
+		pieChart2 = dhxWins.window("w1").attachChart({
+			view:"pie",
+			value:"#sales#",
+			pieInnerText:"#sales#",
+			gradient:true,
+			details:{
+				width: 75,
+				align:"right",
+				valign:top,
+				marker:{
+					type:"round",
+					width:15
+				},
+				template:"#year#"
+			}
+		});
+		
+		pieChart2.parse(data,"json");
+	};
+</script>
+			
+			
+         </div>
+    <div class="source">
+        <div class="teg">Source</div>
+        <div class="code" id="code">
+		<div class="hl-main"><pre><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-code"> </span><span class="hl-var">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">stylesheet</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../../dhtmlxWindows/codebase/dhtmlxwindows.css</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-code"> </span><span class="hl-var">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">stylesheet</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../../dhtmlxWindows/codebase/skins/dhtmlxwindows_dhx_skyblue.css</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../../dhtmlxWindows/codebase/dhtmlxcommon.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../../dhtmlxWindows/codebase/dhtmlxwindows.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../../dhtmlxWindows/codebase/dhtmlxcontainer.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxchart.js</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/javascript</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-code"> </span><span class="hl-var">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">STYLESHEET</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/dhtmlxchart.css</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">style</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">media</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">screen</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+html, body{
+    height:100%;
+    padding:0px;
+    margin:0px;
+}
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">style</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">dhxWins</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">data</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">3.0</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2000</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">3.8</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2001</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">3.4</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2002</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">4.1</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2003</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">4.3</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2004</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">9.9</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2005</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">7.4</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2006</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">9.0</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2007</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">7.3</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2008</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">sales</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">4.8</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">year</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">2009</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">]</span><span class="hl-code">;
+ 
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">doOnLoad</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">dhxWinsParams</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">image_path</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">../../../dhtmlxWindows/codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">wins</span><span class="hl-code">: </span><span class="hl-brackets">[</span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-identifier">id</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">w1</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+            </span><span class="hl-identifier">left</span><span class="hl-code">: </span><span class="hl-number">230</span><span class="hl-code">,
+            </span><span class="hl-identifier">top</span><span class="hl-code">: </span><span class="hl-number">230</span><span class="hl-code">,
+            </span><span class="hl-identifier">width</span><span class="hl-code">: </span><span class="hl-number">420</span><span class="hl-code">,
+            </span><span class="hl-identifier">height</span><span class="hl-code">: </span><span class="hl-number">340</span><span class="hl-code">
+        </span><span class="hl-brackets">}</span><span class="hl-brackets">]</span><span class="hl-code">
+        </span><span class="hl-brackets">}</span><span class="hl-code">;
+    </span><span class="hl-identifier">dhxWins</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXWindows</span><span class="hl-brackets">(</span><span class="hl-identifier">dhxWinsParams</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">pieChart2</span><span class="hl-code"> = </span><span class="hl-identifier">dhxWins</span><span class="hl-code">.</span><span class="hl-builtin">window</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">w1</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">attachChart</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">view</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">pie</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">value</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#sales#</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">pieInnerText</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#sales#</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">gradient</span><span class="hl-code">: </span><span class="hl-reserved">true</span><span class="hl-code">,
+        </span><span class="hl-identifier">details</span><span class="hl-code">: </span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-identifier">width</span><span class="hl-code">: </span><span class="hl-number">75</span><span class="hl-code">,
+            </span><span class="hl-identifier">align</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">right</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+            </span><span class="hl-identifier">valign</span><span class="hl-code">: </span><span class="hl-identifier">top</span><span class="hl-code">,
+            </span><span class="hl-identifier">marker</span><span class="hl-code">: </span><span class="hl-brackets">{</span><span class="hl-code">
+                </span><span class="hl-identifier">type</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">round</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+                </span><span class="hl-identifier">width</span><span class="hl-code">: </span><span class="hl-number">15</span><span class="hl-code">;
+            </span><span class="hl-brackets">}</span><span class="hl-code">,
+            </span><span class="hl-identifier">template</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">#year#</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+        </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">pieChart2</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">data</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">json</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div>
+        </div>
+    <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="copyright">Copyright &copy; 1998-2011 DHTMLX LTD.<br />All rights reserved.</div>
+    </div>
+	</body>
+</html>

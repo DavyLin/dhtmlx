@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		 <meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+
+		<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">		
+		<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+		html,body{
+            background-color:#ffffff;
+        }
+        </style>
+		
+	<script src="../common/viewsources.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../common/viewsources.css">
+	
+</head>
+	<body>
+       
+		<script type="text/javascript" charset="utf-8">
+dhx.ready(function() {
+	
+	dhx.protoUI({
+		name:"activeList"
+	},dhx.ui.list,dhx.ActiveContent);
+	
+	function upgrade_logic(id, e){
+		var id = $$('mylist2').locate(e);
+		dhx.notice("Upgrade "+id);
+	};
+	
+    dhx.ui({
+       
+        rows: [
+        {
+            cols: [
+            {
+                view: "activeList",
+                id: "mylist1",
+                url: "long_list.json",
+                activeContent:{
+                	deleteButton:{
+                		id:"deleteButton1",
+                		view:"button",
+                		label:"delete",
+                		width:200,
+                		earlyInit:true
+                	}
+                },
+                template: "<div style='float:right'>{common.deleteButton()}</div> #title#",
+                type: {
+                    width: "auto",
+                    height:32
+                },
+                select:false
+            },
+            {
+                view: "activeList",
+                id: "mylist2",
+                url: "long_list.json",
+                activeContent:{
+                	upgradeButton:{
+                		id:"upgradeButton2",
+                		view:"button",
+                		label:"upgrade",
+                		width:180,
+                		click:upgrade_logic
+                	}, 
+                },
+                template: "<div style='float:right'>{common.upgradeButton()}</div> #title#",
+                type: {
+                    width: "auto",
+                    height:32
+                },
+                select:false
+            }]
+        }]
+    });
+    
+
+	$$('deleteButton1').attachEvent("onItemClick", function(id, e){
+		var id = $$('mylist1').locate(e);
+		dhx.notice("Delete "+id);
+	});
+	
+		
+});
+            
+					
+			
+			
+			
+		</script>
+	</body>
+</html>

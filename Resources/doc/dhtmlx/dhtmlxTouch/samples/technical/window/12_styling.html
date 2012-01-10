@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Window initialization</title>
+	<link rel="stylesheet" href="../../../codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+	<script src="../../../codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+		html,body{
+            background-color:#ffffff;
+        }
+        
+        .myWin .dhx_win_head{
+			border-bottom-width:0px;
+		}
+        .myWin.dhx_window{
+			-moz-box-shadow:10px 10px 20px #000;
+			-khtml-box-shadow: 10px 10px 20px #000;
+		}
+    	.myWin.dhx_window, .myWin .dhx_win_content{
+			-webkit-border-radius:	20px;
+			-moz-border-radius: 	16px;
+			-o-border-radiues: 		16px;
+			
+		}
+        .myWin .dhx_win_head .dhx_view{
+        	background:#F9FBAC;
+    	}
+        .myWin .dhx_win_body .dhx_view{
+        	background-color:#F9FBAC;
+        	font-weight:bold;
+        	font-color:navy;
+        }
+        </style>
+<body>
+	
+	
+	<script>
+	
+		dhx.ui({
+			view:"window",
+			body:{
+				id:"win2",
+				template:"Fixed"
+			},
+			head:{
+				view:"toolbar", type:"MainBar", elements:[
+					{ view:"label", label: "Backpackr", align:'left'},
+					{ view:'button', label: 'Save', align: 'right'}
+				]
+			},
+			top:20, left:80
+		});			
+		
+
+		dhx.ui({
+			view:"window",
+			css:"myWin",
+			body:{
+				id:"win2",
+				template:"Fixed"
+			},
+			head:{
+				view:"toolbar", type:"MainBar", elements:[
+					{ view:"label", label: "Backpackr", align:'left'},
+					{ view:'button', label: 'Save', align: 'right'}
+				]
+			},
+			top:20, left:420
+		});			
+		
+
+		
+	</script>
+
+</body>
+</html>
+
