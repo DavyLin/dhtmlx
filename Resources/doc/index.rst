@@ -2,7 +2,9 @@
 Overview
 ========
 
-This package provides server side integration of the DHTMLX Standard Javascript libraries..
+*** NOTE The software in this repository is not yet ready for use and is in active development. Please click the Watch button above to be automatically kept up to date with progress. ***
+
+This package provides server side integration of the DHTMLX Standard Javascript libraries.
 
 Features:
 
