@@ -8,6 +8,7 @@ This package provides the DHTMLX Standard Javascript libraries for use with Symf
 
 Features:
 
+- DHTMLX v.3.0 Standard edition
 - Powerful and flexible ui/server side data connectors
 - Ajax gantt chart
 - Ajax scheduler
