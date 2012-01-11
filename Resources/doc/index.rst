@@ -4,7 +4,7 @@ Overview
 
 *** NOTE The software in this repository is not yet ready for use and is in active development. Please click the Watch button above to be automatically kept up to date with progress. ***
 
-This package provides integration of the DHTMLX Standard Javascript libraries for use with Symfony2. The DHTMLX library itself is provided by by DHTMLX Ltd at http://www.dhtmlx.com. This package is provided as a convenience and is intended to be used in conjunction with Cloud9DhtmlxBundle.
+This package provides the DHTMLX Standard Javascript libraries for use with Symfony2. The DHTMLX library itself is provided by DHTMLX Ltd at http://www.dhtmlx.com. This package is provided as a convenience and is intended to be used in conjunction with Cloud9DhtmlxBundle.
 
 Features:
 
